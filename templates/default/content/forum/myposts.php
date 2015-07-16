@@ -78,7 +78,7 @@ if(!isset($TNB_GLOBALS)){
                 <?php }else{ ?>
                     <tbody>
                     <tr>
-                        <td colspan="3">Nothing to see here</td>
+                        <td colspan="3" style="padding-left:10px;">Nothing to see here</td>
                     </tr>
                     </tbody>
                 <?php } ?>
