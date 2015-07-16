@@ -530,7 +530,6 @@ function buckys_get_panel($panel, $params = []){
  *
  * @param $youtubeURL
  * @return bool
- * @internal param mixed $youtubeID
  */
 function buckys_validate_youtube_url($youtubeURL){
     $youtubeID = trim(buckys_get_youtube_video_id($youtubeURL));

@@ -63,7 +63,7 @@ function _buckys_session_write($key, $value){
  * @param $key
  * @return bool
  */
-function _buckys_session_destory($key){
+function _buckys_session_destroy($key){
 	$db = new Database_Mysqli(DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME);
 	$query = $db->prepare('DELETE FROM ' . TABLE_SESSIONS . ' WHERE sessionID=%s', $key);
 	return $db->query($query);
@@ -93,7 +93,7 @@ function buckys_session_start(){
 	}
 
 	// Set Session Handler
-	session_set_save_handler('_buckys_session_open', '_buckys_session_close', '_buckys_session_read', '_buckys_session_write', '_buckys_session_destory', '_buckys_session_gc');
+	session_set_save_handler('_buckys_session_open', '_buckys_session_close', '_buckys_session_read', '_buckys_session_write', '_buckys_session_destroy', '_buckys_session_gc');
 
 	// Change the default session name
 	buckys_session_name(SESSION_NAME);
@@ -205,5 +205,5 @@ function buckys_session_save_path($path = ''){
  */
 function buckys_session_recreate(){
 	session_regenerate_id(true);
-	session_set_save_handler('_buckys_session_open', '_buckys_session_close', '_buckys_session_read', '_buckys_session_write', '_buckys_session_destory', '_buckys_session_gc');
+	session_set_save_handler('_buckys_session_open', '_buckys_session_close', '_buckys_session_read', '_buckys_session_write', '_buckys_session_destroy', '_buckys_session_gc');
 }
