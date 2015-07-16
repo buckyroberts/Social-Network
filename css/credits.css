@@ -1,0 +1,203 @@
+#send-bitcoins,
+#send-credits{
+	width: 421px;
+	float: left;
+	border-right: solid 1px #CCCCCC;
+}
+
+#send-bitcoins{
+	width: 420px;
+}
+
+#send-bitcoins .input{
+	width: 260px;
+}
+
+#my-wallet,
+#purchase-credits{
+	width: 411px;
+	float: left;
+	border-left: solid 1px #CCCCCC;
+	margin-left: -1px;
+	padding: 0 0 0 10px;
+}
+
+#my-wallet{
+	width: 410px;
+}
+
+#send-bitcoins h2,
+#send-credits h2{
+	padding-bottom: 10px;
+}
+
+#send-bitcoins .row,
+#send-credits .row{
+	padding: 0 0 10px;
+}
+
+#send-bitcoins .row label,
+#send-credits .row label{
+	float: left;
+	width: 60px;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 3px;
+}
+
+#my-wallet .row,
+#purchase-credits .row{
+	padding: 0 0 0 20px;
+	line-height: 20px;
+}
+
+#purchase-credits .row .redButton{
+	margin-top: 10px;
+}
+
+#credits-activities h2,
+#bitcoin-activities h2{
+	padding-bottom: 10px;
+}
+
+#credits-activities,
+#bitcoin-activities{
+	border-top: solid 1px #CCCCCC;
+	padding: 10px 0;
+	margin-top: 5px;
+}
+
+#credits-activities .td-type{
+	width: 120px;
+}
+
+#credits-activities .td-name{
+	width: 234px;
+}
+
+#credits-activities .td-amount{
+	width: 150px;
+	text-align: right;
+}
+
+#credits-activities .td-balance{
+	width: 150px;
+	text-align: right;
+	font-weight: bold;
+}
+
+#credits-activities .td-date{
+	width: 150px;
+	text-align: right;
+}
+
+#receiverholder{
+	position: relative;
+}
+
+#receiverholder .name{
+	font-size: 11px;
+	border: solid 1px #AAAAAA;
+	background: #EEEEEE;
+	float: left;
+	position: absolute;
+	padding: 2px 12px 2px 5px;
+	white-space: nowrap;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	top: 1px;
+	left: 60px;
+}
+
+#receiverholder .name a{
+	color: #FF0000;
+	font-size: 10px;
+	position: absolute;
+	right: 3px;
+	top: 2px;
+	line-height: 10px;
+	font-weight: bold;
+}
+
+#receiverholder .ui-autocomplete{
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	max-height: 300px;
+	overflow: auto;
+}
+
+#receiverholder .ui-autocomplete .ui-menu-item a{
+	font-size: 11px;
+	padding: 2px;
+	text-align: left;
+}
+
+#receiverholder .ui-autocomplete .ui-menu-item a.ui-corner-all{
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+#receiverholder .ui-autocomplete .ui-menu-item a.ui-state-focus{
+	border: none;
+	background: #DDDDDD;
+	margin: 0;
+}
+
+#receiverholder .ui-autocomplete-loading{
+	background: url(/images/loading16.gif) no-repeat right center;
+}
+
+/**** Bit Coins ***/
+#my-wallet .row{
+	font-weight: bold;
+}
+
+#my-wallet .row label{
+	width: 110px;
+	display: inline-block;
+	font-weight: normal;
+}
+
+#my-wallet .row .input{
+	width: 270px;
+	font-weight: bold;
+}
+
+#my-wallet .row .redButton{
+	margin-left: 113px;
+}
+
+#bitcoin-activities .td-addr{
+	width: 300px;
+}
+
+#bitcoin-activities .td-name{
+	width: 154px;
+}
+
+#bitcoin-activities .td-balance{
+	width: 100px;
+	text-align: right;
+	font-weight: bold;
+}
+
+#bitcoin-activities .td-amount{
+	width: 100px;
+	text-align: right
+}
+
+#bitcoin-activities .td-date{
+	width: 150px;
+	text-align: right;
+}
+
+#bitcoin-activities .bitcoin-sent{
+	color: #C0392B;
+}
+
+#bitcoin-activities .bitcoin-received{
+	color: #16A085;
+}

@@ -1,0 +1,245 @@
+/* 1024px total - 262px aside - 762px rightside = 0 */
+a:link.viewAll, a:visited.viewAll{
+	font-size: 12px;
+	color: gray;
+	text-decoration: none;
+}
+
+a:hover.viewAll, a:active.viewAll{
+	font-size: 12px;
+	color: #C0392B;
+	text-decoration: underline;
+}
+
+#main_aside{ /*252px total*/
+	width: 242px;
+	margin: 0px;
+	padding: 5px 0px 10px 10px;
+	float: left;
+	font-family: OpenSans-Regular;
+}
+
+#right_side{ /*772 total*/
+	background-color: white;
+	width: 761px;
+	border-left: 1px solid #DDDDDD;
+	margin: 0px;
+	padding: 5px 0px 5px 10px;
+	float: right;
+	min-height: 1300px;
+}
+
+.mainProfilePic{
+	margin: 5px 0px;
+	width: 230px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.friendThumbnails{
+	width: 80px;
+}
+
+.profileInfo{ /* Gender, JCC, etc... */
+}
+
+/***
+* User Info Box like About, Education
+*/
+.info-box{
+}
+
+.info-box h3{
+	color: #333333;
+	font-family: 'OpenSans-CondBold', sans-serif;
+	font-size: 19px;
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+.info-box h3 .sub-links{
+	font-size: 12px;
+	color: #006699;
+	font-family: Arial;
+}
+
+.info-box h3 a.edit-info{
+	font-size: 11px;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.info-box p label{
+	font-family: OpenSans-Bold;
+}
+
+.info-box h3 .view-all{
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.info-box h3 .view-all:hover{
+	color: #C0392B;
+}
+
+.photos-box .photo{
+	height: 150px;
+	float: left;
+	margin: 4px 4px 0 0;
+}
+
+#albums-nav{
+	padding-bottom: 5px;
+	width: 752px;
+	text-align: right;
+	border-bottom: 1px solid #B9BDC1;
+	margin-bottom: 5px;
+}
+
+/* New dispay tables */
+
+#main_aside h4{
+	background-color: #2C3E50;
+	color: #F9F9F9;
+	font-family: OpenSans-Bold;
+	font-weight: normal;
+	font-size: 13px;
+	margin: 30px 10px 3px -10px;
+	padding: 1px 10px;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+#main_aside h4 a{
+	font-size: 11px;
+	font-family: OpenSans-Regular;
+	font-weight: normal;
+	color: #EEEEEE;
+}
+
+#main_aside h4 a:hover{
+	text-decoration: underline;
+}
+
+#infoDisplay{
+	margin-right: 10px;
+	overflow: hidden;
+}
+
+#infoDisplay table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#infoDisplay tr{
+	/* border-bottom: 1px solid #ededed; */
+}
+
+#infoDisplay tr:last-child{
+	border-bottom: none;
+}
+
+#infoDisplay td{
+	/* background: #f8f8f8; */
+	padding: 2px;
+}
+
+#infoDisplay td.left{
+	color: #555555;
+}
+
+#infoDisplay td.right-date-col{
+	min-width: 75px;
+}
+
+.profile-nav{
+	position: absolute;
+	right: 0;
+	top: 3px;
+	list-style: none;
+	font-size: 0;
+}
+
+.profile-nav li{
+	/*
+	width: 70px;
+	line-height: 22px;
+	height: 22px;
+	*/
+	text-align: center;
+	margin: 0px 5px;
+	float: left;
+	background: #BDC3C7;
+	border-top: solid 1px #BDC3C7;
+}
+
+.profile-nav li a{
+	color: #FFFFFF;
+	text-decoration: none;
+	padding: 5px 20px;
+	line-height: 22px;
+	font-family: OpenSans-Regular;
+}
+
+.info-box h3 .profile-nav li a:hover{
+	color: #FFFFFF;
+}
+
+.profile-nav li:hover{
+	background: #C0392B;
+	border-top: solid 1px #C0392B;
+}
+
+.profile-nav li.current{
+	border: solid 1px #CCCCCC;
+	border-bottom: solid 2px #FFFFFF;
+	background: #FFFFFF;
+}
+
+.profile-nav li.current a{
+	color: #333333 !important;
+	font-weight: bold;
+}
+
+/* Badges */
+#badge_area{
+	margin: 10px 10px 0 0;
+}
+
+.badge{
+	width: 100%;
+}
+
+.badge-details{
+	font-family: OpenSans-Regular;
+	font-size: 11px;
+}
+
+.imgWrap{
+	display: inline-block;
+	margin: 7px 5px 0px 0;
+	position: relative;
+	height: 28px;
+	width: 28px;
+}
+
+.imgDescription{
+	background: rgba(0, 102, 153, 0.9);
+	border-radius: 3px;
+	color: white;
+	font-family: OpenSans-Bold;
+	padding: 1px 5px 2px;
+	position: absolute;
+	top: -36px;
+	visibility: hidden;
+	white-space: nowrap;
+	z-index: 4;
+}
+
+.imgWrap:hover{
+	cursor: pointer;
+}
+
+.imgWrap:hover .imgDescription{
+	visibility: visible;
+	opacity: 1;
+}

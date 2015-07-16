@@ -1,0 +1,287 @@
+#current-moderator-box{
+	width: 305px;
+	padding-left: 5px;
+	border-right: solid 1px #CCCCCC;
+	float: left;
+}
+
+#current-moderator-box h2,
+#apply-moderator-box h2{
+	padding-bottom: 12px;
+}
+
+#current-moderator-box p{
+	line-height: 24px;
+}
+
+#current-moderator-box p > *{
+	float: left;
+}
+
+#current-moderator-box p img{
+	width: 24px;
+	margin-right: 10px;
+}
+
+#current-moderator-box p span{
+	margin: 0 5px;
+}
+
+#current-moderator-box p a.remove-link{
+	color: #C0392B;
+}
+
+#apply-moderator-box form{
+	padding-top: 0;
+}
+
+#apply-moderator-box{
+	border-left: solid 1px #CCCCCC;
+	padding-left: 15px;
+	width: 517px;
+	float: left;
+	position: relative;
+	left: -1px;
+}
+
+#apply-moderator-box textarea{
+	width: 508px;
+	height: 140px;
+	padding: 2px;
+	border: solid 1px #CCCCCC;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin-top: 10px;
+	display: none;
+}
+
+#candidates-box{
+	border-top: solid 1px #CCCCCC;
+	padding-top: 12px;
+	margin-top: 10px;
+}
+
+#candidates-box h2{
+	padding-bottom: 5px;
+	float: left;
+}
+
+#candidates-box h2 small{
+	font-size: 12px;
+	font-weight: normal;
+	font-family: Arial;
+	color: #777777;
+}
+
+#candidates-box .candidate-row{
+	border-bottom: solid 1px #CCCCCC;
+	padding: 10px 0;
+}
+
+#candidates-box .candidate-row .votes{
+	float: left;
+	width: 72px;
+	margin-right: 30px;
+	position: relative;
+	text-align: center;
+}
+
+#candidates-box .candidate-row .votes span{
+	/*
+    font-family: Impact;
+    font-size: 18px;
+	*/
+	display: block;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+#candidates-box .candidate-row .votes a{
+	display: block;
+	width: 25px;
+	height: 25px;
+	margin: 0 auto;
+	opacity: 0.5;
+	-moz-opacity: 0.5;
+	-webkit-opacity: 0.5;
+	filter: alpha(opactiy=50);
+}
+
+#candidates-box .candidate-row .votes a.thumb-down{
+	background: url(/images/thumb_down.png) no-repeat;
+}
+
+#candidates-box .candidate-row .votes a.thumb-up{
+	background: url(/images/new_thumb_up.png) no-repeat;
+}
+
+#candidates-box .candidate-row .votes a:hover,
+#candidates-box .candidate-row .voted a{
+	opacity: 1;
+	-moz-opacity: 1;
+	-webkit-opacity: 1;
+	filter: alpha(opactiy=100);
+}
+
+#candidates-box .candidate-row .votes .loading-wrapper{
+	height: 26px;
+	width: 25px;
+	left: 50%;
+	top: 26px;
+	margin-left: -12px;
+	background: url(/images/loading1.gif) no-repeat center;
+}
+
+#candidates-box .candidate-row .candidateImg{
+	width: 60px;
+	height: 60px;
+	float: left;
+}
+
+#candidates-box .candidate-row .candidate-detail{
+	float: left;
+	width: 615px;
+	padding: 0 20px;
+}
+
+#candidates-box .candidate-row .candidate-detail a.redButton{
+	color: #FFFFFF;
+	margin: 5px 0 0 0;
+}
+
+#candidates-box .candidate-row .candidate-detail a.redButton:hover{
+	text-decoration: none;
+}
+
+/* Reported Page */
+#reportedform .tr{
+}
+
+#reportedform .td-user{
+	width: 150px;
+	padding: 3px 0px 3px 20px;
+}
+
+#reportedform .tr .td-user{
+}
+
+#reportedform .td-user img{
+	width: 100%;
+}
+
+#reportedform .td-content{
+	width: 300px;
+	padding: 3px 20px 3px 0px;
+}
+
+#reportedform .td-content img{
+	max-width: 300px;
+}
+
+#reportedform .td-content iframe{
+	width: 320px;
+	height: 180px;
+}
+
+#reportedform .td-content h3{
+	font-weight: bold;
+	font-size: 13px;
+	margin: 0 0 5px 0;
+}
+
+#reportedform .td-content p.message-body{
+	padding: 3px 0 0 47px;
+}
+
+#reportedform .td-date{
+	width: 160px;
+}
+
+#reportedform .td-reporter{
+	width: 150px;
+}
+
+#reportedform .td-reporter img{
+	width: 38px;
+}
+
+#reportedform .btn-row{
+	padding: 20px 0;
+}
+
+#reportedform .btn-row .redButton{
+	margin-right: 10px;
+}
+
+/**
+* Banned Users
+*/
+#bannedusersform .tr{
+	padding: 10px 5px;
+}
+
+#bannedusersform .td-user{
+	width: 138px;
+	padding: 0 30px 0 20px;
+}
+
+#bannedusersform .tr .td-user{
+	line-height: 38px;
+}
+
+#bannedusersform .td-user img{
+	width: 38px;
+	float: left;
+	margin-right: 10px
+}
+
+#bannedusersform .td-content{
+	width: 230px;
+	padding: 0 50px 0 50px;
+}
+
+#bannedusersform .td-content p.message-body{
+	padding: 3px 0 0 47px;
+}
+
+#bannedusersform .td-action{
+	width: 110px;
+}
+
+#bannedusersform .td-reporter{
+	width: 170px;
+}
+
+#bannedusersform .tr .td-reporter{
+	line-height: 38px;
+}
+
+#bannedusersform .td-reporter img{
+	width: 38px;
+	float: left;
+	margin-right: 10px
+}
+
+#bannedusersform .btn-row{
+	padding: 20px 0;
+}
+
+#bannedusersform .btn-row .redButton{
+	margin-right: 10px;
+}
+
+#addmoderator label{
+	margin: 0 5px 0 15px;
+	text-align: right;
+}
+
+#addmoderator .redButton{
+	margin: 10px 0 0 70px;
+}
+
+#reset-voting-link{
+	float: right;
+	color: #C0392B;
+	margin-top: 5px;
+}

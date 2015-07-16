@@ -1,0 +1,22 @@
+html, body{
+	height: 100%;
+}
+
+#responsive-slider{
+	font-family: 'Open Sans', sans-serif;
+	min-height: 400px;
+}
+
+#responsive-slider .layer a{
+	color: #0000FF;
+}
+
+#responsive-slider .layer.black a{
+	color: #FFFFFF;
+}
+
+@media (max-height: 500px), (max-width: 400px){
+	#responsive-slider .slide-arrows{
+		visibility: hidden;
+	}
+}

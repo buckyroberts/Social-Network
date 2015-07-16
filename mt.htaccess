@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} !(maintenance.php|.png|.jpg|.css)
+RewriteRule .* /maintenance.php [R=302,L]
+</IfModule>

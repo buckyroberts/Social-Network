@@ -1,0 +1,51 @@
+.editor-controlls{
+	height: 25px;
+	padding: 8px 0;
+	display: block;
+}
+
+.editor-controlls a{
+	width: 23px;
+	height: 23px;
+	border: solid 1px #CCCCCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	display: block;
+	float: left;
+	text-indent: -9999px;
+	margin-right: 5px;
+}
+
+.editor-controlls .ectrl-bold{
+	background: url(/images/editor/icon-bold.png) no-repeat;
+}
+
+.editor-controlls .ectrl-italic{
+	background: url(/images/editor/icon-italic.png) no-repeat;
+}
+
+.editor-controlls .ectrl-link{
+	background: url(/images/editor/icon-link.png) no-repeat;
+}
+
+.editor-controlls .ectrl-underline{
+	background: url(/images/editor/icon-underline.png) no-repeat;
+	margin-right: 15px;
+}
+
+.editor-controlls .ectrl-img{
+	background: url(/images/editor/icon-img.png) no-repeat;
+}
+
+.editor-controlls .ectrl-code{
+	background: url(/images/editor/icon-code.png) no-repeat;
+}
+
+.editor-controlls .ectrl-ordered-list{
+	background: url(/images/editor/icon-olist.png) no-repeat;
+}
+
+.editor-controlls .ectrl-unordered-list{
+	background: url(/images/editor/icon-uolist.png) no-repeat;
+}

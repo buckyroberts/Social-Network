@@ -1,0 +1,483 @@
+#main_content{
+	padding: 5px 10px 10px 10px;
+	position: relative;
+}
+
+.left{
+	float: left;
+}
+
+.top-right{
+	float: right;
+}
+
+.top-right-button{
+	float: right;
+	margin-top: 5px;
+}
+
+/* Publisher */
+.right-ad-detail{
+	float: left;
+	width: 48%;
+	padding-left: 10px;
+}
+
+/* Homepage */
+.ads-index-page h2{
+	font-family: 'OpenSans-CondBold', sans-serif;
+	font-size: 28px;
+	padding: 12px 0 12px 80px;
+	line-height: 26px;
+	margin: 0 30px 0px 50px;
+}
+
+.ads-index-page p{
+	font-family: Lato-Lig;
+	font-size: 18px;
+	line-height: 26px;
+	margin: 0px 30px 25px 50px;
+}
+
+.ads-index-page .btn-row{
+	text-align: center;
+}
+
+.advertisers-col{
+	margin: 20px 0px 0px 0px;
+	width: 490px;
+	float: left;
+	border-right: solid 1px #CCCCCC;
+}
+
+.advertisers-col h2{
+	background: url(/images/ads/group_people.png) no-repeat left center;
+}
+
+.publishers-col{
+	margin: 20px 0px 0px 0px;
+	/* width: 550px; */
+	float: left;
+}
+
+.publishers-col h2{
+	background: url(/images/ads/simple_chart.png) no-repeat left center;
+}
+
+#how-ads-work-text{
+	font-size: 14px;
+	font-family: Lato-Lig;
+}
+
+img.how-ads-work{
+	display: block;
+	border: 1px solid #CCCCCC;
+	margin: 7px 0px 25px 13px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Advertiser - Create Ad Form */
+#main_content form{
+	padding: 0 10px 0 0;
+}
+
+#create-ad-contr{
+	float: left;
+	border-right: solid 1px #CCCCCC;
+	width: 45%;
+	min-width: 450px;
+}
+
+#create-ad-contr h2{
+	margin-bottom: 8px;
+}
+
+.edit-ad-form .row{
+	margin: 10px 0;
+}
+
+.edit-ad-form .row label{
+	width: 90px;
+	padding-right: 10px;
+	text-align: right;
+	line-height: 22px;
+	float: left;
+}
+
+.edit-ad-form .row .inputholder{
+	float: left;
+}
+
+.edit-ad-form .row .desc{
+	line-height: 22px;
+	float: left;
+}
+
+.edit-ad-form .btn-row{
+	padding-left: 100px;
+}
+
+.edit-ad-form .file-row{
+	float: left;
+}
+
+#buckysroom-ads-preview{
+}
+
+#preview-ad-contr{
+	/*
+    width: 54%;
+    float: right;
+	*/
+	float: left;
+	padding-left: 10px;
+}
+
+a.selected{
+	color: #C0392B;
+	font-weight: bold;
+}
+
+#ad-form-nav{
+	margin-bottom: 20px;
+}
+
+#preview-ad-contr h2{
+	margin-bottom: 40px;
+}
+
+#preview-ad-contr img{
+	max-width: 100%;
+}
+
+/*** Ads - for jQuery preview ****/
+.text-ad{
+	border: solid 1px #006699;
+	padding: 8px;
+	line-height: 18px;
+	width: 200px;
+	white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	white-space: pre-wrap; /* css-3 */
+	word-wrap: break-word; /* Internet Explorer 5.5+ */
+	/* word-break: break-all; */
+	white-space: normal;
+}
+
+.text-ad .title{
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: bold;
+	color: #006699;
+}
+
+.text-ad .desc{
+	font-size: 12px;
+	line-height: 18px;
+	color: #999999;
+}
+
+.text-ad .link{
+	color: #C0392B;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.img-ad img{
+	margin-top: 10px;
+}
+
+#manageAdsform .td-ad-fields{
+	width: 95%;
+}
+
+#manageAdsform .td-ad-fields .row{
+	padding: 0 0 5px;
+}
+
+#manageAdsform .td-ad-fields label{
+	display: inline-block;
+	width: 100px;
+	font-weight: bold;
+}
+
+#manageAdsform .td-ad-fields .ad-image{
+	padding-bottom: 10px;
+}
+
+#manageAdsform .td-ad-fields .ad-image img{
+	max-width: 100%;
+}
+
+#manageAdsform .btn-row{
+	padding: 10px 0;
+}
+
+table.adlist{
+	width: 100%;
+}
+
+table.adlist th{
+	padding: 3px;
+}
+
+.advertisements-nav{
+	padding: 5px 0px 10px 0px;
+}
+
+.advertisements-nav a.current{
+	color: #C0392B;
+	font-weight: bold;
+}
+
+#ad-detail-contr{
+	padding-bottom: 5px;
+	float: left;
+	width: 45%;
+	border-right: solid 1px #CCCCCC;
+	margin-bottom: 5px;
+}
+
+#ad-detail-contr .row,
+#add-ad-funds .row{
+	padding: 0 0 8px;
+}
+
+#ad-detail-contr label,
+#add-ad-funds label{
+	display: inline-block;
+	width: 90px;
+	font-weight: bold;
+}
+
+#ad-detail-contr .left{
+	float: left;
+	width: 35%;
+	border-right: solid 1px #CCCCCC;
+}
+
+#ad-detail-contr .right{
+	float: right;
+	width: 63%;
+}
+
+#right-ad-detail{
+	padding-left: 10px;
+	float: left;
+}
+
+#right-ad-detail .ad-code{
+	border: inset 1px #CCCCCC;
+	margin-top: 10px;
+	padding: 5px;
+	float: left;
+}
+
+#add-ad-funds{
+	float: left;
+	padding-left: 10px;
+}
+
+#add-ad-funds .btn-row{
+	padding-left: 95px;
+}
+
+#ad-detail-preview{
+	border-top: solid 1px #CCCCCC;
+	padding-top: 10px;
+}
+
+.colorpicker-input{
+	width: 190px;
+}
+
+.colorpickerholder-wrap{
+	position: relative;
+}
+
+.colorpickerholder-wrap .colorpickerholder{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 340px;
+	z-index: 100;
+}
+
+.colorpickerholder-wrap .colorselect{
+	width: 20px;
+	height: 19px;
+	border: solid 1px #CCCCCC;
+	float: left;
+	margin-left: 10px;
+}
+
+.colorpickerholder-wrap .colorpicker-input{
+	float: left;
+}
+
+#publisherAdForm{
+	border-bottom: solid 1px #CCCCCC;
+	margin-bottom: 10px;
+}
+
+/*** buckys_ad.php Starts Here ***/
+.buckysroom-ad-banner table{
+	border: solid 1px #006699;
+}
+
+.buckysroom-ad-banner td{
+	padding: 0;
+}
+
+.buckysroom-ad{
+	padding: 0 8px;
+	white-space: -moz-pre-wrap !important;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	white-space: normal;
+}
+
+.bsroom-ad-title{
+	color: #006699;
+	font-size: 14px;
+	text-decoration: underline;
+	line-height: 18px;
+	font-weight: bold;
+}
+
+.bsroom-ad-desc{
+	color: #999999;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+a.bsroom-ad-link{
+	color: #C0392B;
+	font-size: 12px;
+	line-height: 18px;
+	text-decoration: none;
+}
+
+/*** Ad Styles (Start of Copy) ***/
+
+/* 180 x 150 - Small rectangle*/
+.small_rectangle{
+}
+
+/* 300 x 250 - Medium rectangle*/
+.medium_rectangle .bsroom-ad-title,
+.medium_rectangle .bsroom-ad-desc,
+.medium_rectangle .bsroom-ad-link{
+	font-size: 12px;
+	line-height: 16px;
+}
+
+/* 336 x 280 - Large rectangle */
+.large_rectangle{
+}
+
+/* 728 x 90 - Leaderboard */
+.leaderboard{
+}
+
+/* 970 x 90 - Large leaderboard */
+.large_leaderboard .bsroom-ad-title,
+.large_leaderboard .bsroom-ad-desc,
+.large_leaderboard .bsroom-ad-link{
+	font-size: 12px;
+	line-height: 16px;
+}
+
+/* 120 x 600 - Skyscraper */
+.buckysroom-ad-banner .skyscraper{
+}
+
+.skyscraper .bsroom-ad-title,
+.skyscraper .bsroom-ad-desc{
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.skyscraper .bsroom-ad-link{
+	font-size: 9px;
+	line-height: 12px;
+}
+
+/* 240 x 400 - Fat skyscraper */
+/* 160 x 600 - Wide skyscraper */
+.wide_skyscraper .bsroom-ad-link{
+	font-size: 12px;
+	line-height: 12px;
+}
+
+/* 230 x 600 - Bucky's skyscraper */
+/* 300 x 600 - Large skyscraper */
+.large_skyscraper .bsroom-ad-title,
+.large_skyscraper .bsroom-ad-desc,
+.large_skyscraper .bsroom-ad-link{
+	font-size: 14px;
+}
+
+/* 234 x 60 - Half banner */
+.half_banner .bsroom-ad-title,
+.half_banner .bsroom-ad-desc{
+	font-size: 11px;
+	line-height: 12px;
+}
+
+.half_banner .bsroom-ad-link{
+	display: none;
+}
+
+/* 468 x 60 - Banner */
+.banner .bsroom-ad-title,
+.banner .bsroom-ad-desc{
+	font-size: 11px;
+	line-height: 12px;
+}
+
+.banner .bsroom-ad-link{
+	display: none;
+}
+
+/* 120 x 240 - Vertical banner */
+.vertical_banner .bsroom-ad-title,
+.vertical_banner .bsroom-ad-desc{
+}
+
+.vertical_banner .bsroom-ad-link{
+	font-size: 11px;
+}
+
+/* 125 x 125 - Button */
+.button .bsroom-ad-title,
+.button .bsroom-ad-desc,
+.button .bsroom-ad-link{
+	font-size: 11px;
+	line-height: 15px;
+}
+
+/* 200 x 200 - Small square */
+.small_square .bsroom-ad-title,
+.small_square .bsroom-ad-desc,
+.small_square .bsroom-ad-link{
+	font-size: 11px;
+}
+
+/* 250 x 250 - Square */
+.square .bsroom-ad-title,
+.square .bsroom-ad-desc,
+.square .bsroom-ad-link{
+	font-size: 11px;
+	line-height: 16px;
+}
+
+.buckysroom-ad-image a{
+	line-height: 100%;
+}
+
+/*** Ad Styles (End of Copy) ***/
+ 

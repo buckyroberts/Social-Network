@@ -1,0 +1,580 @@
+a:link.usersThatLiked, a:visited.usersThatLiked{
+	color: #FDFDFD;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover.usersThatLiked, a:active.usersThatLiked{
+	text-decoration: underline;
+}
+
+#addLinks{ /*Add Photo - Add Video - Add Links*/
+	width: 520px;
+	padding: 2px;
+	margin-top: 3px;
+	margin-bottom: 5px;
+}
+
+.newPost{
+	height: 112px;
+	width: 569px;
+	padding: 2px;
+	border: 1px solid #CCCCCC;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.newPhotoPost{
+	height: 44px;
+	width: 550px;
+	padding: 2px;
+	border: 1px solid #B9BDC1;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.publicPrivatePost{
+	float: right;
+	color: #999999;
+}
+
+.publicPrivatePost label{
+	margin-left: 10px;
+}
+
+.post-item{
+	border-bottom: 1px solid #CCCCCC;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	float: left;
+}
+
+.post-item .post-content{
+	margin: 5px;
+	padding-right: 10px;
+	float: left;
+	width: 575px;
+}
+
+.post-item .post-author,
+.post-item .post-content-inner{
+	padding-bottom: 5px;
+	overflow: hidden;
+}
+
+.post-item .post-date{
+	margin-top: 5px;
+}
+
+.post-item .post-date span{
+	color: #999999;
+}
+
+.post-item .post-content .post-image{
+	max-width: 100%;
+	border: 1px solid #DDDDDD;
+}
+
+.post-item .post-date span p.message{
+	display: inline-block;
+	margin: 0 0 0 3px;
+	padding: 2px 4px;
+}
+
+.post-like-comment{
+	width: 565px;
+	background: #34495E;
+	color: #FDFDFD;
+	padding: 2px 5px;
+	margin-top: 5px;
+	display: block;
+}
+
+.post-new-comment{
+	background: #EFEFEF;
+	padding: 4px 0px;
+	float: left;
+	width: 100%;
+	position: relative; margin-bottom: 1px;
+}
+
+.post-new-comment .input{
+	width: 485px;
+	font-size: 12px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+.post-new-comment .file-row .uploadify-queue{
+	margin: 0;
+}
+
+.post-new-comment .file-row .uploadify{
+	position: absolute;
+	right: 10px;
+	top: 5px;
+}
+
+.post-new-comment .file-row .uploadify.hide{
+	left: -9999px;
+	height: 0 !important;
+}
+
+.post-new-comment .uploadify-button{
+	background-color: transparent;
+	border: none;
+	opacity: 0.5;
+}
+
+.post-new-comment .uploadify:hover,
+.post-new-comment .uploadify:hover .uploadify-button{
+	opacity: 0.8;
+	background-color: transparent;
+	border: none;
+}
+
+.post-new-comment .preview-image{
+	height: 75px;
+	max-width: 90%;
+	position: relative;
+	display: none;
+	float: left;
+}
+
+.post-new-comment .preview-image img{
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.post-new-comment .preview-image .cancel-photo{
+	width: 13px;
+	height: 13px;
+	background: url(../images/comment-cancel-photo-bg.png) no-repeat;
+	position: absolute;
+	right: 0;
+	top: 0;
+	cursor: pointer;
+	text-decoration: -9999px;
+}
+
+.post-new-comment form{
+	padding: 0;
+	float: left;
+	width: 530px;
+}
+
+.post-new-comment form #submit_post_reply{
+	display: none;
+	font-size: 11px;
+	padding: 0 3px;
+	float: right;
+}
+
+.comment-item{
+	background: #EFEFEF;
+	padding: 4px 0px;
+	float: left;
+	width: 100%;
+	position: relative; margin-bottom: 1px; font-size: 12px;
+}
+
+.comment-item .comment-content{
+	float: right;
+	width: 525px; /*margin-right:5px;*/
+	overflow: hidden;
+}
+
+.postcommentform .error{
+	font-size: 11px;
+	left: 45px;
+	padding: 2px;
+	position: absolute;
+	top: 26px;
+	width: 90%;
+}
+
+.postcommentform .file-row{
+	display: block;
+}
+
+a.show-more-comments{
+	float: right;
+	height: 20px;
+	line-height: 20px;
+}
+
+a.show-more-comments-loading{
+	text-indent: -9999px;
+	background: url(/images/loading1.gif) no-repeat center center;
+}
+
+/** Post CSS On the Profile Page **/
+#posts-box .post-item .post-content{
+	width: 677px;
+}
+
+#posts-box .post-like-comment{
+	width: 667px;
+}
+
+#posts-box .comment-item .comment-content{
+	width: 632px;
+}
+
+.comment-item .comment-content .report-link,
+.comment-item .comment-content .comment-date{
+	color: #999999;
+	font-size: 11px;
+}
+
+.comment-item .comment-content a.remove-comment-link{
+	font-size: 11px;
+}
+
+#posts-box .post-new-comment .input{
+	width: 585px;
+}
+
+.comment-item .comment-content p.message{
+	display: inline-block;
+	margin: 0 0 0 3px;
+	padding: 2px 4px;
+}
+
+/*** Post Photo ***/
+#editphotoform,
+#addphotoform{
+	width: 576px;
+	margin-left: 120px;
+	position: relative;
+}
+
+#addphotoform .album-row{
+	display: inline-block;
+	width: 48%;
+	padding: 10px 0;
+}
+
+#addphotoform .visibility-row{
+	text-align: right;
+	display: inline-block;
+	padding: 10px 0;
+	width: 50%;
+}
+
+#addphotoform .visibility-row input{
+	margin-left: 15px;
+}
+
+#addphotoform .btn-row{
+	text-align: right;
+	padding-bottom: 50px;
+	position: absolute;
+	right: 0px;
+	top: 5px;
+}
+
+#addphotoform .file-row{
+	padding: 5px 0;
+	height: 50px;
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+#addphotoform .file-row p{
+	font-size: 11px;
+	text-align: right;
+	position: absolute;
+	right: 0;
+	bottom: 12px;
+}
+
+#addphotoform .file-row #file_upload{
+	margin-bottom: 0;
+	float: right;
+}
+
+#addphotoform .file-row .uploadify-queue{
+	margin-bottom: 0;
+	width: 380px;
+	float: left;
+}
+
+#add-photo-button{
+	display: none;
+}
+
+#jcrop-row-wrapper{
+	position: relative;
+	padding: 18px 15px;
+	border: solid 1px #CCCCCC;
+	display: none;
+	margin-bottom: 10px;
+}
+
+#done-crop-btn{
+	float: left;
+	margin-top: 0;
+	display: none;
+}
+
+#jcrop-row{
+	/*    margin-bottom: 20px;    */
+	position: relative;
+}
+
+#editphotoform #jcrop-row{
+	display: block;
+}
+
+#jcrop-row img{
+	width: 543px;
+	margin: 0 auto;
+	display: block;
+}
+
+#photos-box a.photo img{
+	width: 140px;
+}
+
+#photos-box .photo{
+	margin: 5px;
+	float: left;
+}
+
+/*** Photos List ***/
+#photoslist .td-img{
+	width: 90px;
+}
+
+#photoslist .td-img img{
+	width: 75px;
+}
+
+#photoslist .td-caption{
+	width: 310px;
+	padding-right: 20px;
+}
+
+#photoslist .thead .td-caption{
+	text-align: center;
+}
+
+#photoslist .td-album{
+	width: 100px;
+	text-align: center;
+}
+
+#photoslist .td-visibility{
+	width: 100px;
+	text-align: center;
+}
+
+#photoslist .td-action{
+	width: 180px;
+}
+
+#photoslist .btn-row{
+	text-align: right;
+}
+
+#photoslist .td-action .remove-link{
+	color: #C0392B;
+}
+
+/*** Edit Photo List ***/
+#editphotoform .img-row{
+	text-align: center;
+	padding-bottom: 20px;
+	border-bottom: solid 1px #999999;
+	margin-bottom: 20px;
+}
+
+#editphotoform .row{
+	padding: 5px 0;
+}
+
+#editphotoform .date-row{
+	float: right;
+}
+
+#editphotoform .visibility-row{
+	text-align: right;
+	padding: 10px 0;
+}
+
+#editphotoform .visibility-row input{
+	margin-left: 10px;
+}
+
+#editphotoform .btn-row{
+	text-align: right;
+	padding-bottom: 50px;
+}
+
+#editphotoform .album-row{
+	float: left;
+}
+
+/*** Album List ***/
+#album-list{
+	/*    width: 70%;*/
+}
+
+.td-album-name{
+	width: 280px;
+}
+
+.td-num-photos{
+	width: 100px;
+	text-align: center;
+}
+
+.td-privacy{
+	width: 100px;
+	text-align: center;
+}
+
+.td-created-date{
+	width: 120px;
+}
+
+#album-list .td-action{
+	padding-left: 80px;
+	width: 125px;
+}
+
+#myphotos{
+	padding: 20px 0;
+}
+
+#myphotos .photo{
+	float: left;
+	margin: 10px 10px 10px 0;
+	width: 152px;
+	position: relative;
+	line-height: 0;
+	border: double 5px #FFFFFF;
+}
+
+#myphotos .photo-checked{
+	border-color: #666666;
+}
+
+#myphotos .photo img{
+	width: 100%;
+	cursor: pointer;
+}
+
+#myphotos .photo input{
+	position: absolute;
+	left: -9999px;
+}
+
+#myphotos .photo a{
+	font-size: 11px;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	font-weight: bold;
+	line-height: 15px;
+	padding: 0 3px;
+	float: left;
+	text-align: center;
+	background: #FFFFFF;
+	opacity: 0.8;
+	-moz-opacity: 0.8;
+	-webkit-opacity: 0.8;
+	filter: alpha(opacity=0.8);
+}
+
+#myphotos .photo .remove-from-album{
+	color: #FF0000;
+}
+
+#myphotos .photo .loading-wrapper span{
+	display: block;
+	background: #FFFFFF;
+	width: 100%;
+	height: 100%;
+	opacity: 0.3;
+	-moz-opacity: 0.3;
+	-webkit-opacity: 0.3;
+	filter: alpha(opacity=30);
+}
+
+#myphotos .photo .loading-wrapper img{
+	width: auto;
+}
+
+.new-album-title-row span{
+	margin: 0 0 0 20px;
+}
+
+.new-album-title-row span input{
+	margin-left: 10px;
+}
+
+#responsive-slider{
+	margin: 20px auto;
+}
+
+.glossy-square-gray .slide-wrapper{
+	box-shadow: none !important;
+}
+
+.glossy-square-gray .timer-animation{
+	right: 50px !important;
+	top: 25px !important;
+}
+
+#newalbumform{
+	padding: 5px 0 20px;
+}
+
+.liked-users{
+	width: 100%;
+	float: left;
+	margin: 1px 0;
+	padding: 5px 0 5px;
+	background: #EFEFEF;
+	display: none;
+}
+
+.liked-users ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.liked-users li{
+	width: 50%;
+	margin: 0;
+	padding: 1px 0;
+	float: left;
+}
+
+.liked-users li a{
+	display: block;
+	height: 24px;
+}
+
+.liked-users li img{
+	width: 24px;
+	margin-left: 15px;
+	float: left;
+}
+
+.liked-users li span{
+	float: left;
+	margin-left: 10px;
+}
+
+.liked-users li.more-likes{
+	padding-left: 20px;
+	width: 70%;
+}

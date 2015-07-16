@@ -1,0 +1,28 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteBase /
+
+#RewriteCond %{HTTPS} off
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+#RewriteRule ([^maintenance]\.php) maintenance.php [L]
+
+RewriteRule ^videos_math.php videos.php?subject=2&%{QUERY_STRING}
+RewriteRule ^videos_science.php videos.php?subject=3&%{QUERY_STRING}
+RewriteRule ^videos_social.php videos.php?subject=4&%{QUERY_STRING}
+RewriteRule ^videos_humanities.php videos.php?subject=5&%{QUERY_STRING}
+RewriteRule ^videos_business.php videos.php?subject=6&%{QUERY_STRING}
+RewriteRule ^videos_food.php videos.php?subject=7&%{QUERY_STRING}
+RewriteRule ^videos_beauty.php videos.php?subject=8&%{QUERY_STRING}
+RewriteRule ^videos_health.php videos.php?subject=9&%{QUERY_STRING}
+
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [R=302]
+</IfModule>
+php_value upload_max_filesize 300M
+php_value post_max_size 300M
+php_value max_execution_time 300
+php_value max_input_time 300

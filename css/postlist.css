@@ -1,0 +1,84 @@
+.postlist{
+	border-collapse: collapse;
+	border-top: solid 1px #E4E4E4;
+	margin-top: 4px;
+	margin-left: -15px;
+	width: 781px;
+}
+
+.postlist td{
+	padding: 8px 0;
+	padding-left: 0px;
+	background: #FFFFFF;
+	font-size: 11px;
+	font-family: Roboto-Regular;
+	color: #999999;
+}
+
+.postlist tbody tr:nth-child(even) td{
+	background: #F7F7F7;
+}
+
+.postlist .post-votes{
+	width: 45px;
+	position: relative;
+}
+
+.postlist .post-votes a.thumb-up{
+	font-family: 'OpenSans-CondBold', sans-serif;
+	font-size: 17px;
+	font-weight: normal;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	color: #FFFFFF;
+	background: #CCCCCC;
+	text-indent: 0;
+	border-radius: 5px;
+	text-decoration: none;
+	margin: 0 15px;
+	float: left;
+}
+
+.postlist .votedStatus1 a.thumb-up,
+.postlist .post-votes a.thumb-up:hover{
+	background: #27AE60;
+}
+
+.postlist .icon-column{
+	padding-right: 11px;
+}
+
+.postlist .icon-column img{
+	width: 50px;
+	margin: 0;
+	float: left;
+}
+
+.postlist .post-title{
+	font-size: 15px;
+	font-family: OpenSans-Semibold;
+	line-height: 1;
+	display: inline-block;
+	padding-bottom: 2px;
+}
+
+/* Username link */
+.postlist .poster-name{
+	color: #999999;
+}
+
+/* Category link */
+.postlist .category-name{
+	color: #2980B9;
+}
+
+/* Category link */
+.postlist .postdate, .postlist .post-replies{
+	font-size: 11px;
+	color: #999999;
+	font-family: Roboto-Medium;
+	display: inline-block;
+	padding-top: 1px;
+}

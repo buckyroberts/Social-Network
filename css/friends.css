@@ -1,0 +1,71 @@
+.friends-header{
+	padding: 5px 0px 3px 0px;
+	color: #999999;
+	margin-right: 10px;
+}
+
+.friends-header .col-1{
+	width: 60px;
+	float: left;
+}
+
+.friends-header .col-2{
+	width: 400px;
+	float: left;
+}
+
+.friends-header .col-3{
+	float: right;
+	margin-right: 20px;
+	width: 130px;
+}
+
+.tr-friend{
+	border-bottom: solid 1px #CCCCCC;
+	padding: 10px 0px;
+	margin-right: 10px;
+}
+
+.td-friend-icon{
+	float: left;
+	margin-right: 10px;
+}
+
+.td-friend-info{
+	width: 400px;
+	padding: 0px;
+	margin-right: 10px;
+}
+
+.td-friend-action{
+	float: right;
+	padding: 0px;
+	margin-right: 20px;
+	min-width: 130px;
+}
+
+/* myfriends.php */
+.td-friend-icon .friendIcon{
+	width: 50px;
+	float: left;
+}
+
+.td-chk{
+	width: 30px;
+	padding-top: 18px;
+}
+
+.tr-friend .td-chk{
+	padding-top: 18px;
+	padding-left: 5px;
+	width: 30px;
+	float: left;
+}
+
+#myfriendsform #friends-box{
+	margin-bottom: 5px;
+}
+
+#myfriendsform .btn-row{
+	padding: 5px 0px;
+}

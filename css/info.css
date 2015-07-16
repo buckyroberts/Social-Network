@@ -1,0 +1,159 @@
+.user-info-section{
+	position: relative;
+}
+
+form.user-info{
+	/*position: relative;*/
+}
+
+.user-info-section .row{
+	margin: 10px 0;
+}
+
+.user-info-section .btn-row{
+	margin: 10px 0;
+	padding-left: 0;
+	width: 465px;
+	text-align: right;
+}
+
+.user-info-section .row label{
+	float: left;
+	width: 150px;
+	padding-right: 10px;
+	text-align: right;
+	line-height: 22px;
+}
+
+.user-info-section .row .inputholder,
+.user-info-section .row .selectholder{
+	float: left;
+	width: 410px;
+}
+
+.user-info-section .row .visibility_options{
+	float: left;
+	padding-left: 20px;
+}
+
+.user-info-section .row .visibility_options label{
+	width: auto;
+	padding-right: 20px;
+}
+
+#addressform .visibility_options{
+	padding-left: 175px;
+}
+
+#messengerform .input{
+	width: 160px;
+	margin-right: 10px;
+}
+
+#messengerform .btn-row{
+	position: relative;
+}
+
+.btn-row .add-new-row{
+	position: absolute;
+	top: 5px;
+	left: 160px;
+}
+
+.row .remove-row{
+	float: left;
+	color: #C0392B;
+	line-height: 22px;
+	margin-left: 20px;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+/*** User Education, Employment History Form ***/
+#educationform .row .inputholder,
+#employmentform .row .inputholder{
+	width: 435px;
+}
+
+#educationform .row .inputholder .input,
+#employmentform .row .inputholder .input{
+	width: 230px;
+	margin-right: 15px;
+}
+
+#educationform .row .inputholder .select,
+#employmentform .row .inputholder .select{
+	margin: 0 5px;
+	width: 60px;
+}
+
+#educationform .btn-row,
+#employmentform .btn-row{
+	padding-left: 0;
+	width: 568px;
+	text-align: right;
+	position: relative;
+}
+
+/** Links Row **/
+#linksform .row label{
+	width: 100px;
+}
+
+#linksform .row .visibility_options label{
+	width: auto;
+}
+
+#linksform .row .inputholder{
+	width: 460px;
+}
+
+#linksform .row .link-title{
+	width: 170px;
+}
+
+#linksform .row .link-url{
+	width: 260px;
+}
+
+#linksform .btn-row{
+	padding-left: 0;
+	position: relative;
+	width: 556px;
+	text-align: right;
+}
+
+#linksform .btn-row .add-new-row{
+	left: 110px;
+}
+
+/*** Notification Setting Page ***/
+.notify-setting-panel{
+}
+
+.notify-setting-panel .row{
+	border-bottom: 1px solid #CCCCCC;
+	padding: 10px;
+	padding-left: 0px;
+	margin: 0;
+}
+
+.notify-setting-panel .row .l{
+	width: 80%;
+	float: left;
+}
+
+.notify-setting-panel .row .r{
+	width: 19%;
+	float: left;
+	text-align: right;
+}
+
+.notify-setting-panel .btn-row{
+	width: 100%;
+	text-align: left;
+}
+
+.notify-setting-panel .sub_section_title{
+	padding: 8px 0 3px;
+}

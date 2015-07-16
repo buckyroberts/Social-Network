@@ -1,0 +1,51 @@
+/* 874px */
+#main_aside{ /*140*/
+	border: none;
+}
+
+#stream{ /* 670px */
+	float: left;
+	width: 651px;
+	padding: 5px 9px;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	background-color: white;
+}
+
+#activity_feed{
+	width: 174px;
+	padding: 0px 10px 5px 10px;
+	float: right;
+	overflow: hidden;
+	font-family: OpenSans-Regular;
+}
+
+#activity_feed h2.activityHeader{
+	background-color: #16A085;
+	color: #F9F9F9;
+	font-family: OpenSans-Bold;
+	text-align: center;
+	font-weight: normal;
+	font-size: 13px;
+	margin: 0 -10px 5px -10px;
+	padding: 1px 10px;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.activityComment{
+	float: left;
+	border-bottom: 1px solid #DDDDDD;
+	padding: 5px 0px;
+	font-size: 11px;
+}
+
+.activityComment .replyToPostIcons{
+	width: 30px;
+}
+
+.activityComment a.userName{
+	font-family: OpenSans-Bold;
+	font-weight: normal;
+}
+
+

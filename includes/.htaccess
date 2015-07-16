@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule .* /index.php [R=302]
+</IfModule>

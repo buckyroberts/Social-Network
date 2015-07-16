@@ -1,0 +1,55 @@
+#register-wrapper{
+	margin-bottom: 10px;
+	position: relative;
+}
+
+#register-wrapper h2.titles{
+	margin-left: 10px;
+}
+
+#register-wrapper .row{
+	padding: 5px 0;
+}
+
+#register-wrapper .row label{
+	display: inline-block;
+	width: 140px;
+	text-align: right; margin-right: 10px;
+}
+
+#register-wrapper .checkbox-row{
+	padding-left: 153px;
+}
+
+#register-wrapper .checkbox-row label{
+	text-align: left;
+	width: auto;
+}
+
+#register-wrapper .checkbox-row label input{
+	margin: 2px 5px 0 0;
+}
+
+#register-wrapper .redButton{
+}
+
+#new-account{
+	width: 49%;
+	float: left;
+	border-right: solid 1px #CCCCCC;
+}
+
+#login-wrap{
+	width: 49%;
+	float: left;
+}
+
+#newaccount #recaptcha_widget_div{
+	float: left;
+	margin-left: 147px;
+}
+
+#newaccount .message{
+	margin-left: 10px;
+	margin-right: 10px;
+}

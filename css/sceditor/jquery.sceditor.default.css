@@ -1,0 +1,96 @@
+/*! SCEditor | (C) 2011-2013, Sam Clarke | sceditor.com/license */
+html, body, p, code:before, table{
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+}
+
+html{
+	height: 100%;
+
+	/* Needed for iOS scrolling bug fix */
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+body{
+	position: relative;
+	min-height: 100%;
+	word-wrap: break-word;
+
+	/* Needed for iOS scrolling bug fix */
+	overflow: auto;
+}
+
+ul, ol{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 20px;
+}
+
+table, td{
+	border: 1px solid #CCCCCC;
+	empty-cells: show;
+	border-collapse: collapse;
+	min-width: 10px;
+	padding: 5px;
+	margin: 10px 5px 10px 0px;
+}
+
+code:before{
+	/*
+	position: absolute;
+	content: 'Code:';
+	top: -1.35em;
+	left: 0;
+	*/
+}
+
+code{
+	/* 
+	background: #eee;
+	border: 1px solid #aaa;
+	padding: .25em;
+	*/
+	margin: 10px 5px 10px 0px;
+	border: 1px solid #282B2E;
+	position: relative;
+	white-space: pre;
+	display: block;
+	font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, monospace, serif;
+	color: #E0E2E4;
+	padding: 5px;
+	background: #282B2E;
+}
+
+.ie6 code, .ie7 code{ margin-top: 0; }
+
+code:before, code{
+	display: block;
+	text-align: left;
+}
+
+blockquote{
+	position: relative;
+	background: #EFEFEF;
+	color: #555555;
+	font-style: italic;
+	margin: 10px 5px 10px 0px;
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+}
+
+blockquote cite{
+	font-weight: bold;
+	display: block;
+	font-size: 1em;
+	border-bottom: 1px solid #AAAAAA;
+}
+
+div{ min-height: 1.25em; }
+
+h1, h2, h3, h4, h5, h6{ padding: 0; margin: 0; }

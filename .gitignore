@@ -1,0 +1,16 @@
+forum/project_files
+images/forum/upload
+images/trade
+products
+photos
+phpmyadmin
+tmp
+
+dashboard
+forbidden
+restricted
+xampp
+.idea/*
+.idea/dataSources.local.xml
+.idea/codeStyleSettings.xml
+
