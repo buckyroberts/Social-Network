@@ -70,10 +70,9 @@ function _buckys_session_destory($key){
 }
 
 /**
- * @param $maxlifetime
  * @return bool
  */
-function _buckys_session_gc($maxlifetime){
+function _buckys_session_gc(){
 	$db = new Database_Mysqli(DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME);
 	$db->query("DELETE FROM " . TABLE_SESSIONS . " WHERE expiry < '" . time() . "'");
 	return true;
@@ -87,7 +86,11 @@ function _buckys_session_gc($maxlifetime){
 function buckys_session_start(){
 	$session_id = '';
 
-	session_set_cookie_params(0, "/", TNB_DOMAIN, true, true);
+	if(SITE_USING_SSL){
+		session_set_cookie_params(0, "/", TNB_DOMAIN, true, true);
+	}else{
+		session_set_cookie_params(0, "/", TNB_DOMAIN);
+	}
 
 	// Set Session Handler
 	session_set_save_handler('_buckys_session_open', '_buckys_session_close', '_buckys_session_read', '_buckys_session_write', '_buckys_session_destory', '_buckys_session_gc');
@@ -99,7 +102,7 @@ function buckys_session_start(){
 	if(isset($_COOKIE[SESSION_NAME])){
 		if(preg_match('/^[a-zA-Z0-9]+$/', $_COOKIE[SESSION_NAME]) == false){
 			$session_data = session_get_cookie_params();
-			if(SITE_USING_SSL == true){
+			if(SITE_USING_SSL){
 				setcookie(SESSION_NAME, null, time() - 42000, $session_data['path'], $session_data['domain'], true, true);
 			}else{
 				setcookie(SESSION_NAME, null, time() - 42000, $session_data['path'], $session_data['domain']);
