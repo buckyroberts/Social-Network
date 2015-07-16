@@ -1,5 +1,5 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 ?>
@@ -43,7 +43,7 @@ if(!isset($BUCKYS_GLOBALS)){
                         <td><?php echo $row['size_name']?></td>
                         <td>
                             <a href="/ads/publisher_ad_view.php?id=<?php echo $row['id']?>">Get Code</a>
-                            <?php if($row['adType'] == BUCKYS_AD_TYPE_CUSTOM){
+                            <?php if($row['adType'] == TNB_AD_TYPE_CUSTOM){
                                 if($status == 'active'){
                                     ?>
                                     &middot;

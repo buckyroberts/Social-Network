@@ -40,6 +40,6 @@ buckys_enqueue_stylesheet('moderator.css');
 
 buckys_enqueue_javascript('banned_users.js');
 
-$BUCKYS_GLOBALS['content'] = 'banned_users';
-$BUCKYS_GLOBALS['title'] = "Manage Banned Users - " . BUCKYSROOM_SITE_NAME;
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+$TNB_GLOBALS['content'] = 'banned_users';
+$TNB_GLOBALS['title'] = "Manage Banned Users - " . TNB_SITE_NAME;
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

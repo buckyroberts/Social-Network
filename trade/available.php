@@ -9,8 +9,8 @@ buckys_enqueue_stylesheet('trade.css');
 
 buckys_enqueue_javascript('trade.js');
 
-$BUCKYS_GLOBALS['content'] = 'trade/available';
-$BUCKYS_GLOBALS['headerType'] = 'trade';
+$TNB_GLOBALS['content'] = 'trade/available';
+$TNB_GLOBALS['headerType'] = 'trade';
 
 $paramCurrentPage = get_secure_integer($_REQUEST['page']);
 $paramType = get_secure_string($_REQUEST['type']);
@@ -45,6 +45,6 @@ $view['items'] = fn_buckys_pagination($view['items'], $baseURL, $paramCurrentPag
 
 $view['type'] = $paramType;
 
-$BUCKYS_GLOBALS['title'] = $view['pagetitle'] . ' - BuckysRoomTrade';
+$TNB_GLOBALS['title'] = $view['pagetitle'] . ' - BuckysRoomTrade';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

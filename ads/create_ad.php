@@ -33,9 +33,9 @@ buckys_enqueue_javascript('uploadify/jquery.uploadify.js');
 buckys_enqueue_javascript('jquery.number.js');
 buckys_enqueue_javascript('create_ad.js');
 
-$BUCKYS_GLOBALS['headerType'] = "ads";
-$BUCKYS_GLOBALS['content'] = "ads/create_ad";
+$TNB_GLOBALS['headerType'] = "ads";
+$TNB_GLOBALS['content'] = "ads/create_ad";
 
-$BUCKYS_GLOBALS['title'] = "Create New Ad - thenewboston Ads";
+$TNB_GLOBALS['title'] = "Create New Ad - thenewboston Ads";
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

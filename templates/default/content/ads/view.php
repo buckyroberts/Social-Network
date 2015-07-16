@@ -1,5 +1,5 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 ?>
@@ -19,13 +19,13 @@ if(!isset($BUCKYS_GLOBALS)){
                 <label>Status:</label>
                 <?php
                 switch($adDetail['status']){
-                    case BUCKYS_AD_STATUS_ACTIVE:
+                    case TNB_AD_STATUS_ACTIVE:
                         echo 'Active';
                         break;
-                    case BUCKYS_AD_STATUS_PENDING:
+                    case TNB_AD_STATUS_PENDING:
                         echo 'Pending';
                         break;
-                    case BUCKYS_AD_STATUS_EXPIRED:
+                    case TNB_AD_STATUS_EXPIRED:
                         echo 'Completed';
                         break;
 

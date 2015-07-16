@@ -16,8 +16,8 @@ buckys_enqueue_javascript('trade.js');
 buckys_enqueue_javascript('trade-edit.js');
 buckys_enqueue_javascript('uploadify/flash_install.js');
 
-$BUCKYS_GLOBALS['content'] = 'trade/additem';
-$BUCKYS_GLOBALS['headerType'] = 'trade';
+$TNB_GLOBALS['content'] = 'trade/additem';
+$TNB_GLOBALS['headerType'] = 'trade';
 
 $view = [];
 
@@ -64,6 +64,6 @@ if($view['item'] == null || $view['item']['userID'] != $userID || $view['item'][
     buckys_redirect('/trade/available.php', MSG_INVALID_REQUEST, MSG_TYPE_ERROR);
 }
 
-$BUCKYS_GLOBALS['title'] = 'Edit an Item - BuckysRoomTrade';
+$TNB_GLOBALS['title'] = 'Edit an Item - BuckysRoomTrade';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

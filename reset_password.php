@@ -34,6 +34,6 @@ buckys_enqueue_stylesheet('register.css');
 
 buckys_enqueue_javascript('register.js');
 
-$BUCKYS_GLOBALS['content'] = 'reset_password';
+$TNB_GLOBALS['content'] = 'reset_password';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

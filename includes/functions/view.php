@@ -222,12 +222,12 @@ function render_post_comments($comments, $userID = null){
 
 //Render Single Post Comment
 function render_single_comment($comment, $userID = null, $isReturn = false){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
     $timeOffset = 0;
     if(buckys_not_null($userID)){
         $userInfo = BuckysUser::getUserBasicInfo($userID);
-        $timeOffset = $BUCKYS_GLOBALS['timezone'][$userInfo['timezone']];
+        $timeOffset = $TNB_GLOBALS['timezone'][$userInfo['timezone']];
     }
 
     ob_start();
@@ -340,7 +340,7 @@ function render_visibility_options($optionName, $optionValue = 0, $optionId = nu
 
 //Display BirthDate Select Boxes: Month, Day, Year
 function render_birthdate_selectboxes($birthdate = null){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
     if(!$birthdate)
         $birthdate = date("Y-m-d");
@@ -352,7 +352,7 @@ function render_birthdate_selectboxes($birthdate = null){
         for($i = 0; $i < 13; $i++){
             if($i == 0)
                 echo '<option value="">- Month -</option>';else
-                echo '<option value="' . $i . '" ' . ($i == intval($month) ? 'selected="selected"' : '') . '>' . $BUCKYS_GLOBALS['months'][$i - 1] . '</option>';
+                echo '<option value="' . $i . '" ' . ($i == intval($month) ? 'selected="selected"' : '') . '>' . $TNB_GLOBALS['months'][$i - 1] . '</option>';
         }
         ?>
     </select>
@@ -379,12 +379,12 @@ function render_birthdate_selectboxes($birthdate = null){
 
 //Display Relationship Status Selectbox
 function render_relationship_status_selectbox($relationship){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
     ?>
     <select name="relationship_status" id="relationship_status" class="select">
         <option value="0">--</option>
         <?php
-        foreach($BUCKYS_GLOBALS['relationShipStatus'] as $k => $v){
+        foreach($TNB_GLOBALS['relationShipStatus'] as $k => $v){
             echo '<option value="' . $k . '" ' . ($k == $relationship ? 'selected="selected"' : '') . '>' . $v . '</option>';
         }
         ?>
@@ -394,12 +394,12 @@ function render_relationship_status_selectbox($relationship){
 
 //Display Gender Selectbox
 function render_gender_selectbox($gender){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
     ?>
     <select name="gender" id="gender" class="select">
         <option value="">--</option>
         <?php
-        foreach($BUCKYS_GLOBALS['genders'] as $k => $v){
+        foreach($TNB_GLOBALS['genders'] as $k => $v){
             echo '<option value="' . $k . '" ' . ($k == $gender ? 'selected="selected"' : '') . '>' . $v . '</option>';
         }
         ?>
@@ -409,12 +409,12 @@ function render_gender_selectbox($gender){
 
 //Display Messenger Type Selectbox
 function render_messenger_type_selectbox($name, $type = null){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
     ?>
     <select name="<?php echo $name?>" class="select">
         <option value="">--</option>
         <?php
-        foreach($BUCKYS_GLOBALS['messengerTypes'] as $v){
+        foreach($TNB_GLOBALS['messengerTypes'] as $v){
             echo '<option value="' . $v . '" ' . ($v == $type ? 'selected="selected"' : '') . '>' . $v . '</option>';
         }
         ?>
@@ -423,11 +423,11 @@ function render_messenger_type_selectbox($name, $type = null){
 }
 
 function render_timezone_selectbox($timezone = '(UTC) Coordinated Universal Time'){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
     ?>
     <select name="timezone" id="timezone" class="select">
         <?php
-        foreach($BUCKYS_GLOBALS['timezone'] as $k => $v){
+        foreach($TNB_GLOBALS['timezone'] as $k => $v){
             echo '<option value="' . $k . '" ' . ($k == $timezone ? 'selected="selected"' : '') . '>' . $k . '</option>';
         }
         ?>
@@ -503,12 +503,12 @@ function render_result_xml($data, $isReturn = false){
 }
 
 function buckys_format_date($date, $format = 'F j, Y'){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
     $timeOffset = 0;
-    if($BUCKYS_GLOBALS['user']['userID'] != 0){
-        $userInfo = BuckysUser::getUserBasicInfo($BUCKYS_GLOBALS['user']['userID']);
-        $timeOffset = $BUCKYS_GLOBALS['timezone'][$userInfo['timezone']];
+    if($TNB_GLOBALS['user']['userID'] != 0){
+        $userInfo = BuckysUser::getUserBasicInfo($TNB_GLOBALS['user']['userID']);
+        $timeOffset = $TNB_GLOBALS['timezone'][$userInfo['timezone']];
     }
 
     $strDate = "";
@@ -763,7 +763,7 @@ function render_profile_page_ad($userID){
     $publisherAdClass = new BuckysPublisherAds();
 
     //Getting Ad Token
-    $query = $db->prepare("SELECT token FROM " . TABLE_PUBLISHER_ADS . " WHERE publisherID=%d AND adType=%d", $userID, BUCKYS_AD_TYPE_PROFILE);
+    $query = $db->prepare("SELECT token FROM " . TABLE_PUBLISHER_ADS . " WHERE publisherID=%d AND adType=%d", $userID, TNB_AD_TYPE_PROFILE);
 
     $token = $db->getVar($query);
 
@@ -777,7 +777,7 @@ function render_forum_ad($userID){
     $publisherAdClass = new BuckysPublisherAds();
 
     //Getting Ad Token
-    $query = $db->prepare("SELECT token FROM " . TABLE_PUBLISHER_ADS . " WHERE publisherID=%d AND adType=%d", $userID, BUCKYS_AD_TYPE_FORUM);
+    $query = $db->prepare("SELECT token FROM " . TABLE_PUBLISHER_ADS . " WHERE publisherID=%d AND adType=%d", $userID, TNB_AD_TYPE_FORUM);
 
     $token = $db->getVar($query);
 
@@ -831,9 +831,9 @@ function render_footer_link_content($type, $data, $outFlag = true){
                     <div class="activityComment">
                             <span>                 
                                 <a href="/profile.php?user=<?php echo $row['userID'] ?>"><img
-                                        src="<?php echo BuckysUser::getProfileIcon($BUCKYS_GLOBALS['user']['userID']) ?>"
+                                        src="<?php echo BuckysUser::getProfileIcon($TNB_GLOBALS['user']['userID']) ?>"
                                         class="dropDownNotificationImages"/></a>
-                                <!-- <span class="redBold"><?php echo $BUCKYS_GLOBALS['user']['firstName'] . " " . $BUCKYS_GLOBALS['user']['lastName'] ?></span> <br />-->
+                                <!-- <span class="redBold"><?php echo $TNB_GLOBALS['user']['firstName'] . " " . $TNB_GLOBALS['user']['lastName'] ?></span> <br />-->
                                 <?php if($row['activityType'] == 'topic_approved'){ ?>
                                     Your topic
                                     <a href="/forum/topic.php?id=<?php echo $row['activityType'] == 'topic_approved' ? $row['objectID'] : $row['actionID'] ?>"><?php echo buckys_truncate_string($row['topicTitle'], 30) ?></a> has been approved

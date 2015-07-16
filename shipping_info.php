@@ -9,8 +9,8 @@ buckys_enqueue_stylesheet('trade.css');
 buckys_enqueue_stylesheet('account.css');
 buckys_enqueue_javascript('trade.js');
 
-$BUCKYS_GLOBALS['content'] = 'shipping_info';
-//$BUCKYS_GLOBALS['headerType'] = 'trade';
+$TNB_GLOBALS['content'] = 'shipping_info';
+//$TNB_GLOBALS['headerType'] = 'trade';
 
 $view = [];
 
@@ -48,6 +48,6 @@ if(empty($view['trade_user_info'])){
     buckys_redirect('/index.php', MSG_INVALID_REQUEST, MSG_TYPE_ERROR);
 }
 
-$BUCKYS_GLOBALS['title'] = 'Shipping Info - ' . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = 'Shipping Info - ' . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

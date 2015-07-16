@@ -1,5 +1,5 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 
@@ -126,7 +126,7 @@ if(!isset($BUCKYS_GLOBALS)){
             <div class="sort-box">
                 <div class="l">
                     <div
-                        class="total-record-p"><?php echo sprintf('Showing %d - %d of %s Results', $BUCKYS_GLOBALS['commonPagination']['startIndex'], $BUCKYS_GLOBALS['commonPagination']['endIndex'], number_format($BUCKYS_GLOBALS['commonPagination']['totalRecords'])) ?></div>
+                        class="total-record-p"><?php echo sprintf('Showing %d - %d of %s Results', $TNB_GLOBALS['commonPagination']['startIndex'], $TNB_GLOBALS['commonPagination']['endIndex'], number_format($TNB_GLOBALS['commonPagination']['totalRecords'])) ?></div>
                 </div>
                 <div class="r">
                     <select id="trade_search_sort">

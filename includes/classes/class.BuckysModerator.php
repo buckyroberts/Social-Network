@@ -14,7 +14,7 @@ class BuckysModerator {
      * @internal param String $type
      */
     public static function getModerators(){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         $query = "SELECT u.firstName, u.lastName, u.thumbnail, u.userID FROM " . TABLE_MODERATOR . " AS m " . "LEFT JOIN " . TABLE_USERS . " AS u ON m.userID=u.userID WHERE m.moderatorStatus=1";
 
@@ -29,7 +29,7 @@ class BuckysModerator {
      * @return Int
      */
     public static function getCandidatesCount(){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         $query = "SELECT count(1) FROM " . TABLE_MODERATOR_CANDIDATES;
 
@@ -46,12 +46,12 @@ class BuckysModerator {
      * @return Array
      */
     public static function getCandidates($page = 1, $limit = null){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         if($limit == null)
             $limit = BuckysModerator::$CANDIDATES_PER_PAGE;
 
-        $query = $db->prepare("SELECT mc.*, u.firstName, u.lastName, u.thumbnail, v.voteID FROM " . TABLE_MODERATOR_CANDIDATES . " AS mc " . "LEFT JOIN " . TABLE_USERS . " AS u ON mc.userID=u.userID " . "LEFT JOIN " . TABLE_MODERATOR_VOTES . " AS v ON v.candidateID=mc.candidateID AND v.voterID=%d " . "ORDER BY mc.votes DESC ", $BUCKYS_GLOBALS['user']['userID']);
+        $query = $db->prepare("SELECT mc.*, u.firstName, u.lastName, u.thumbnail, v.voteID FROM " . TABLE_MODERATOR_CANDIDATES . " AS mc " . "LEFT JOIN " . TABLE_USERS . " AS u ON mc.userID=u.userID " . "LEFT JOIN " . TABLE_MODERATOR_VOTES . " AS v ON v.candidateID=mc.candidateID AND v.voterID=%d " . "ORDER BY mc.votes DESC ", $TNB_GLOBALS['user']['userID']);
 
         $query .= " LIMIT " . ($page - 1) * $limit . ", " . $limit;
 
@@ -204,7 +204,7 @@ class BuckysModerator {
      * @return Error Message or True
      */
     public static function addModerator($userID){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         //Check user acl again
         if(!buckys_check_user_acl(USER_ACL_ADMINISTRATOR)){

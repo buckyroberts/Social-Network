@@ -13,9 +13,9 @@ $userID = buckys_is_logged_in();
 
 buckys_enqueue_stylesheet('publisher.css');
 
-$BUCKYS_GLOBALS['headerType'] = "ads";
-$BUCKYS_GLOBALS['content'] = "ads/index";
+$TNB_GLOBALS['headerType'] = "ads";
+$TNB_GLOBALS['content'] = "ads/index";
 
-$BUCKYS_GLOBALS['title'] = "thenewboston Ads - Bitcoin Advertising Network";
+$TNB_GLOBALS['title'] = "thenewboston Ads - Bitcoin Advertising Network";
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

@@ -144,7 +144,7 @@ class BuckysBitcoin {
         $amount = $amount * 100000000;
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https://blockchain.info/merchant/' . BUCKYSROOM_BITCOIN_GUID . '/payment?password=' . BUCKYSROOM_BITCOIN_PASSWORD . '&to=' . $address . '&amount=' . $amount . '&from=' . BUCKYSROOM_BITCOIN_ADDRESS);
+        curl_setopt($ch, CURLOPT_URL, 'https://blockchain.info/merchant/' . TNB_BITCOIN_GUID . '/payment?password=' . TNB_BITCOIN_PASSWORD . '&to=' . $address . '&amount=' . $amount . '&from=' . TNB_BITCOIN_ADDRESS);
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

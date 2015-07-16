@@ -3,7 +3,7 @@
 class BuckysCommentApi {
 
     public function getListAction(){
-        global $BUCKYS_GLOBALS;
+        global $TNB_GLOBALS;
         $data = $_POST;
 
         $token = isset($data['TOKEN']) ? trim($data['TOKEN']) : null;
@@ -42,7 +42,7 @@ class BuckysCommentApi {
     }
 
     public function createAction(){
-        global $BUCKYS_GLOBALS;
+        global $TNB_GLOBALS;
 
         $data = $_POST;
 
@@ -77,7 +77,7 @@ class BuckysCommentApi {
             $fileParts = pathinfo($_FILES['image']['name']);
 
             //Check the file extension
-            if(in_array(strtolower($fileParts['extension']), $BUCKYS_GLOBALS['imageTypes'])){
+            if(in_array(strtolower($fileParts['extension']), $TNB_GLOBALS['imageTypes'])){
 
                 //Check Image Size
                 list($width, $height, $type, $attr) = getimagesize($tempFile);

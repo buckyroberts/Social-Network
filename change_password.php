@@ -42,8 +42,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'change_password'){
 buckys_enqueue_stylesheet('account.css');
 buckys_enqueue_stylesheet('info.css');
 
-$BUCKYS_GLOBALS['content'] = 'change_password';
+$TNB_GLOBALS['content'] = 'change_password';
 
-$BUCKYS_GLOBALS['title'] = "Change Password - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Change Password - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

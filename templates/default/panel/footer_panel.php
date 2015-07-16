@@ -2,7 +2,7 @@
 /**
  * Footer Menu for logged users
  */
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 
@@ -328,7 +328,7 @@ if($userID = buckys_is_logged_in()){
                 </li>
                 <!-- End Videos -->
                 <li id="rightAlign">
-                    <?php if($BUCKYS_GLOBALS['content'] != 'register' && $BUCKYS_GLOBALS['headerType'] != 'forum'){ ?>
+                    <?php if($TNB_GLOBALS['content'] != 'register' && $TNB_GLOBALS['headerType'] != 'forum'){ ?>
                         <form class="topLoginForm" method="post" action="/login.php">
                             <input type="text" name="email" maxlength="60" class="inputHeader"
                                 placeholder="email"/> &nbsp; <input type="password" name="password" maxlength="20"

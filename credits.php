@@ -40,7 +40,7 @@ $totalCount = BuckysTransaction::getNumOfCreditActivities($userID);
 $pagination = new Pagination($totalCount, BuckysTransaction::$COUNT_PER_PAGE, $page);
 $page = $pagination->getCurrentPage();
 
-$activities = BuckysTransaction::getCreditActivities($BUCKYS_GLOBALS['user']['userID'], $page);
+$activities = BuckysTransaction::getCreditActivities($TNB_GLOBALS['user']['userID'], $page);
 
 buckys_enqueue_stylesheet('account.css');
 buckys_enqueue_stylesheet('credits.css');
@@ -48,9 +48,9 @@ buckys_enqueue_stylesheet('credits.css');
 buckys_enqueue_javascript('credits.js');
 buckys_enqueue_javascript('payment.js');
 
-$BUCKYS_GLOBALS['content'] = 'credits';
+$TNB_GLOBALS['content'] = 'credits';
 
-$BUCKYS_GLOBALS['title'] = "Credits - " . BUCKYSROOM_SITE_NAME;
-$BUCKYS_GLOBALS['payerID'] = $userID;
+$TNB_GLOBALS['title'] = "Credits - " . TNB_SITE_NAME;
+$TNB_GLOBALS['payerID'] = $userID;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

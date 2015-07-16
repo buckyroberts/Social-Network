@@ -8,8 +8,8 @@ buckys_enqueue_javascript('search.js');
 
 $searchIns = new BuckysSearch();
 
-$BUCKYS_GLOBALS['content'] = 'search';
-$BUCKYS_GLOBALS['headerType'] = '';
+$TNB_GLOBALS['content'] = 'search';
+$TNB_GLOBALS['headerType'] = '';
 
 $paramQueryStr = buckys_escape_query_string($_REQUEST['q']);
 $paramType = buckys_escape_query_string($_REQUEST['type']);
@@ -30,14 +30,14 @@ $page = $pagination->getCurrentPage();
 $view['search_result'] = $searchIns->search($paramQueryStr, $paramType, $paramSort, $page);
 
 //Display
-$BUCKYS_GLOBALS['searchParamPP']['q'] = $paramQueryStr;
-$BUCKYS_GLOBALS['searchParamPP']['type'] = $paramType;
-$BUCKYS_GLOBALS['searchParamPP']['sort'] = $paramSort;
+$TNB_GLOBALS['searchParamPP']['q'] = $paramQueryStr;
+$TNB_GLOBALS['searchParamPP']['type'] = $paramType;
+$TNB_GLOBALS['searchParamPP']['sort'] = $paramSort;
 
 if($paramQueryStr != ''){
-    $BUCKYS_GLOBALS['title'] = $paramQueryStr . ' - ' . BUCKYSROOM_SITE_NAME . ' Search';
+    $TNB_GLOBALS['title'] = $paramQueryStr . ' - ' . TNB_SITE_NAME . ' Search';
 }else{
-    $BUCKYS_GLOBALS['title'] = BUCKYSROOM_SITE_NAME . ' Search';
+    $TNB_GLOBALS['title'] = TNB_SITE_NAME . ' Search';
 }
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

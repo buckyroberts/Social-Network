@@ -38,6 +38,6 @@ function createMessage($x){
 buckys_enqueue_stylesheet('forms.css');
 buckys_enqueue_stylesheet('tables.css');
 
-$BUCKYS_GLOBALS['content'] = 'prompt';
+$TNB_GLOBALS['content'] = 'prompt';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

@@ -46,7 +46,7 @@ if(!$showPagePhotoFlag){
     $albums = BuckysAlbum::getAlbumsByUserId($profileID);
 
     //Display
-    $BUCKYS_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Photos - " . BUCKYSROOM_SITE_NAME;
+    $TNB_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Photos - " . TNB_SITE_NAME;
     $view['photo_type'] = 'profile';
 
     buckys_enqueue_stylesheet('profile.css');
@@ -59,7 +59,7 @@ if(!$showPagePhotoFlag){
     $photos = BuckysPost::getPhotosByUserID($profileID, null, $paramPageID, false, $postID, $albumID, BuckysPost::$images_per_page);
 
     //Display
-    $BUCKYS_GLOBALS['title'] = trim($pageData['title']) . "'s Photos - " . BUCKYSROOM_SITE_NAME;
+    $TNB_GLOBALS['title'] = trim($pageData['title']) . "'s Photos - " . TNB_SITE_NAME;
     $view['photo_type'] = 'page';
     $view['pageData'] = $pageData;
 
@@ -80,6 +80,6 @@ if(!$showPagePhotoFlag){
     buckys_enqueue_javascript('page.js');
 }
 
-$BUCKYS_GLOBALS['content'] = 'photos';
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+$TNB_GLOBALS['content'] = 'photos';
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");
 

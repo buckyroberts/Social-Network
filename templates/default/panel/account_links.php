@@ -2,7 +2,7 @@
 /**
  * User Account Links
  */
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 //Getting Current User ID if $userID is not set  

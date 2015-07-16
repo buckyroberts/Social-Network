@@ -10,8 +10,8 @@ if(isset($_POST['action'])){
                 $data = ['status' => 'error', 'message' => MSG_INVALID_REQUEST];
             }else{
                 if($_POST['objectType'] == 'topic')
-                    $result = BuckysForumTopic::voteTopic($BUCKYS_GLOBALS['user']['userID'], $_POST['objectID'], $_POST['action'] == 'thumb-up' ? 1 : -1);else
-                    $result = BuckysForumReply::voteReply($BUCKYS_GLOBALS['user']['userID'], $_POST['objectID'], $_POST['action'] == 'thumb-up' ? 1 : -1);
+                    $result = BuckysForumTopic::voteTopic($TNB_GLOBALS['user']['userID'], $_POST['objectID'], $_POST['action'] == 'thumb-up' ? 1 : -1);else
+                    $result = BuckysForumReply::voteReply($TNB_GLOBALS['user']['userID'], $_POST['objectID'], $_POST['action'] == 'thumb-up' ? 1 : -1);
                 if(is_int($result)){
                     $data = ['status' => 'success', 'message' => MSG_THANKS_YOUR_VOTE, 'votes' => ($result > 0 ? "+" : "") . $result];
                 }else{
@@ -83,7 +83,7 @@ if(!$topic)
 $category = BuckysForumCategory::getCategory($topic['categoryID']);
 
 //If the topic is not published(pending or suspended), only forum moderator and administrator can see this
-if($topic['status'] != 'publish' && !buckys_is_moderator() && $BUCKYS_GLOBALS['user']['userID'] != $topic['creatorID'])
+if($topic['status'] != 'publish' && !buckys_is_moderator() && $TNB_GLOBALS['user']['userID'] != $topic['creatorID'])
     buckys_redirect('/forum');
 
 $orderBy = isset($_GET['orderby']) ? buckys_escape_query_string($_GET['orderby']) : 'oldest';
@@ -101,7 +101,7 @@ $hierarchical = BuckysForumCategory::getCategoryHierarchical($topic['categoryID'
 
 //Mark Forum Notifications to read
 if(buckys_check_user_acl(USER_ACL_REGISTERED))
-    BuckysForumNotification::makeNotificationsToRead($BUCKYS_GLOBALS['user']['userID'], null, $topic['topicID']);
+    BuckysForumNotification::makeNotificationsToRead($TNB_GLOBALS['user']['userID'], null, $topic['topicID']);
 
 if(buckys_check_user_acl(USER_ACL_MODERATOR)){
     $reportID = BuckysReport::isReported($topicID, 'topic');
@@ -120,9 +120,9 @@ buckys_enqueue_stylesheet('forum.css');
 buckys_enqueue_stylesheet('publisher.css');
 buckys_enqueue_stylesheet('uploadify.css');
 
-$BUCKYS_GLOBALS['headerType'] = 'forum';
-$BUCKYS_GLOBALS['content'] = 'forum/topic';
-$BUCKYS_GLOBALS['title'] = $topic['topicTitle'] . ' - thenewboston Forum';
+$TNB_GLOBALS['headerType'] = 'forum';
+$TNB_GLOBALS['content'] = 'forum/topic';
+$TNB_GLOBALS['title'] = $topic['topicTitle'] . ' - thenewboston Forum';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");
 

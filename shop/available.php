@@ -9,8 +9,8 @@ buckys_enqueue_javascript('shop.js');
 
 buckys_enqueue_stylesheet('shop.css');
 
-$BUCKYS_GLOBALS['content'] = 'shop/available';
-$BUCKYS_GLOBALS['headerType'] = 'shop';
+$TNB_GLOBALS['content'] = 'shop/available';
+$TNB_GLOBALS['headerType'] = 'shop';
 
 $paramCurrentPage = get_secure_integer($_REQUEST['page']);
 $paramType = get_secure_string($_REQUEST['type']);
@@ -45,6 +45,6 @@ $view['products'] = fn_buckys_pagination($view['products'], $baseURL, $paramCurr
 
 $view['type'] = $paramType;
 
-$BUCKYS_GLOBALS['title'] = $view['pagetitle'] . ' - BuckysRoomShop';
+$TNB_GLOBALS['title'] = $view['pagetitle'] . ' - BuckysRoomShop';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

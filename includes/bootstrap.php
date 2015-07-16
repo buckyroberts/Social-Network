@@ -39,19 +39,19 @@ buckys_enqueue_javascript('site.js');
 
 buckys_enqueue_stylesheet('main.css');
 
-$BUCKYS_GLOBALS['template'] = DEFAULT_THEME;
-$BUCKYS_GLOBALS['layout'] = 'layout';
-$BUCKYS_GLOBALS['headerType'] = 'default';
+$TNB_GLOBALS['template'] = DEFAULT_THEME;
+$TNB_GLOBALS['layout'] = 'layout';
+$TNB_GLOBALS['headerType'] = 'default';
 
 //Define User Acl Constants
 BuckysUserAcl::defineAclConstants();
 
 //Set User Data into Global Variable
 if(!($userID = buckys_is_logged_in())){
-	$BUCKYS_GLOBALS['user'] = ['userID' => 0, 'user_type' => 'Public', 'aclLevel' => 0, 'aclName' => 'Public'];
+	$TNB_GLOBALS['user'] = ['userID' => 0, 'user_type' => 'Public', 'aclLevel' => 0, 'aclName' => 'Public'];
 	buckys_enqueue_stylesheet('footer.css');
 }else{
-	$BUCKYS_GLOBALS['user'] = BuckysUser::getUserBasicInfo($userID);
+	$TNB_GLOBALS['user'] = BuckysUser::getUserBasicInfo($userID);
 	buckys_enqueue_stylesheet('footer.css');
 	buckys_enqueue_stylesheet('jquery-ui/jquery-ui.css');
 	buckys_enqueue_javascript('jquery-ui.min.js');

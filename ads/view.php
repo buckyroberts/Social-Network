@@ -40,11 +40,11 @@ if(!$adDetail || ($adDetail['ownerID'] != $userID && buckys_check_user_acl(USER_
     buckys_redirect('/ads/advertiser.php');
 }
 
-$BUCKYS_GLOBALS['headerType'] = "ads";
-$BUCKYS_GLOBALS['content'] = "ads/view";
+$TNB_GLOBALS['headerType'] = "ads";
+$TNB_GLOBALS['content'] = "ads/view";
 
 buckys_enqueue_javascript('jquery.number.js');
 
-$BUCKYS_GLOBALS['title'] = "View Ad - thenewboston Ads";
+$TNB_GLOBALS['title'] = "View Ad - thenewboston Ads";
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

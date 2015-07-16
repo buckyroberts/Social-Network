@@ -16,8 +16,8 @@ buckys_enqueue_javascript('trade.js');
 buckys_enqueue_javascript('trade-edit.js');
 buckys_enqueue_javascript('uploadify/flash_install.js');
 
-$BUCKYS_GLOBALS['content'] = 'trade/additem';
-$BUCKYS_GLOBALS['headerType'] = 'trade';
+$TNB_GLOBALS['content'] = 'trade/additem';
+$TNB_GLOBALS['headerType'] = 'trade';
 
 $view = [];
 
@@ -48,6 +48,6 @@ if($view['my_bitcoin_balance'] < TRADE_ITEM_LISTING_FEE_IN_BTC && $view['my_cred
     $view['no_cash'] = true;
 }
 
-$BUCKYS_GLOBALS['title'] = 'Add an Item - BuckysRoomTrade';
+$TNB_GLOBALS['title'] = 'Add an Item - BuckysRoomTrade';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

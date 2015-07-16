@@ -1,5 +1,5 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 
@@ -21,12 +21,12 @@ if(!isset($BUCKYS_GLOBALS)){
             <?php render_result_messages() ?>
             <h2 class="titles"><?php echo isset($category) ? 'Edit Forum' : 'Create a New Forum Category'; ?></h2>
             <?php
-            if($BUCKYS_GLOBALS['user']['reputation'] < 10){
+            if($TNB_GLOBALS['user']['reputation'] < 10){
                 echo '<br />Sorry Hoss, but you need 10 points before you can create a new forum category.<br /><br />If you are trying to create a new topic, first select a category from the left hand side. From there, click on the "create new topic" button on the right.';
             }
             ?>
             <form name="editforumform" id="editforumform" action="/forum/add_forum.php" method="post"
-                style="margin-top:10px;<?php if($BUCKYS_GLOBALS['user']['reputation'] < 10){
+                style="margin-top:10px;<?php if($TNB_GLOBALS['user']['reputation'] < 10){
                     echo 'display:none;';
                 } ?>">
                 <?php

@@ -70,8 +70,8 @@ buckys_enqueue_javascript('jquery.Jcrop.js');
 buckys_enqueue_javascript('jquery.color.js');
 buckys_enqueue_javascript('edit_photo.js');
 
-$BUCKYS_GLOBALS['content'] = 'photo_edit';
+$TNB_GLOBALS['content'] = 'photo_edit';
 
-$BUCKYS_GLOBALS['title'] = "Edit Photo - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Edit Photo - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

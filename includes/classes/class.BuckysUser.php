@@ -486,7 +486,7 @@ class BuckysUser{
 		$link = $url_protocol . $_SERVER['HTTP_HOST'] . "/register.php?action=verify&email=" . $data['email'] . "&token=" . $token;
 
 		$title = "Please verify your account.";
-		$body = "Dear " . $data['firstName'] . " " . $data['lastName'] . "\n\n" . "Thanks for your registration. \n" . "To complete your registration, please verify your email address by clicking the below link:. \n" . $link . "\n\n" . BUCKYSROOM_DOMAIN;
+		$body = "Dear " . $data['firstName'] . " " . $data['lastName'] . "\n\n" . "Thanks for your registration. \n" . "To complete your registration, please verify your email address by clicking the below link:. \n" . $link . "\n\n" . TNB_DOMAIN;
 
 		buckys_sendmail($data['email'], $data['firstName'] . " " . $data['lastName'], $title, $body);
 
@@ -515,7 +515,7 @@ class BuckysUser{
 		buckys_add_message(MSG_ACCOUNT_VERIFIED, MSG_TYPE_SUCCESS);
 
 		//Make this user to friend with bucky
-		$query = $db->prepare("SELECT userID FROM " . TABLE_USERS . " WHERE email=%s", BUCKYSROOM_ADMIN_EMAIL);
+		$query = $db->prepare("SELECT userID FROM " . TABLE_USERS . " WHERE email=%s", TNB_ADMIN_EMAIL);
 		$buckysID = $db->getVar($query);
 
 		//$buckysID = $db->getVar("Select userID FROM " . TABLE_USERS . " WHERE email='admin@thenewboston.com'");
@@ -798,10 +798,10 @@ class BuckysUser{
 		if($bitCoinInfo){
 			$userInfo = BuckysUser::getUserBasicInfo($userID);
 
-			$content = "Your " . BUCKYSROOM_SITE_NAME . " account has been deleted. However, you may still access your Bitcoin wallet at:\n" . "https://blockchain.info/wallet/login\n" . "Identifier: " . $bitCoinInfo['bitcoin_guid'] . "\n" . "Password: " . buckys_decrypt($bitCoinInfo['bitcoin_password']) . "\n";
+			$content = "Your " . TNB_SITE_NAME . " account has been deleted. However, you may still access your Bitcoin wallet at:\n" . "https://blockchain.info/wallet/login\n" . "Identifier: " . $bitCoinInfo['bitcoin_guid'] . "\n" . "Password: " . buckys_decrypt($bitCoinInfo['bitcoin_password']) . "\n";
 
 			//Send Email to User
-			buckys_sendmail($userInfo['email'], $userInfo['firstName'] . ' ' . $userInfo['lastName'], BUCKYSROOM_SITE_NAME . ' Account has been Deleted', $content);
+			buckys_sendmail($userInfo['email'], $userInfo['firstName'] . ' ' . $userInfo['lastName'], TNB_SITE_NAME . ' Account has been Deleted', $content);
 		}
 
 	}
@@ -836,7 +836,7 @@ class BuckysUser{
 	 * @return Array
 	 */
 	public static function getUserNotificationSettings($userID){
-		global $db, $BUCKYS_GLOBALS;
+		global $db, $TNB_GLOBALS;
 
 		$query = $db->prepare("SELECT * FROM " . TABLE_USERS_NOTIFY_SETTINGS . " WHERE userID=%s", $userID);
 		$row = $db->getRow($query);
@@ -844,7 +844,7 @@ class BuckysUser{
 		if(!$row)
 			$row = [];
 
-		$row = array_merge($BUCKYS_GLOBALS['notify_settings'], $row);
+		$row = array_merge($TNB_GLOBALS['notify_settings'], $row);
 
 		return $row;
 	}

@@ -6,7 +6,7 @@
 
 $tradeOfferReceived = 0;
 
-$userData = $BUCKYS_GLOBALS['user'];
+$userData = $TNB_GLOBALS['user'];
 
 if(isset($userData) && isset($userData['userID'])){
     $tradeOfferIns = new BuckysTradeOffer();

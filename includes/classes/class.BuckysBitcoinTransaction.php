@@ -12,7 +12,7 @@ class BuckysBitcoinTransaction {
     const STATUS_PENDING = 0;
     const STATUS_ACTIVE = 1;
 
-    const BUCKYS_BITCOIN_RECEIVER_ID = 0;
+    const TNB_BITCOIN_RECEIVER_ID = 0;
 
     /**
      * Add transaction of bitcoin

@@ -58,17 +58,17 @@ $hierarchical = BuckysForumCategory::getCategoryHierarchical($category['category
 
 //Mark Forum Notifications to read
 if(buckys_check_user_acl(USER_ACL_REGISTERED))
-    BuckysForumNotification::makeNotificationsToRead($BUCKYS_GLOBALS['user']['userID'], $category['categoryID']);
+    BuckysForumNotification::makeNotificationsToRead($TNB_GLOBALS['user']['userID'], $category['categoryID']);
 
 buckys_enqueue_javascript('jquery-migrate-1.2.0.js');
 
 buckys_enqueue_stylesheet('forum.css');
 buckys_enqueue_stylesheet('publisher.css');
 
-$BUCKYS_GLOBALS['headerType'] = 'forum';
-$BUCKYS_GLOBALS['content'] = 'forum/category';
-$BUCKYS_GLOBALS['title'] = $category['categoryName'] . ' - thenewboston Forum';
+$TNB_GLOBALS['headerType'] = 'forum';
+$TNB_GLOBALS['content'] = 'forum/category';
+$TNB_GLOBALS['title'] = $category['categoryName'] . ' - thenewboston Forum';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");
 
 

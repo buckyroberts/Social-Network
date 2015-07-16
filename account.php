@@ -37,8 +37,8 @@ buckys_enqueue_javascript('add_post.js');
 buckys_enqueue_javascript('account.js');
 
 //Set Content
-$BUCKYS_GLOBALS['content'] = 'account';
+$TNB_GLOBALS['content'] = 'account';
 
 //Page Title
-$BUCKYS_GLOBALS['title'] = 'My Account - ' . BUCKYSROOM_SITE_NAME;
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+$TNB_GLOBALS['title'] = 'My Account - ' . TNB_SITE_NAME;
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

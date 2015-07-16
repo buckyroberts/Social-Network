@@ -44,8 +44,8 @@ buckys_enqueue_stylesheet('account.css');
 buckys_enqueue_stylesheet('posting.css');
 buckys_enqueue_stylesheet('info.css');
 
-$BUCKYS_GLOBALS['content'] = 'photo_manage';
+$TNB_GLOBALS['content'] = 'photo_manage';
 
-$BUCKYS_GLOBALS['title'] = "Manage Photos - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Manage Photos - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

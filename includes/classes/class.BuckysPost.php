@@ -400,7 +400,7 @@ class BuckysPost {
      * @return bool|int|null|string
      */
     public static function savePhoto($userID, $data){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         //Check the Photo File Name
         if(!isset($data['file']) || strpos($data['file'], "../") !== false || !file_exists(DIR_FS_PHOTO_TMP . $data['file'])){
@@ -412,7 +412,7 @@ class BuckysPost {
 
         // Validate the file type
         $fileParts = pathinfo($data['file']);
-        if(!in_array(strtolower($fileParts['extension']), $BUCKYS_GLOBALS['imageTypes'])){
+        if(!in_array(strtolower($fileParts['extension']), $TNB_GLOBALS['imageTypes'])){
             buckys_add_message(MSG_INVALID_PHOTO_TYPE, MSG_TYPE_ERROR);
             return false;
         }

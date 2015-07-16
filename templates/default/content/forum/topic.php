@@ -1,5 +1,5 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 
@@ -227,7 +227,7 @@ if(buckys_is_admin() || buckys_is_moderator() || buckys_is_forum_admin($topic['c
                 <!-- Reply form at bottom -->
                 <tr class="post-reply-btm">
                     <td colspan="3" class="replies-header" style="background:#fff;">
-                        <?php if(buckys_check_user_acl(USER_ACL_REGISTERED) && !BuckysForumModerator::isBlocked($BUCKYS_GLOBALS['user']['userID'], $topic['categoryID'])){ ?>
+                        <?php if(buckys_check_user_acl(USER_ACL_REGISTERED) && !BuckysForumModerator::isBlocked($TNB_GLOBALS['user']['userID'], $topic['categoryID'])){ ?>
                             <h2 class="titles left" style="margin-top:6px;">Reply</h2>
                         <?php } ?>
                         <?php
@@ -237,13 +237,13 @@ if(buckys_is_admin() || buckys_is_moderator() || buckys_is_forum_admin($topic['c
                         ?>
                     </td>
                 </tr>
-                <?php if(buckys_check_user_acl(USER_ACL_REGISTERED) && !BuckysForumModerator::isBlocked($BUCKYS_GLOBALS['user']['userID'], $topic['categoryID'])){ ?>
+                <?php if(buckys_check_user_acl(USER_ACL_REGISTERED) && !BuckysForumModerator::isBlocked($TNB_GLOBALS['user']['userID'], $topic['categoryID'])){ ?>
                     <tr>
                         <td style="background:#fff;">&nbsp;</td>
                         <td class="icon-column" style="background:#fff;">
-                            <a href='/profile.php?user=<?php echo $BUCKYS_GLOBALS['user']['userID'] ?>'> <img
+                            <a href='/profile.php?user=<?php echo $TNB_GLOBALS['user']['userID'] ?>'> <img
                                     class="profileIcon topic-icon"
-                                    src="<?php echo BuckysUser::getProfileIcon(['thumbnail' => $BUCKYS_GLOBALS['user']['thumbnail'], 'userID' => $BUCKYS_GLOBALS['user']['userID']]) ?>"
+                                    src="<?php echo BuckysUser::getProfileIcon(['thumbnail' => $TNB_GLOBALS['user']['thumbnail'], 'userID' => $TNB_GLOBALS['user']['userID']]) ?>"
                                     class="poster-icon"/> </a>
                         </td>
                         <td class="post-content" style="width:100%;background:#fff">

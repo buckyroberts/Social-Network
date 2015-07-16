@@ -104,9 +104,9 @@ buckys_enqueue_stylesheet('uploadify.css');
 buckys_enqueue_javascript('sceditor/jquery.sceditor.bbcode.js');
 buckys_enqueue_javascript('uploadify/jquery.uploadify.js');
 
-$BUCKYS_GLOBALS['headerType'] = 'forum';
-$BUCKYS_GLOBALS['content'] = 'forum/post_reply';
-$BUCKYS_GLOBALS['title'] = 'Post Reply - thenewboston Forum';
+$TNB_GLOBALS['headerType'] = 'forum';
+$TNB_GLOBALS['content'] = 'forum/post_reply';
+$TNB_GLOBALS['title'] = 'Post Reply - thenewboston Forum';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");
 

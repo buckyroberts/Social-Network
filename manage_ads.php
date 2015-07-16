@@ -36,8 +36,8 @@ buckys_enqueue_stylesheet('account.css');
 buckys_enqueue_stylesheet('moderator.css');
 buckys_enqueue_stylesheet('publisher.css');
 
-$BUCKYS_GLOBALS['content'] = 'manage_ads';
+$TNB_GLOBALS['content'] = 'manage_ads';
 
-$BUCKYS_GLOBALS['title'] = "Moderator Panel";
+$TNB_GLOBALS['title'] = "Moderator Panel";
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

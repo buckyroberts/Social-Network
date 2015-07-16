@@ -26,7 +26,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'create'){
     }
 
     $fileParts = pathinfo($_POST['file']);
-    if(!in_array(strtolower($fileParts['extension']), $BUCKYS_GLOBALS['imageTypes'])){
+    if(!in_array(strtolower($fileParts['extension']), $TNB_GLOBALS['imageTypes'])){
         buckys_redirect("/page_add.php", MSG_INVALID_PHOTO_TYPE, MSG_TYPE_ERROR);
         return false;
     }
@@ -53,8 +53,8 @@ buckys_enqueue_javascript('jquery.color.js');
 
 buckys_enqueue_javascript('add_page.js');
 
-$BUCKYS_GLOBALS['content'] = 'page_add';
+$TNB_GLOBALS['content'] = 'page_add';
 
-$BUCKYS_GLOBALS['title'] = "Create a New Page - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Create a New Page - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

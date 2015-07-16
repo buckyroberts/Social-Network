@@ -2,7 +2,7 @@
 /**
  * Private Messenger Buddy List Class
  */
-if(!defined('BUCKYS_APP'))
+if(!defined('TNB_APP'))
     exit(MSG_INVALID_REQUEST);
 
 class BuckysPrivateMessenger {
@@ -468,13 +468,13 @@ class BuckysPrivateMessenger {
      * @return bool|string
      */
     public function formatDate($time, $userID = null){
-        global $BUCKYS_GLOBALS;
+        global $TNB_GLOBALS;
 
         if($userID == null)
             $userID = buckys_is_logged_in();
 
         $userData = BuckysUser::getUserBasicInfo($userID);
-        $timezone = $BUCKYS_GLOBALS['timezone'][$userData['timezone']];
+        $timezone = $TNB_GLOBALS['timezone'][$userData['timezone']];
 
         $offset = $timezone * 60 * 60;
 

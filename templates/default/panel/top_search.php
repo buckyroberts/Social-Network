@@ -4,8 +4,8 @@
 
  */
 
-if(isset($BUCKYS_GLOBALS['searchParamPP'])){
-    $view['param'] = $BUCKYS_GLOBALS['searchParamPP'];
+if(isset($TNB_GLOBALS['searchParamPP'])){
+    $view['param'] = $TNB_GLOBALS['searchParamPP'];
 }
 
 

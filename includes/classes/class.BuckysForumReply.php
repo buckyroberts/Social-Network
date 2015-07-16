@@ -18,9 +18,9 @@ class BuckysForumReply
     */
     public static function getReplies($topicID = null, $status=null, $page = 1, $orderBy = 'oldest')
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
-        if(!$BUCKYS_GLOBALS['user']['userID'])        
+        if(!$TNB_GLOBALS['user']['userID'])
             $query = "SELECT r.*, CONCAT(u.firstName, ' ', u.lastName) AS creatorName, u.thumbnail,u.posts_count, u.posts_rating, 0 AS voteID, 0 AS reportID, 0 AS voteStatus, us.reputation FROM " . TABLE_FORUM_REPLIES . " AS r " .
                      "LEFT JOIN " . TABLE_USERS . " AS u ON u.userID=r.creatorID " .
                      "LEFT JOIN " . TABLE_USERS_STATS . " AS us ON us.userID=r.creatorID ";
@@ -28,8 +28,8 @@ class BuckysForumReply
             $query = "SELECT r.*, CONCAT(u.firstName, ' ', u.lastName) AS creatorName, u.thumbnail,u.posts_count, u.posts_rating, v.voteID, v.voteStatus, rp.reportID, us.reputation FROM " . TABLE_FORUM_REPLIES . " AS r " .
                      " LEFT JOIN " . TABLE_USERS . " AS u ON u.userID=r.creatorID " .
                      " LEFT JOIN " . TABLE_USERS_STATS . " AS us ON us.userID=r.creatorID " .
-                     " LEFT JOIN " . TABLE_FORUM_VOTES . " AS v ON v.objectID=r.replyID AND v.voterID=" . $BUCKYS_GLOBALS['user']['userID'] .
-                     " LEFT JOIN " . TABLE_REPORTS . " AS rp ON rp.objectType='reply' AND rp.objectID=r.replyID AND rp.reporterID=" . $BUCKYS_GLOBALS['user']['userID'];
+                     " LEFT JOIN " . TABLE_FORUM_VOTES . " AS v ON v.objectID=r.replyID AND v.voterID=" . $TNB_GLOBALS['user']['userID'] .
+                     " LEFT JOIN " . TABLE_REPORTS . " AS rp ON rp.objectType='reply' AND rp.objectID=r.replyID AND rp.reporterID=" . $TNB_GLOBALS['user']['userID'];
         
         $where = array();
         if($status != null)
@@ -116,7 +116,7 @@ class BuckysForumReply
      */
     public static function createReply($data)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         $content = trim($data['content']);
         
@@ -146,7 +146,7 @@ class BuckysForumReply
                 )VALUES(
                     '" . $topic['topicID'] . "',
                     '" . $db->escapeInput($content, false) . "',
-                    '" . $BUCKYS_GLOBALS['user']['userID'] . "',
+                    '" . $TNB_GLOBALS['user']['userID'] . "',
                     '" . date("Y-m-d H:i:s") . "',
                     '0',
                     'pending'
@@ -159,24 +159,24 @@ class BuckysForumReply
             return $db->getLastError();
             
         //If the user has more than 5 actived topics, update the topic status to 1
-        $count1 = $db->getVar("SELECT count(1) FROM " . TABLE_FORUM_TOPICS . " WHERE creatorID=" . $BUCKYS_GLOBALS['user']['userID'] . " AND `status`='publish'");
-        $count2 = $db->getVar("SELECT count(1) FROM " . TABLE_FORUM_REPLIES . " WHERE creatorID=" . $BUCKYS_GLOBALS['user']['userID'] . " AND `status`='publish'");
+        $count1 = $db->getVar("SELECT count(1) FROM " . TABLE_FORUM_TOPICS . " WHERE creatorID=" . $TNB_GLOBALS['user']['userID'] . " AND `status`='publish'");
+        $count2 = $db->getVar("SELECT count(1) FROM " . TABLE_FORUM_REPLIES . " WHERE creatorID=" . $TNB_GLOBALS['user']['userID'] . " AND `status`='publish'");
         if($count1 + $count2 >= 5){
             //Publish  Reply
             $db->updateFromArray(TABLE_FORUM_REPLIES, array('status' => 'publish'), array('replyID' => $newID));
             
             //Update Topic Table
-            $db->query("UPDATE " . TABLE_FORUM_TOPICS . " SET lastReplyID=" . $newID . ", `replies`=`replies` + 1, lastReplyDate='" . date('Y-m-d H:i:s') . "', lastReplierID=" . $BUCKYS_GLOBALS['user']['userID'] . " WHERE topicID=" . $topic['topicID']);
+            $db->query("UPDATE " . TABLE_FORUM_TOPICS . " SET lastReplyID=" . $newID . ", `replies`=`replies` + 1, lastReplyDate='" . date('Y-m-d H:i:s') . "', lastReplierID=" . $TNB_GLOBALS['user']['userID'] . " WHERE topicID=" . $topic['topicID']);
             
             $db->query("UPDATE " . TABLE_FORUM_CATEGORIES . " SET `replies`=`replies` + 1, lastTopicID='" . $topic['topicID'] . "' WHERE categoryID=" . $topic['categoryID']);
             
             //Increase user posts count
-            $db->query("UPDATE " . TABLE_USERS . " SET `posts_count`=`posts_count` + 1 WHERE userID=" . $BUCKYS_GLOBALS['user']['userID']);
+            $db->query("UPDATE " . TABLE_USERS . " SET `posts_count`=`posts_count` + 1 WHERE userID=" . $TNB_GLOBALS['user']['userID']);
             
             //Add Notifications
             $forumNotification = new BuckysForumNotification();
             $forumNotification->addNotificationsForReplies($topic['creatorID'], $topic['topicID'], $newID);
-            if($topic['creatorID'] != $BUCKYS_GLOBALS['user']['userID'])
+            if($topic['creatorID'] != $TNB_GLOBALS['user']['userID'])
                 $forumNotification->addNotificationsForTopic($topic['creatorID'], $topic['topicID'], $newID);
                 
             //Update User Stats
@@ -197,7 +197,7 @@ class BuckysForumReply
      */
     public function editReply($data)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         $content = trim($data['content']);
         
@@ -318,7 +318,7 @@ class BuckysForumReply
      */
     public static function voteReply($userID, $replyID, $voteType)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         //Check Reply ID        
         $query = $db->prepare("SELECT replyID, votes, creatorID, topicID FROM " . TABLE_FORUM_REPLIES . " WHERE replyID=%d AND STATUS='publish'", $replyID);

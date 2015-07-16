@@ -2,7 +2,7 @@
 /**
  * Profile Left Sidebar
  */
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 global $userData, $profileID, $canViewPrivate, $userID;

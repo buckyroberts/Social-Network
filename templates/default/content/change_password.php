@@ -1,5 +1,5 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 ?>
@@ -45,8 +45,8 @@ if(!isset($BUCKYS_GLOBALS)){
                     <div class="clear"></div>
                 </div>
                 <input type="hidden" name="action" value="change_password"/> <input type="hidden" name="userID"
-                    value="<?php echo $BUCKYS_GLOBALS['user']['userID'] ?>"/> <input type="hidden" name="userIDHash"
-                    value="<?php echo buckys_encrypt_id($BUCKYS_GLOBALS['user']['userID']) ?>"/>
+                    value="<?php echo $TNB_GLOBALS['user']['userID'] ?>"/> <input type="hidden" name="userIDHash"
+                    value="<?php echo buckys_encrypt_id($TNB_GLOBALS['user']['userID']) ?>"/>
             </form>
 
         </section>

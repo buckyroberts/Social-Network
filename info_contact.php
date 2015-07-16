@@ -99,8 +99,8 @@ buckys_enqueue_stylesheet('info.css');
 
 buckys_enqueue_javascript('info.js');
 
-$BUCKYS_GLOBALS['content'] = 'info_contact';
+$TNB_GLOBALS['content'] = 'info_contact';
 
-$BUCKYS_GLOBALS['title'] = "Contact Info - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Contact Info - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

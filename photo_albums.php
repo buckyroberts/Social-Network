@@ -37,7 +37,7 @@ buckys_enqueue_stylesheet('account.css');
 buckys_enqueue_stylesheet('posting.css');
 buckys_enqueue_javascript('album.js');
 
-$BUCKYS_GLOBALS['content'] = 'photo_albums';
-$BUCKYS_GLOBALS['title'] = "Photo Albums - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['content'] = 'photo_albums';
+$TNB_GLOBALS['title'] = "Photo Albums - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

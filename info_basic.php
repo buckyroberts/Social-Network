@@ -42,7 +42,7 @@ buckys_enqueue_stylesheet('account.css');
 buckys_enqueue_stylesheet('info.css');
 buckys_enqueue_javascript('info.js');
 
-$BUCKYS_GLOBALS['content'] = 'info_basic';
-$BUCKYS_GLOBALS['title'] = "Basic Info - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['content'] = 'info_basic';
+$TNB_GLOBALS['title'] = "Basic Info - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

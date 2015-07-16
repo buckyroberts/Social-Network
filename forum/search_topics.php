@@ -46,8 +46,8 @@ buckys_enqueue_javascript('uploadify/jquery.uploadify.js');
 
 $view['action_type'] = 'create';
 
-$BUCKYS_GLOBALS['headerType'] = 'forum';
-$BUCKYS_GLOBALS['content'] = 'forum/search_topics';
-$BUCKYS_GLOBALS['title'] = 'Search Topics - thenewboston Forum';
+$TNB_GLOBALS['headerType'] = 'forum';
+$TNB_GLOBALS['content'] = 'forum/search_topics';
+$TNB_GLOBALS['title'] = 'Search Topics - thenewboston Forum';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

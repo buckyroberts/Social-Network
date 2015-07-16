@@ -5,8 +5,8 @@ buckys_enqueue_stylesheet('trade.css');
 
 buckys_enqueue_javascript('trade.js');
 
-$BUCKYS_GLOBALS['content'] = 'trade/search';
-$BUCKYS_GLOBALS['headerType'] = 'trade';
+$TNB_GLOBALS['content'] = 'trade/search';
+$TNB_GLOBALS['headerType'] = 'trade';
 
 $paramCurrentPage = buckys_escape_query_integer(isset($_REQUEST['page']) ? $_REQUEST['page'] : 1);
 $paramQueryStr = buckys_escape_query_string(isset($_REQUEST['q']) ? $_REQUEST['q'] : '');
@@ -41,28 +41,28 @@ $view['param']['loc'] = $paramLocation;
 $view['param']['sort'] = $paramSort;
 $view['param']['user'] = $paramUserID;
 
-$BUCKYS_GLOBALS['tradeSearchParam'] = $view['param'];
+$TNB_GLOBALS['tradeSearchParam'] = $view['param'];
 
 $view['countryList'] = $countryIns->getCountryList();
 
 if($paramQueryStr != ''){
-    $BUCKYS_GLOBALS['title'] = $paramQueryStr . ' - BuckysRoomTrade Search';
+    $TNB_GLOBALS['title'] = $paramQueryStr . ' - BuckysRoomTrade Search';
 }else if($paramCategory != ''){
-    $BUCKYS_GLOBALS['title'] = $paramCategory . ' - BuckysRoomTrade Search';
+    $TNB_GLOBALS['title'] = $paramCategory . ' - BuckysRoomTrade Search';
 }else if($paramUserID != '' && is_numeric($paramUserID)){
 
     $userIns = new BuckysUser();
     $userData = $userIns->getUserBasicInfo($paramUserID);
     if($userData){
-        $BUCKYS_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Items - BuckysRoomTrade Search";
+        $TNB_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Items - BuckysRoomTrade Search";
     }else{
-        $BUCKYS_GLOBALS['title'] = 'BuckysRoomTrade Search';
+        $TNB_GLOBALS['title'] = 'BuckysRoomTrade Search';
     }
 
 }else if($paramLocation != ''){
-    $BUCKYS_GLOBALS['title'] = $paramLocation . ' - BuckysRoomTrade Search';
+    $TNB_GLOBALS['title'] = $paramLocation . ' - BuckysRoomTrade Search';
 }else{
-    $BUCKYS_GLOBALS['title'] = 'BuckysRoomTrade Search';
+    $TNB_GLOBALS['title'] = 'BuckysRoomTrade Search';
 }
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

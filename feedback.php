@@ -5,8 +5,8 @@ buckys_enqueue_stylesheet('trade.css');
 
 buckys_enqueue_javascript('trade.js');
 
-$BUCKYS_GLOBALS['content'] = 'feedback';
-//$BUCKYS_GLOBALS['headerType'] = 'trade';
+$TNB_GLOBALS['content'] = 'feedback';
+//$TNB_GLOBALS['headerType'] = 'trade';
 
 $paramCurrentPage = get_secure_integer($_REQUEST['page']);
 $paramType = get_secure_string($_REQUEST['type']);
@@ -56,9 +56,9 @@ $view['myRatingInfo'] = $feedbackIns->getUserRating($userID);
 $userData = $userIns->getUserBasicInfo($userID);
 if($userData){
     if($paramType == 'given'){
-        $BUCKYS_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Feedback Given - " . BUCKYSROOM_SITE_NAME;
+        $TNB_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Feedback Given - " . TNB_SITE_NAME;
     }else{
-        $BUCKYS_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Feedback Received- " . BUCKYSROOM_SITE_NAME;
+        $TNB_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Feedback Received- " . TNB_SITE_NAME;
 
         //Mark the activity (offer received) as read
         $tradeNotificationIns = new BuckysTradeNotification();
@@ -67,7 +67,7 @@ if($userData){
     }
 
 }else{
-    $BUCKYS_GLOBALS['title'] = 'Feedback - ' . BUCKYSROOM_SITE_NAME;
+    $TNB_GLOBALS['title'] = 'Feedback - ' . TNB_SITE_NAME;
 }
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

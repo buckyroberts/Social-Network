@@ -3,7 +3,7 @@
 class BuckysSearchApi {
 
     public function getListAction(){
-        global $BUCKYS_GLOBALS, $db;
+        global $TNB_GLOBALS, $db;
         $data = $_POST;
 
         $keyword = isset($data['keyword']) ? $data['keyword'] : null;
@@ -73,7 +73,7 @@ class BuckysSearchApi {
     }
 
     public function getFriendListAction(){
-        global $BUCKYS_GLOBALS, $db;
+        global $TNB_GLOBALS, $db;
         $data = $_POST;
 
         $keyword = isset($data['keyword']) ? $data['keyword'] : null;

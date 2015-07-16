@@ -63,15 +63,15 @@ buckys_enqueue_stylesheet('videos.css');
 buckys_enqueue_javascript('sceditor/jquery.sceditor.bbcode.js');
 buckys_enqueue_javascript('videos.js');
 
-$BUCKYS_GLOBALS['content'] = "videos";
+$TNB_GLOBALS['content'] = "videos";
 
 /* Page title
 if(isset($videoInfo))
-    $BUCKYS_GLOBALS['title'] = $videoInfo['entry']['title']['$t'];
+    $TNB_GLOBALS['title'] = $videoInfo['entry']['title']['$t'];
 else
 */
-$BUCKYS_GLOBALS['title'] = BUCKYSROOM_SITE_NAME . " Videos and Tutorials - Free Educational Video Tutorials on Computer Programming, Adobe Software, Computer Science and More!";
+$TNB_GLOBALS['title'] = TNB_SITE_NAME . " Videos and Tutorials - Free Educational Video Tutorials on Computer Programming, Adobe Software, Computer Science and More!";
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");
 
 

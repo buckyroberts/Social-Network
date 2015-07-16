@@ -43,10 +43,10 @@ buckys_enqueue_javascript('add_post.js');
 buckys_enqueue_javascript('page.js');
 buckys_enqueue_stylesheet('publisher.css');
 
-$BUCKYS_GLOBALS['content'] = 'followers';
+$TNB_GLOBALS['content'] = 'followers';
 
-$BUCKYS_GLOBALS['title'] = trim($pageData['title']) . " Members - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = trim($pageData['title']) . " Members - " . TNB_SITE_NAME;
 
 //if logged user can see all resources of the current user
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

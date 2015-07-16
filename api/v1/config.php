@@ -15,13 +15,13 @@ function buckys_api_get_error_result($errorMessage){
 }
 
 function buckys_api_format_date($userID, $date, $format = 'F j, Y'){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
     $timeOffset = 0;
 
     $userInfo = BuckysUser::getUserBasicInfo($userID);
 
-    $timeOffset = $BUCKYS_GLOBALS['timezone'][$userInfo['timezone']];
+    $timeOffset = $TNB_GLOBALS['timezone'][$userInfo['timezone']];
 
     $strDate = "";
 

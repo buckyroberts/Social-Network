@@ -29,7 +29,7 @@ class BuckysNotificationApi {
     }
 
     public function getNewNotificationAction(){
-        global $BUCKYS_GLOBALS, $db;
+        global $TNB_GLOBALS, $db;
 
         $data = $_POST;
 

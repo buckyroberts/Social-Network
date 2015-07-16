@@ -193,12 +193,12 @@ $blockedUsers = BuckysForumModerator::getBlockedUsers($categoryID);
 buckys_enqueue_stylesheet('sceditor/themes/default.css');
 buckys_enqueue_stylesheet('forum.css');
 
-$BUCKYS_GLOBALS['headerType'] = 'forum';
-$BUCKYS_GLOBALS['content'] = 'forum/moderator';
+$TNB_GLOBALS['headerType'] = 'forum';
+$TNB_GLOBALS['content'] = 'forum/moderator';
 
-$BUCKYS_GLOBALS['title'] = $category['categoryName'] . ' Moderator Panel - thenewboston Forum';
+$TNB_GLOBALS['title'] = $category['categoryName'] . ' Moderator Panel - thenewboston Forum';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");
 
 
 

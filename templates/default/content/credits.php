@@ -1,17 +1,17 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 
 
 $paypalSetting = [];
 
-if(BUCKYSROOM_PAYPAL_MODE_LIVE == true){
+if(TNB_PAYPAL_MODE_LIVE == true){
     $paypalSetting['url'] = 'https://www.paypal.com/cgi-bin/webscr';
-    $paypalSetting['merchant_email'] = BUCKYSROOM_PAYPAL_EMAIL;
+    $paypalSetting['merchant_email'] = TNB_PAYPAL_EMAIL;
 }else{
     $paypalSetting['url'] = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
-    $paypalSetting['merchant_email'] = BUCKYSROOM_PAYPAL_SANDBOX_EMAIL;
+    $paypalSetting['merchant_email'] = TNB_PAYPAL_SANDBOX_EMAIL;
 }
 
 
@@ -73,16 +73,16 @@ if(BUCKYSROOM_PAYPAL_MODE_LIVE == true){
 
                     <input type="hidden" name="business" value="<?php echo $paypalSetting['merchant_email']; ?>"> <input
                         type="hidden" name="cmd" value="_xclick"> <input type="hidden" name="currency_code"
-                        value="<?php echo BUCKYSROOM_PAYPAL_CURRENCY; ?>">
+                        value="<?php echo TNB_PAYPAL_CURRENCY; ?>">
 
                     <!-- should be set by javascript -->
                     <input type="hidden" name="item_name" value=""> <input type="hidden" name="amount" value=""> <input
-                        type="hidden" name="custom" value="<?php echo $BUCKYS_GLOBALS['payerID']; ?>"/>
+                        type="hidden" name="custom" value="<?php echo $TNB_GLOBALS['payerID']; ?>"/>
 
                     <!-- return url setting -->
-                    <input type="hidden" name="notify_url" value="<?php echo BUCKYSROOM_PAYPAL_NOTIFY_URL; ?>"> <input
-                        type="hidden" name="return" value="<?php echo BUCKYSROOM_PAYPAL_RETURN_URL; ?>"> <input
-                        type="hidden" name="cancel_return" value="<?php echo BUCKYSROOM_PAYPAL_CANCEL_RETURN_URL; ?>">
+                    <input type="hidden" name="notify_url" value="<?php echo TNB_PAYPAL_NOTIFY_URL; ?>"> <input
+                        type="hidden" name="return" value="<?php echo TNB_PAYPAL_RETURN_URL; ?>"> <input
+                        type="hidden" name="cancel_return" value="<?php echo TNB_PAYPAL_CANCEL_RETURN_URL; ?>">
 
                     <!-- Shipping and Misc Information -->
                     <input type="hidden" name="no_shipping" value="1"> <input type="hidden" name="shipping_1" value="0">
@@ -112,8 +112,8 @@ if(BUCKYSROOM_PAYPAL_MODE_LIVE == true){
                                     <div class="td td-type">
                                         <?php
                                         if($row['payerID'] == 0 && $row['activityType'] == BuckysTransaction::ACTIVITY_TYPE_DEPOSIT_BY_PAYPAL)
-                                            echo 'Deposit';else if($row['payerID'] == $BUCKYS_GLOBALS['user']['userID'])
-                                            echo 'Payment To';else if($row['receiverID'] == $BUCKYS_GLOBALS['user']['userID'])
+                                            echo 'Deposit';else if($row['payerID'] == $TNB_GLOBALS['user']['userID'])
+                                            echo 'Payment To';else if($row['receiverID'] == $TNB_GLOBALS['user']['userID'])
                                             echo 'Payment From';else
                                             echo 'Paycheck';
                                         ?>
@@ -124,7 +124,7 @@ if(BUCKYSROOM_PAYPAL_MODE_LIVE == true){
                                         if($row['activityType'] == BuckysTransaction::ACTIVITY_TYPE_TRADE_ITEM_ADD){
                                             echo '<span>Trade Listing Fee</span>';
                                         }else if($row['activityType'] == BuckysTransaction::ACTIVITY_TYPE_PAYMENT_TO_OTHER){
-                                            if($row['payerID'] == $BUCKYS_GLOBALS['user']['userID']){
+                                            if($row['payerID'] == $TNB_GLOBALS['user']['userID']){
                                                 echo sprintf('<a href="/profile.php?user=%s">%s</a>', $row['receiverID'], $row['receiverName']);
                                             }else{
                                                 echo sprintf('<a href="/profile.php?user=%s">%s</a>', $row['payerID'], $row['payerName']);
@@ -140,7 +140,7 @@ if(BUCKYSROOM_PAYPAL_MODE_LIVE == true){
                                     </div>
                                     <div class="td td-amount">
                                         <?php
-                                        if($row['receiverID'] == $BUCKYS_GLOBALS['user']['userID'])
+                                        if($row['receiverID'] == $TNB_GLOBALS['user']['userID'])
                                             echo '<span style="color:#16A085;">';else
                                             echo '<span style="color:#C0392B;">-';
 
@@ -150,7 +150,7 @@ if(BUCKYSROOM_PAYPAL_MODE_LIVE == true){
                                     </div>
                                     <div class="td td-balance">
                                         <?php
-                                        if($row['payerID'] == 0 || $row['receiverID'] == $BUCKYS_GLOBALS['user']['userID'])
+                                        if($row['payerID'] == 0 || $row['receiverID'] == $TNB_GLOBALS['user']['userID'])
                                             echo number_format($row['receiverBalance'], 2);else
                                             echo number_format($row['payerBalance'], 2);
                                         ?>

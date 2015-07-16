@@ -119,7 +119,7 @@ class BuckysForumCategory {
                 $catDesc = 'Chat about anything non-computer related including, music, movies, tuna sandwiches, and more!';
                 break;
             case 45:
-                $catDesc = 'Just joined the website? Feel free to introduce yourself here. Oh, by the way, welcome to ' . BUCKYSROOM_SITE_NAME . '!';
+                $catDesc = 'Just joined the website? Feel free to introduce yourself here. Oh, by the way, welcome to ' . TNB_SITE_NAME . '!';
                 break;
             case 6:
                 $catDesc = 'Create website animations, games, and other interactive applications for Flash.';
@@ -307,7 +307,7 @@ class BuckysForumCategory {
      * @return Indexed
      */
     public static function getFollowingCategories(){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         $userID = buckys_is_logged_in();
 
@@ -421,7 +421,7 @@ class BuckysForumCategory {
     public static function searchCategories($keyword, $page, $orderBy, $limit){
         global $db;
 
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         $where = '';
 

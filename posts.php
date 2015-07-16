@@ -51,10 +51,10 @@ buckys_enqueue_javascript('jquery.Jcrop.js');
 
 buckys_enqueue_javascript('posts.js');
 
-$BUCKYS_GLOBALS['content'] = 'posts';
+$TNB_GLOBALS['content'] = 'posts';
 
 if($userData){
-    $BUCKYS_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Posts - " . BUCKYSROOM_SITE_NAME;
+    $TNB_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Posts - " . TNB_SITE_NAME;
 }
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

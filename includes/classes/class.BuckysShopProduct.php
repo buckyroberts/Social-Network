@@ -89,12 +89,12 @@ class BuckysShopProduct {
 
         }else if($paymentType == BuckysShopProduct::LIST_FEE_PAYMENT_TYPE_BTC){
 
-            $flag = BuckysBitcoin::sendBitcoin($userID, SHOP_BUCKYSROOM_LISTING_FEE_RECEIVER_BITCOIN_ADDRESS, SHOP_PRODUCT_LISTING_FEE_IN_BTC);
+            $flag = BuckysBitcoin::sendBitcoin($userID, SHOP_TNB_LISTING_FEE_RECEIVER_BITCOIN_ADDRESS, SHOP_PRODUCT_LISTING_FEE_IN_BTC);
             buckys_get_messages(); // this will flash the messages
 
             if($flag){
                 //Create bitcoin transaction
-                BuckysBitcoinTransaction::addTransaction(BuckysBitcoinTransaction::BUCKYS_BITCOIN_RECEIVER_ID, $userID, BuckysBitcoinTransaction::ACTIVITY_TYPE_LISTING_PRODUCT, $prodID, SHOP_PRODUCT_LISTING_FEE_IN_BTC);
+                BuckysBitcoinTransaction::addTransaction(BuckysBitcoinTransaction::TNB_BITCOIN_RECEIVER_ID, $userID, BuckysBitcoinTransaction::ACTIVITY_TYPE_LISTING_PRODUCT, $prodID, SHOP_PRODUCT_LISTING_FEE_IN_BTC);
             }
 
         }

@@ -72,16 +72,16 @@ buckys_enqueue_javascript('uploadify/jquery.uploadify.js');
 buckys_enqueue_javascript('jquery.Jcrop.js');
 buckys_enqueue_javascript('edit_forum.js');
 
-$BUCKYS_GLOBALS['headerType'] = 'forum';
-$BUCKYS_GLOBALS['content'] = 'forum/edit_category';
+$TNB_GLOBALS['headerType'] = 'forum';
+$TNB_GLOBALS['content'] = 'forum/edit_category';
 
 if(!$categoryID){
-    $BUCKYS_GLOBALS['title'] = 'Create a New Forum - thenewboston Forum';
+    $TNB_GLOBALS['title'] = 'Create a New Forum - thenewboston Forum';
 }else{
-    $BUCKYS_GLOBALS['title'] = 'Edit Forum - thenewboston Forum';
+    $TNB_GLOBALS['title'] = 'Edit Forum - thenewboston Forum';
 }
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");
 
 
 

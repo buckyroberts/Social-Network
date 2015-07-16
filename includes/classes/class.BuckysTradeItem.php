@@ -48,12 +48,12 @@ class BuckysTradeItem {
 
         }else if($paymentType == BuckysTradeItem::LIST_FEE_PAYMENT_TYPE_BTC){
 
-            $flag = BuckysBitcoin::sendBitcoin($userID, TRADE_BUCKYSROOM_LISTING_FEE_RECEIVER_BITCOIN_ADDRESS, TRADE_ITEM_LISTING_FEE_IN_BTC);
+            $flag = BuckysBitcoin::sendBitcoin($userID, TRADE_TNB_LISTING_FEE_RECEIVER_BITCOIN_ADDRESS, TRADE_ITEM_LISTING_FEE_IN_BTC);
             buckys_get_messages(); // this will flash the messages
 
             if($flag){
                 //Create bitcoin transaction
-                BuckysBitcoinTransaction::addTransaction(BuckysBitcoinTransaction::BUCKYS_BITCOIN_RECEIVER_ID, $userID, BuckysBitcoinTransaction::ACTIVITY_TYPE_LISTING_TRADE_ITEM, $itemID, TRADE_ITEM_LISTING_FEE_IN_BTC);
+                BuckysBitcoinTransaction::addTransaction(BuckysBitcoinTransaction::TNB_BITCOIN_RECEIVER_ID, $userID, BuckysBitcoinTransaction::ACTIVITY_TYPE_LISTING_TRADE_ITEM, $itemID, TRADE_ITEM_LISTING_FEE_IN_BTC);
             }
 
         }

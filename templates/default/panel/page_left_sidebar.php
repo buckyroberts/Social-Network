@@ -2,15 +2,15 @@
 /**
  * Page Left Sidebar
  */
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 
 global $view;
 
 $userID = null;
-if(isset($BUCKYS_GLOBALS['user']))
-    $userID = $BUCKYS_GLOBALS['user']['userID'];
+if(isset($TNB_GLOBALS['user']))
+    $userID = $TNB_GLOBALS['user']['userID'];
 
 $pageData = $view['pageData'];
 

@@ -14,7 +14,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'create-publisher-ad'){
     if(!buckys_check_form_token()){
         buckys_redirect('/ads/create_publisher_ad.php', MSG_INVALID_REQUEST, MSG_TYPE_ERROR);
     }else{
-        $_POST['adType'] = BUCKYS_AD_TYPE_CUSTOM;
+        $_POST['adType'] = TNB_AD_TYPE_CUSTOM;
         if($classPublisherAd->savePublisherAd($userID, $_POST)){
 
             buckys_redirect('/ads/publisher.php', $classPublisherAd->last_message);
@@ -33,9 +33,9 @@ buckys_enqueue_javascript('create_publisher_ads.js');
 buckys_enqueue_stylesheet('colorpicker.css');
 buckys_enqueue_stylesheet('publisher.css');
 
-$BUCKYS_GLOBALS['headerType'] = "ads";
-$BUCKYS_GLOBALS['content'] = "ads/create_publisher_ad";
+$TNB_GLOBALS['headerType'] = "ads";
+$TNB_GLOBALS['content'] = "ads/create_publisher_ad";
 
-$BUCKYS_GLOBALS['title'] = "Create Publisher Ad - thenewboston Ads";
+$TNB_GLOBALS['title'] = "Create Publisher Ad - thenewboston Ads";
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

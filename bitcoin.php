@@ -21,15 +21,15 @@ if(!buckys_not_null($userData) || !BuckysUser::checkUserID($profileID, true)){
 }
 
 //Display
-$BUCKYS_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Bitcoin Address - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Bitcoin Address - " . TNB_SITE_NAME;
 
 buckys_enqueue_stylesheet('profile.css');
 buckys_enqueue_stylesheet('posting.css');
 buckys_enqueue_stylesheet('publisher.css');
 
-$BUCKYS_GLOBALS['content'] = 'bitcoin';
-$BUCKYS_GLOBALS['meta'] = '<meta http-equiv="Pragma" content="no-cache"> 
+$TNB_GLOBALS['content'] = 'bitcoin';
+$TNB_GLOBALS['meta'] = '<meta http-equiv="Pragma" content="no-cache">
                            <meta http-equiv="Cache-Control" content="no-cache">';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");
 

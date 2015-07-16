@@ -3,7 +3,7 @@
  * Index Page Layout
  */
 
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 
@@ -16,14 +16,14 @@ if(!isset($BUCKYS_GLOBALS)){
         <?php if(buckys_is_logged_in()){ ?>
 
             <div
-                class="user-name"><?php echo $BUCKYS_GLOBALS['user']['firstName'] . " " . $BUCKYS_GLOBALS['user']['lastName'] ?></div>
+                class="user-name"><?php echo $TNB_GLOBALS['user']['firstName'] . " " . $TNB_GLOBALS['user']['lastName'] ?></div>
             <div class="user-thumbnail">
-                <a href="/profile.php?user=<?php echo $BUCKYS_GLOBALS['user']['userID'] ?>">
-                    <?php if(!$BUCKYS_GLOBALS['user']['thumbnail']){ ?>
+                <a href="/profile.php?user=<?php echo $TNB_GLOBALS['user']['userID'] ?>">
+                    <?php if(!$TNB_GLOBALS['user']['thumbnail']){ ?>
                         <img src="<?php echo DIR_WS_IMAGE . 'defaultProfileImage.png' ?>"/>
                     <?php }else{ ?>
                         <img
-                            src="<?php echo DIR_WS_PHOTO . 'users/' . $BUCKYS_GLOBALS['user']['userID'] . '/resized/' . $BUCKYS_GLOBALS['user']['thumbnail'] ?>"/>
+                            src="<?php echo DIR_WS_PHOTO . 'users/' . $TNB_GLOBALS['user']['userID'] . '/resized/' . $TNB_GLOBALS['user']['thumbnail'] ?>"/>
                     <?php } ?>
                 </a>
             </div>

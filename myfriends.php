@@ -206,10 +206,10 @@ buckys_enqueue_stylesheet('friends.css');
 
 buckys_enqueue_javascript('friends.js');
 
-$BUCKYS_GLOBALS['content'] = 'myfriends';
+$TNB_GLOBALS['content'] = 'myfriends';
 
-$BUCKYS_GLOBALS['title'] = "My Friends - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "My Friends - " . TNB_SITE_NAME;
 
 //if logged user can see all resources of the current user
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

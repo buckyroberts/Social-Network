@@ -8,8 +8,8 @@ if(!($userID = buckys_is_logged_in())){
 buckys_enqueue_stylesheet('trade.css');
 buckys_enqueue_javascript('trade.js');
 
-$BUCKYS_GLOBALS['content'] = 'trade/notify';
-$BUCKYS_GLOBALS['headerType'] = 'trade';
+$TNB_GLOBALS['content'] = 'trade/notify';
+$TNB_GLOBALS['headerType'] = 'trade';
 
 $view = [];
 
@@ -34,6 +34,6 @@ if(empty($view['trade_user_info'])){
     buckys_redirect('/trade/index.php', MSG_INVALID_REQUEST, MSG_TYPE_ERROR);
 }
 
-$BUCKYS_GLOBALS['title'] = 'Notification Settings - BuckysRoomTrade';
+$TNB_GLOBALS['title'] = 'Notification Settings - BuckysRoomTrade';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

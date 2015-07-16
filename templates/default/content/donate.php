@@ -1,5 +1,5 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 ?>
@@ -8,7 +8,7 @@ if(!isset($BUCKYS_GLOBALS)){
     <div class="static-page-wrap">
         <h2 class="titles">Donate</h2>
 
-        <p>Feel free to donate to help support <?php echo BUCKYSROOM_SITE_NAME ?>. All contributions will be used to improve the website and will help us build a bigger and better community.</p>
+        <p>Feel free to donate to help support <?php echo TNB_SITE_NAME ?>. All contributions will be used to improve the website and will help us build a bigger and better community.</p>
 
         <p>Donation Bitcoin Address: <b>16FCD5zrkJp6AqfDm3j6LBWNYx1Gard2Z1</b></p>
         <!-- <h3>Heading Three Sample</h3> -->

@@ -7,8 +7,8 @@ buckys_enqueue_stylesheet('trade.css');
 
 buckys_enqueue_javascript('trade.js');
 
-$BUCKYS_GLOBALS['content'] = 'trade/view';
-$BUCKYS_GLOBALS['headerType'] = 'trade';
+$TNB_GLOBALS['content'] = 'trade/view';
+$TNB_GLOBALS['headerType'] = 'trade';
 
 $paramItemID = buckys_escape_query_integer($_REQUEST['id']);
 
@@ -64,6 +64,6 @@ if($userID && is_numeric($userID) && $view['offerDisabled'] == false){
 
 }
 
-$BUCKYS_GLOBALS['title'] = $view['item']['title'] . ' - BuckysRoomTrade';
+$TNB_GLOBALS['title'] = $view['item']['title'] . ' - BuckysRoomTrade';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

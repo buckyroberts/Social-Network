@@ -8,8 +8,8 @@ if(!($userID = buckys_is_logged_in())){
 buckys_enqueue_stylesheet('shop.css');
 buckys_enqueue_javascript('shop.js');
 
-$BUCKYS_GLOBALS['content'] = 'shop/sold';
-$BUCKYS_GLOBALS['headerType'] = 'shop';
+$TNB_GLOBALS['content'] = 'shop/sold';
+$TNB_GLOBALS['headerType'] = 'shop';
 
 //Update sold notification as read
 $notificationIns = new BuckysShopNotification();
@@ -28,6 +28,6 @@ $orderIns->updateSoldAsRead($userID);
 
 $view['sold'] = fn_buckys_pagination($view['sold'], '/shop/sold.php', $paramCurrentPage, COMMON_ROWS_PER_PAGE);
 
-$BUCKYS_GLOBALS['title'] = 'My Sold Items - BuckysRoomShop';
+$TNB_GLOBALS['title'] = 'My Sold Items - BuckysRoomShop';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

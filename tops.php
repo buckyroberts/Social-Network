@@ -33,14 +33,14 @@ $results = BuckysPost::getTopPosts($period, $type, $page, BuckysPost::$$pageLimi
 
 buckys_enqueue_stylesheet('index.css');
 
-$BUCKYS_GLOBALS['content'] = "tops";
+$TNB_GLOBALS['content'] = "tops";
 
 $typeString = ['image' => 'Images ', 'video' => 'Videos ', 'text' => 'Posts '];
 $periodString = ['today' => 'Today ', 'this-week' => 'This Week ', 'this-month' => 'This Month ', 'all' => ''];
 
 //Page title
-$BUCKYS_GLOBALS['title'] = "Most Popular " . $typeString[$type] . $periodString[$period] . '- ' . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Most Popular " . $typeString[$type] . $periodString[$period] . '- ' . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");
 
 

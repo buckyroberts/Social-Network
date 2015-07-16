@@ -36,11 +36,11 @@ buckys_enqueue_stylesheet('moderator.css');
 
 buckys_enqueue_javascript('reported.js');
 
-$BUCKYS_GLOBALS['content'] = 'reported';
+$TNB_GLOBALS['content'] = 'reported';
 
 //Reported Object Type Label
 $reportLabel = ['post' => ['Post', 'Posts'], 'comment' => ['Comment', 'Comments'], 'message' => ['Message', 'Messages'], 'topic' => ['Topic', 'Topics'], 'reply' => ['Reply', 'Replies']];
 
-$BUCKYS_GLOBALS['title'] = "Moderator Panel";
+$TNB_GLOBALS['title'] = "Moderator Panel";
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

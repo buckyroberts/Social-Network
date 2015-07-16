@@ -11,7 +11,7 @@ $bitcoinClass = new BuckysBitcoin();
 //Create Wallet if it is not created
 $bitcoinInfo = BuckysUser::getUserBitcoinInfo($userID);
 if(!$bitcoinInfo){
-    $bitcoinInfo = $bitcoinClass->createWallet($BUCKYS_GLOBALS['user']['userID'], $BUCKYS_GLOBALS['user']['email']);
+    $bitcoinInfo = $bitcoinClass->createWallet($TNB_GLOBALS['user']['userID'], $TNB_GLOBALS['user']['email']);
 }
 
 if(isset($_POST['action']) && $_POST['action'] == 'send-bitcoins'){
@@ -23,7 +23,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'send-bitcoins'){
     $amount = doubleval($_POST['amount']);
     $password = $_POST['password'];
 
-    $user = BuckysUser::getUserData($BUCKYS_GLOBALS['user']['userID']);
+    $user = BuckysUser::getUserData($TNB_GLOBALS['user']['userID']);
 
     $is_error = false;
 
@@ -64,12 +64,12 @@ buckys_enqueue_stylesheet('credits.css');
 
 buckys_enqueue_javascript('wallet.js');
 
-$BUCKYS_GLOBALS['content'] = 'wallet';
+$TNB_GLOBALS['content'] = 'wallet';
 
-$BUCKYS_GLOBALS['title'] = "Wallet - " . BUCKYSROOM_SITE_NAME;
-$BUCKYS_GLOBALS['payerID'] = $userID;
+$TNB_GLOBALS['title'] = "Wallet - " . TNB_SITE_NAME;
+$TNB_GLOBALS['payerID'] = $userID;
 
-$BUCKYS_GLOBALS['meta'] = '<meta http-equiv="Pragma" content="no-cache"> 
+$TNB_GLOBALS['meta'] = '<meta http-equiv="Pragma" content="no-cache">
                            <meta http-equiv="Cache-Control" content="no-cache">';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

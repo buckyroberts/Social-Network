@@ -46,8 +46,8 @@ buckys_enqueue_stylesheet('messages.css');
 
 buckys_enqueue_javascript('messages.js');
 
-$BUCKYS_GLOBALS['content'] = 'messages_inbox';
+$TNB_GLOBALS['content'] = 'messages_inbox';
 
-$BUCKYS_GLOBALS['title'] = "Inbox - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Inbox - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

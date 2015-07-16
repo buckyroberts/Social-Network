@@ -33,12 +33,12 @@ buckys_enqueue_stylesheet('posting.css');
 buckys_enqueue_stylesheet('friends.css');
 buckys_enqueue_stylesheet('publisher.css');
 
-$BUCKYS_GLOBALS['content'] = 'friends';
+$TNB_GLOBALS['content'] = 'friends';
 
 if($userData){
-    $BUCKYS_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Friends - " . BUCKYSROOM_SITE_NAME;
+    $TNB_GLOBALS['title'] = trim($userData['firstName'] . ' ' . $userData['lastName']) . "'s Friends - " . TNB_SITE_NAME;
 }
 
 //if logged user can see all resources of the current user
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

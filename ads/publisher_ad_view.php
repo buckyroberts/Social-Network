@@ -24,9 +24,9 @@ $classAds = new BuckysAds();
 
 $sizeDetail = $classAds->getAdSizeById($adDetail['size']);
 
-$BUCKYS_GLOBALS['headerType'] = "ads";
-$BUCKYS_GLOBALS['content'] = "ads/publisher_ad_view";
+$TNB_GLOBALS['headerType'] = "ads";
+$TNB_GLOBALS['content'] = "ads/publisher_ad_view";
 
-$BUCKYS_GLOBALS['title'] = "View Ad Details - thenewboston Ads";
+$TNB_GLOBALS['title'] = "View Ad Details - thenewboston Ads";
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

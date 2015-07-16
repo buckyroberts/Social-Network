@@ -39,7 +39,7 @@ foreach($_POST as $key => $value){
 }
 
 $ch = curl_init('https://www.paypal.com/cgi-bin/webscr');
-if(BUCKYSROOM_PAYPAL_MODE_LIVE == false){
+if(TNB_PAYPAL_MODE_LIVE == false){
     $ch = curl_init('https://www.sandbox.paypal.com/cgi-bin/webscr');
 }
 
@@ -74,13 +74,13 @@ if(strcmp($res, "VERIFIED") == 0){
     $payerEmail = $_POST['payer_email'];
     $paymentCustom = $_POST['custom']; //custom value will be credit number, you may use this one
 
-    $sellerPaypalEmail = BUCKYSROOM_PAYPAL_EMAIL;
-    if(BUCKYSROOM_PAYPAL_MODE_LIVE == false){
-        $sellerPaypalEmail = BUCKYSROOM_PAYPAL_SANDBOX_EMAIL;
+    $sellerPaypalEmail = TNB_PAYPAL_EMAIL;
+    if(TNB_PAYPAL_MODE_LIVE == false){
+        $sellerPaypalEmail = TNB_PAYPAL_SANDBOX_EMAIL;
     }
 
     if($receiverEmail == $sellerPaypalEmail && // receiver_email should be same as site paypal account email
-        $paymentCurrency == BUCKYSROOM_PAYPAL_CURRENCY // currency should be same
+        $paymentCurrency == TNB_PAYPAL_CURRENCY // currency should be same
     ){
         if($paymentStatus == 'Completed'){  //payment_status = Completed)
 

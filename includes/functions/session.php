@@ -92,7 +92,7 @@ function buckys_session_start(){
 
     $session_id = '';
 
-    session_set_cookie_params(0, "/", BUCKYSROOM_DOMAIN, true, true);
+    session_set_cookie_params(0, "/", TNB_DOMAIN, true, true);
 
     //Set Session Handler
     session_set_save_handler('_buckys_session_open', '_buckys_session_close', '_buckys_session_read', '_buckys_session_write', '_buckys_session_destory', '_buckys_session_gc');

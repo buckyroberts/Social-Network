@@ -2,7 +2,7 @@
 /**
  * Page Left Sidebar
  */
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 if(buckys_is_logged_in()){
@@ -13,14 +13,14 @@ if(buckys_is_logged_in()){
 ?>
 <aside id="forum-left-bar">
     <?php if(buckys_is_logged_in()) : ?>
-        <h2 class="titles"><?php echo $BUCKYS_GLOBALS['user']['firstName'] . " " . $BUCKYS_GLOBALS['user']['lastName'] ?></h2>
+        <h2 class="titles"><?php echo $TNB_GLOBALS['user']['firstName'] . " " . $TNB_GLOBALS['user']['lastName'] ?></h2>
         <div class="user-thumbnail">
-            <a href="/profile.php?user=<?php echo $BUCKYS_GLOBALS['user']['userID'] ?>">
-                <?php if(!$BUCKYS_GLOBALS['user']['thumbnail']){ ?>
+            <a href="/profile.php?user=<?php echo $TNB_GLOBALS['user']['userID'] ?>">
+                <?php if(!$TNB_GLOBALS['user']['thumbnail']){ ?>
                     <img src="<?php echo DIR_WS_IMAGE . 'defaultProfileImage.png' ?>"/>
                 <?php }else{ ?>
                     <img
-                        src="<?php echo DIR_WS_PHOTO . 'users/' . $BUCKYS_GLOBALS['user']['userID'] . '/resized/' . $BUCKYS_GLOBALS['user']['thumbnail'] ?>"/>
+                        src="<?php echo DIR_WS_PHOTO . 'users/' . $TNB_GLOBALS['user']['userID'] . '/resized/' . $TNB_GLOBALS['user']['thumbnail'] ?>"/>
                 <?php } ?>
             </a>
         </div>
@@ -48,13 +48,13 @@ if(buckys_is_logged_in()){
 
         <?php if(buckys_is_logged_in()) : ?>
             <dd>
-                <a href='/forum/index.php' <?php echo $BUCKYS_GLOBALS['content'] == 'forum/home' ? 'class="current"' : '' ?>>My Forum Feed</a>
+                <a href='/forum/index.php' <?php echo $TNB_GLOBALS['content'] == 'forum/home' ? 'class="current"' : '' ?>>My Forum Feed</a>
 
                 <div class="menu-item-divider"></div>
             </dd>
         <?php endif; ?>
         <dd>
-            <a href="/forum/recent_activity.php" <?php echo $BUCKYS_GLOBALS['content'] == 'forum/recent_activity' ? 'class="current"' : '' ?>>All Activity</a>
+            <a href="/forum/recent_activity.php" <?php echo $TNB_GLOBALS['content'] == 'forum/recent_activity' ? 'class="current"' : '' ?>>All Activity</a>
 
             <div class="menu-item-divider"></div>
         </dd>
@@ -68,14 +68,14 @@ if(buckys_is_logged_in()){
         <dl>
             <dt>Moderator</dt>
             <dd>
-                <a href="/forum/pending_topics.php" <?php echo $BUCKYS_GLOBALS['content'] == 'forum/pending_topics' ? 'class="current"' : '' ?>>Pending Topics</a>
+                <a href="/forum/pending_topics.php" <?php echo $TNB_GLOBALS['content'] == 'forum/pending_topics' ? 'class="current"' : '' ?>>Pending Topics</a>
                 <?php if($pendingTopics > 0){ ?>
                     <span class="reported-items"><?php echo $pendingTopics ?></span>
                 <?php } ?>
                 <div class="menu-item-divider"></div>
             </dd>
             <dd>
-                <a href="/forum/pending_replies.php" <?php echo $BUCKYS_GLOBALS['content'] == 'forum/pending_replies' ? 'class="current"' : '' ?>>Pending Replies</a>
+                <a href="/forum/pending_replies.php" <?php echo $TNB_GLOBALS['content'] == 'forum/pending_replies' ? 'class="current"' : '' ?>>Pending Replies</a>
                 <?php if($pendingReplies > 0){ ?>
                     <span class="reported-items"><?php echo $pendingReplies ?></span>
                 <?php } ?>
@@ -90,7 +90,7 @@ if(buckys_is_logged_in()){
     <?php if(buckys_is_logged_in()) : ?>
         <?php
         $listType = null;
-        if($BUCKYS_GLOBALS['content'] == 'forum/myposts'){
+        if($TNB_GLOBALS['content'] == 'forum/myposts'){
             $listType = isset($_GET['type']) ? $_GET['type'] : 'all';
             if(!in_array($listType, ['all', 'responded', 'started']))
                 $listType = 'all';
@@ -99,12 +99,12 @@ if(buckys_is_logged_in()){
         <dl>
             <dt>My Topics</dt>
             <dd>
-                <a href="/forum/myposts.php?type=started" <?php echo $BUCKYS_GLOBALS['content'] == 'forum/myposts' && $listType == 'started' ? 'class="current"' : '' ?>>Created</a>
+                <a href="/forum/myposts.php?type=started" <?php echo $TNB_GLOBALS['content'] == 'forum/myposts' && $listType == 'started' ? 'class="current"' : '' ?>>Created</a>
 
                 <div class="menu-item-divider"></div>
             </dd>
             <dd>
-                <a href="/forum/myposts.php?type=responded" <?php echo $BUCKYS_GLOBALS['content'] == 'forum/myposts' && $listType == 'responded' ? 'class="current"' : '' ?>>Replied</a>
+                <a href="/forum/myposts.php?type=responded" <?php echo $TNB_GLOBALS['content'] == 'forum/myposts' && $listType == 'responded' ? 'class="current"' : '' ?>>Replied</a>
 
                 <div class="menu-item-divider"></div>
             </dd>
@@ -117,7 +117,7 @@ if(buckys_is_logged_in()){
         <?php if(buckys_is_logged_in()){ ?>
             <dd>
                 <a href="/forum/add_forum.php"
-                    style="font-family:OpenSans-Bold; color:#f2f2f2;" <?php echo $BUCKYS_GLOBALS['content'] == 'forum/edit_category' && !isset($categoryID) ? 'class="current"' : '' ?>>Create a New Category +</a>
+                    style="font-family:OpenSans-Bold; color:#f2f2f2;" <?php echo $TNB_GLOBALS['content'] == 'forum/edit_category' && !isset($categoryID) ? 'class="current"' : '' ?>>Create a New Category +</a>
             </dd>
             <div class="menu-item-divider"></div>
         <?php } ?>

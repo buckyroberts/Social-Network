@@ -47,8 +47,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'delete_account'){
 buckys_enqueue_stylesheet('account.css');
 buckys_enqueue_stylesheet('info.css');
 
-$BUCKYS_GLOBALS['content'] = 'delete_account';
+$TNB_GLOBALS['content'] = 'delete_account';
 
-$BUCKYS_GLOBALS['title'] = "Delete Account - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Delete Account - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

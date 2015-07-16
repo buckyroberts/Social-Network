@@ -40,8 +40,8 @@ buckys_enqueue_stylesheet('info.css');
 
 buckys_enqueue_javascript('info.js');
 
-$BUCKYS_GLOBALS['content'] = 'info_education';
+$TNB_GLOBALS['content'] = 'info_education';
 
-$BUCKYS_GLOBALS['title'] = "Education - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Education - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

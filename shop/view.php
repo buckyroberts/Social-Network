@@ -7,8 +7,8 @@ buckys_enqueue_stylesheet('shop.css');
 
 buckys_enqueue_javascript('shop.js');
 
-$BUCKYS_GLOBALS['content'] = 'shop/view';
-$BUCKYS_GLOBALS['headerType'] = 'shop';
+$TNB_GLOBALS['content'] = 'shop/view';
+$TNB_GLOBALS['headerType'] = 'shop';
 
 $paramShopID = get_secure_integer($_REQUEST['id']);
 
@@ -72,6 +72,6 @@ if(!$userID || $userID == $view['product']['userID']){
 
 }
 
-$BUCKYS_GLOBALS['title'] = $view['product']['title'] . ' - BuckysRoomShop';
+$TNB_GLOBALS['title'] = $view['product']['title'] . ' - BuckysRoomShop';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

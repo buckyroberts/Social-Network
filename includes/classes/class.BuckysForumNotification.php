@@ -19,7 +19,7 @@ class BuckysForumNotification {
      * @return bool
      */
     public function addNotificationsForReplies($replierID, $topicID, $replyID){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         $query = $db->prepare("SELECT DISTINCT(fr.creatorID), fr.replyID, fs.* FROM " . TABLE_FORUM_REPLIES . " AS fr LEFT JOIN " . TABLE_USERS_NOTIFY_SETTINGS . " AS fs ON fs.userID=fr.creatorID WHERE fr.topicID=%d", $topicID);
         $rows = $db->getResultsArray($query);
@@ -27,7 +27,7 @@ class BuckysForumNotification {
         $activity = new BuckysActivity();
 
         foreach($rows as $row){
-            $tForumSettings = ['notifyRepliedToMyTopic' => $row['notifyRepliedToMyTopic'] === null ? $BUCKYS_GLOBALS['notify_settings']['notifyRepliedToMyTopic'] : $row['notifyRepliedToMyTopic'], 'notifyRepliedToMyReply' => $row['notifyRepliedToMyReply'] === null ? $BUCKYS_GLOBALS['notify_settings']['notifyRepliedToMyReply'] : $row['notifyRepliedToMyReply'], 'notifyMyPostApproved' => $row['notifyMyPostApproved'] === null ? $BUCKYS_GLOBALS['notify_settings']['notifyMyPostApproved'] : $row['notifyMyPostApproved']];
+            $tForumSettings = ['notifyRepliedToMyTopic' => $row['notifyRepliedToMyTopic'] === null ? $TNB_GLOBALS['notify_settings']['notifyRepliedToMyTopic'] : $row['notifyRepliedToMyTopic'], 'notifyRepliedToMyReply' => $row['notifyRepliedToMyReply'] === null ? $TNB_GLOBALS['notify_settings']['notifyRepliedToMyReply'] : $row['notifyRepliedToMyReply'], 'notifyMyPostApproved' => $row['notifyMyPostApproved'] === null ? $TNB_GLOBALS['notify_settings']['notifyMyPostApproved'] : $row['notifyMyPostApproved']];
             if($row['replyID'] != $replyID && $row['creatorID'] != $replierID && $tForumSettings['notifyRepliedToMyReply']){
                 $activity->addForumActivity($row['creatorID'], $topicID, 'forum', BuckysForumNotification::ACTION_TYPE_REPLIED_TO_REPLY, $replyID);
             }
@@ -45,7 +45,7 @@ class BuckysForumNotification {
      * @return bool
      */
     public function addNotificationsForTopic($ownerID, $topicID, $replyID){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         $forumSettings = BuckysUser::getUserNotificationSettings($ownerID);
 
@@ -66,7 +66,7 @@ class BuckysForumNotification {
      * @return bool
      */
     public function addNotificationsForPendingPost($ownerID, $topicID, $replyID = null){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         $forumSettings = BuckysUser::getUserNotificationSettings($ownerID);
 

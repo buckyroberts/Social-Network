@@ -59,9 +59,9 @@ if(isset($_POST['login_submit'])){
 
             //If website is using SSL, use secure cookies
             if(SITE_USING_SSL == true){
-                setcookie('COOKIE_KEEP_ME_NAME1', base64_encode($login_token_piece1), time() + COOKIE_LIFETIME, "/", BUCKYSROOM_DOMAIN, true, true);
-                setcookie('COOKIE_KEEP_ME_NAME2', base64_encode($login_token_piece3), time() + COOKIE_LIFETIME, "/", BUCKYSROOM_DOMAIN, true, true);
-                setcookie('COOKIE_KEEP_ME_NAME3', base64_encode($login_token_piece2), time() + COOKIE_LIFETIME, "/", BUCKYSROOM_DOMAIN, true, true);
+                setcookie('COOKIE_KEEP_ME_NAME1', base64_encode($login_token_piece1), time() + COOKIE_LIFETIME, "/", TNB_DOMAIN, true, true);
+                setcookie('COOKIE_KEEP_ME_NAME2', base64_encode($login_token_piece3), time() + COOKIE_LIFETIME, "/", TNB_DOMAIN, true, true);
+                setcookie('COOKIE_KEEP_ME_NAME3', base64_encode($login_token_piece2), time() + COOKIE_LIFETIME, "/", TNB_DOMAIN, true, true);
             }else{
                 setcookie('COOKIE_KEEP_ME_NAME1', base64_encode($login_token_piece1), time() + COOKIE_LIFETIME);
                 setcookie('COOKIE_KEEP_ME_NAME2', base64_encode($login_token_piece3), time() + COOKIE_LIFETIME);

@@ -2,7 +2,7 @@
 /**
  * Page Left Sidebar
  */
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 ?>
@@ -73,21 +73,21 @@ if(!isset($BUCKYS_GLOBALS)){
     <table class="moderators">
         <tr>
             <td style="width: 35px;">
-                <a href="/profile.php?user=<?php echo !$category['creatorID'] ? BUCKYS_USER_ID : $category['creatorID'] ?>">
+                <a href="/profile.php?user=<?php echo !$category['creatorID'] ? TNB_USER_ID : $category['creatorID'] ?>">
                     <img
-                        src="<?php echo BuckysUser::getProfileIcon(!$category['creatorID'] ? BUCKYS_USER_ID : $category['creatorID']) ?>"
+                        src="<?php echo BuckysUser::getProfileIcon(!$category['creatorID'] ? TNB_USER_ID : $category['creatorID']) ?>"
                         class="poster-icon"/> </a>
             </td>
             <td>
-                <a href="/profile.php?user=<?php echo !$category['creatorID'] ? BUCKYS_USER_ID : $category['creatorID'] ?>">
-                    <b><?php echo buckys_get_user_name(!$category['creatorID'] ? BUCKYS_USER_ID : $category['creatorID']) ?></b>
+                <a href="/profile.php?user=<?php echo !$category['creatorID'] ? TNB_USER_ID : $category['creatorID'] ?>">
+                    <b><?php echo buckys_get_user_name(!$category['creatorID'] ? TNB_USER_ID : $category['creatorID']) ?></b>
                 </a><br/> <span>Administrator</span>
             </td>
         </tr>
         <?php foreach($moderators as $mrow){ ?>
             <tr>
                 <td style="width: 35px;">
-                    <a href="/profile.php?user=<?php echo !$category['creatorID'] ? BUCKYS_USER_ID : $category['creatorID'] ?>">
+                    <a href="/profile.php?user=<?php echo !$category['creatorID'] ? TNB_USER_ID : $category['creatorID'] ?>">
                         <?php if(buckys_not_null($mrow['thumbnail'])){ ?>
                             <img
                                 src="<?php echo DIR_WS_PHOTO . 'users/' . $mrow['userID'] . '/resized/' . $mrow['thumbnail']; ?>"

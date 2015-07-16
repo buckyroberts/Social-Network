@@ -1,7 +1,7 @@
 <?php
 require(dirname(dirname(__FILE__)) . '/includes/bootstrap.php');
 
-if(!buckys_check_user_acl(USER_ACL_ADMINISTRATOR) && !BuckysModerator::isModerator($BUCKYS_GLOBALS['user']['userID'])){
+if(!buckys_check_user_acl(USER_ACL_ADMINISTRATOR) && !BuckysModerator::isModerator($TNB_GLOBALS['user']['userID'])){
     buckys_redirect('/forum', MSG_PERMISSION_DENIED, MSG_TYPE_ERROR);
 }
 
@@ -46,9 +46,9 @@ buckys_enqueue_stylesheet('sceditor/themes/default.css');
 buckys_enqueue_stylesheet('forum.css');
 buckys_enqueue_stylesheet('publisher.css');
 
-$BUCKYS_GLOBALS['headerType'] = 'forum';
-$BUCKYS_GLOBALS['content'] = 'forum/pending_replies';
-$BUCKYS_GLOBALS['title'] = 'Pending Replies - thenewboston Forum';
+$TNB_GLOBALS['headerType'] = 'forum';
+$TNB_GLOBALS['content'] = 'forum/pending_replies';
+$TNB_GLOBALS['title'] = 'Pending Replies - thenewboston Forum';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");
 

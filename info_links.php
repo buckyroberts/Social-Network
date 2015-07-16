@@ -40,8 +40,8 @@ buckys_enqueue_stylesheet('info.css');
 
 buckys_enqueue_javascript('info.js');
 
-$BUCKYS_GLOBALS['content'] = 'info_links';
+$TNB_GLOBALS['content'] = 'info_links';
 
-$BUCKYS_GLOBALS['title'] = "Info Links - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Info Links - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

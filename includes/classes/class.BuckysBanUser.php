@@ -13,9 +13,9 @@ class BuckysBanUser {
      * @param Int $userID
      */
     public static function banUser($userID){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
-        $cUserID = $BUCKYS_GLOBALS['user']['userID'];
+        $cUserID = $TNB_GLOBALS['user']['userID'];
 
         $bannedID = $db->getVar("SELECT bannedID FROM " . TABLE_BANNED_USERS . " WHERE bannedUserID=" . $userID);
 
@@ -158,7 +158,7 @@ class BuckysBanUser {
      * @param mixed $ids
      */
     public static function unbanUsers($ids){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         if(!is_array($ids))
             $ids = [$ids];
@@ -258,7 +258,7 @@ class BuckysBanUser {
      * @param mixed $ids
      */
     public static function deleteUsers($ids){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         if(!is_array($ids))
             $ids = [$ids];

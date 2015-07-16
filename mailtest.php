@@ -14,8 +14,8 @@ $mail->Host = SMTP_HOST;
 $mail->Username = SMTP_USERNAME;
 $mail->Password = SMTP_PASSWORD;
 
-$mail->AddAddress(BUCKYSROOM_TEST_EMAIL, "Eric So");
-$mail->SetFrom(BUCKYSROOM_TEST_EMAIL, 'Buckysroom');
+$mail->AddAddress(TNB_TEST_EMAIL, "Eric So");
+$mail->SetFrom(TNB_TEST_EMAIL, 'Buckysroom');
 $mail->Subject = "Testing Email";
 $mail->Body = "Testing Email";
 $mail->Send();

@@ -4,82 +4,82 @@
  */
 
 /**
- * Add Javascript to $BUCKYS_GLOBAL['javascripts']
+ * Add Javascript to $TNB_GLOBAL['javascripts']
  *
  * @param String  $script
  * @param Boolean $is_absolute_path
  * @param Int     $position
  */
 function buckys_enqueue_javascript($script, $is_absolute_path = false, $is_footer = true, $position = null){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
-    if(!isset($BUCKYS_GLOBALS['javascripts']))
-        $BUCKYS_GLOBALS['javascripts'] = [];
+    if(!isset($TNB_GLOBALS['javascripts']))
+        $TNB_GLOBALS['javascripts'] = [];
 
     if(!$is_absolute_path)
         $script = DIR_WS_JS . $script;
 
     //Check already added or not
-    foreach($BUCKYS_GLOBALS['javascripts'] as $row){
+    foreach($TNB_GLOBALS['javascripts'] as $row){
         if($row['src'] == $script)
             return;
     }
 
-    if($position === null || $position >= count($BUCKYS_GLOBALS['javascripts'])){
-        array_push($BUCKYS_GLOBALS['javascripts'], ['src' => $script, 'is_footer' => $is_footer]);
+    if($position === null || $position >= count($TNB_GLOBALS['javascripts'])){
+        array_push($TNB_GLOBALS['javascripts'], ['src' => $script, 'is_footer' => $is_footer]);
     }else{
         $js = [];
-        for($i = 0; $i < count($BUCKYS_GLOBALS['javascripts']); $i++){
+        for($i = 0; $i < count($TNB_GLOBALS['javascripts']); $i++){
             if($i == $position)
                 $js[] = ['src' => $script, 'is_footer' => $is_footer];
-            $js[] = $BUCKYS_GLOBALS['javascripts'][$i];
+            $js[] = $TNB_GLOBALS['javascripts'][$i];
         }
-        $BUCKYS_GLOBALS['javascripts'] = $js;
+        $TNB_GLOBALS['javascripts'] = $js;
     }
 }
 
 /**
- * Add Stylesheet to $BUCKYS_GLOBAL['stylesheets']
+ * Add Stylesheet to $TNB_GLOBAL['stylesheets']
  *
  * @param String  $stylesheet
  * @param Boolean $is_absolute_path
  * @param Int     $position
  */
 function buckys_enqueue_stylesheet($stylesheet, $is_absolute_path = false, $position = null){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
-    if(!isset($BUCKYS_GLOBALS['stylesheets']))
-        $BUCKYS_GLOBALS['stylesheets'] = [];
+    if(!isset($TNB_GLOBALS['stylesheets']))
+        $TNB_GLOBALS['stylesheets'] = [];
 
     if(!$is_absolute_path)
         $stylesheet = DIR_WS_CSS . $stylesheet;
 
-    if($position === null || $position >= count($BUCKYS_GLOBALS['stylesheets'])){
-        array_push($BUCKYS_GLOBALS['stylesheets'], $stylesheet);
+    if($position === null || $position >= count($TNB_GLOBALS['stylesheets'])){
+        array_push($TNB_GLOBALS['stylesheets'], $stylesheet);
     }else{
         $sh = [];
-        for($i = 0; $i < count($BUCKYS_GLOBALS['stylesheets']); $i++){
+        for($i = 0; $i < count($TNB_GLOBALS['stylesheets']); $i++){
             if($i == $position)
                 $sh[] = $stylesheet;
-            $sh[] = $BUCKYS_GLOBALS['stylesheets'][$i];
+            $sh[] = $TNB_GLOBALS['stylesheets'][$i];
         }
-        $BUCKYS_GLOBALS['stylesheets'] = $sh;
+        $TNB_GLOBALS['stylesheets'] = $sh;
     }
 }
 
 /**
- * Render Scripts from $BUCKYS_GLOBALS['javascripts'] variable
+ * Render Scripts from $TNB_GLOBALS['javascripts'] variable
 
  */
 function buckys_render_javascripts($is_footer = true){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
-    if(isset($BUCKYS_GLOBALS['javascripts'])){
-        if(!is_array($BUCKYS_GLOBALS['javascripts']))
-            $BUCKYS_GLOBALS['javascripts'] = [$BUCKYS_GLOBALS['javascripts']];
-        //        $BUCKYS_GLOBALS['javascripts'] = array_unique($BUCKYS_GLOBALS['javascripts']);
+    if(isset($TNB_GLOBALS['javascripts'])){
+        if(!is_array($TNB_GLOBALS['javascripts']))
+            $TNB_GLOBALS['javascripts'] = [$TNB_GLOBALS['javascripts']];
+        //        $TNB_GLOBALS['javascripts'] = array_unique($TNB_GLOBALS['javascripts']);
 
-        foreach($BUCKYS_GLOBALS['javascripts'] as $row){
+        foreach($TNB_GLOBALS['javascripts'] as $row){
             if($row['is_footer'] != $is_footer)
                 continue;
 
@@ -92,13 +92,13 @@ function buckys_render_javascripts($is_footer = true){
  *
  */
 function buckys_render_stylesheet(){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
-    if(isset($BUCKYS_GLOBALS['stylesheets'])){
-        if(!is_array($BUCKYS_GLOBALS['stylesheets']))
-            $BUCKYS_GLOBALS['stylesheets'] = [$BUCKYS_GLOBALS['stylesheets']];
-        $BUCKYS_GLOBALS['stylesheets'] = array_unique($BUCKYS_GLOBALS['stylesheets']);
-        foreach($BUCKYS_GLOBALS['stylesheets'] as $src){
+    if(isset($TNB_GLOBALS['stylesheets'])){
+        if(!is_array($TNB_GLOBALS['stylesheets']))
+            $TNB_GLOBALS['stylesheets'] = [$TNB_GLOBALS['stylesheets']];
+        $TNB_GLOBALS['stylesheets'] = array_unique($TNB_GLOBALS['stylesheets']);
+        foreach($TNB_GLOBALS['stylesheets'] as $src){
             echo "<link rel='stylesheet' type='text/css' href='" . $src . "' >" . PHP_EOL;
         }
     }
@@ -163,9 +163,9 @@ function buckys_check_cookie_for_login(){
         }
 
         //Remove Cookies
-        setcookie('COOKIE_KEEP_ME_NAME1', null, time() - 1000, "/", BUCKYSROOM_DOMAIN);
-        setcookie('COOKIE_KEEP_ME_NAME2', null, time() - 1000, "/", BUCKYSROOM_DOMAIN);
-        setcookie('COOKIE_KEEP_ME_NAME3', null, time() - 1000, "/", BUCKYSROOM_DOMAIN);
+        setcookie('COOKIE_KEEP_ME_NAME1', null, time() - 1000, "/", TNB_DOMAIN);
+        setcookie('COOKIE_KEEP_ME_NAME2', null, time() - 1000, "/", TNB_DOMAIN);
+        setcookie('COOKIE_KEEP_ME_NAME3', null, time() - 1000, "/", TNB_DOMAIN);
 
     }
 
@@ -502,7 +502,7 @@ function buckys_sendmail($to, $toName, $subject, $body){
     $mail->Password = SMTP_PASSWORD;
 
     $mail->AddAddress($to, $toName);
-    $mail->SetFrom(BUCKYSROOM_SUPPORT_EMAIL, BUCKYSROOM_SITE_NAME . ' - Support');
+    $mail->SetFrom(TNB_SUPPORT_EMAIL, TNB_SITE_NAME . ' - Support');
     $mail->Subject = $subject;
     $mail->Body = $body;
 
@@ -515,13 +515,13 @@ function buckys_sendmail($to, $toName, $subject, $body){
  * @param String $panel
  */
 function buckys_get_panel($panel, $params = []){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
-    if(file_exists(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/panel/" . $panel . ".php")){
+    if(file_exists(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/panel/" . $panel . ".php")){
         if(!empty($params)){
             extract($params);
         }
-        require_once(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/panel/" . $panel . ".php");
+        require_once(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/panel/" . $panel . ".php");
     }
 }
 
@@ -608,7 +608,7 @@ function buckys_check_id_encrypted($gID, $encrypted){
  */
 function fn_buckys_pagination($records, $baseUrl, $currentPageNum, $recordPerPage){
 
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
     $newRecords = [];
 
@@ -677,7 +677,7 @@ function fn_buckys_pagination($records, $baseUrl, $currentPageNum, $recordPerPag
             $baseUrl = rtrim($baseUrl, '&') . '&';
         }
 
-        $BUCKYS_GLOBALS['commonPagination'] = ['startIndex' => $startIndex + 1, 'endIndex' => $endIndex, 'totalRecords' => count($records), 'totalPages' => $totalPages, 'currentPage' => $currentPageNum, 'baseUrl' => $baseUrl, 'currentRecords' => count($newRecords)];
+        $TNB_GLOBALS['commonPagination'] = ['startIndex' => $startIndex + 1, 'endIndex' => $endIndex, 'totalRecords' => count($records), 'totalPages' => $totalPages, 'currentPage' => $currentPageNum, 'baseUrl' => $baseUrl, 'currentRecords' => count($newRecords)];
 
     }
 
@@ -1254,11 +1254,11 @@ function buckys_remove_invalid_image_urls($content){
  * @return string
  */
 function _buckys_remove_invalid_image_urls($matches){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
     $info = pathinfo($matches[1]);
     //Check image or not
-    if(!in_array(strtolower($info['extension']), $BUCKYS_GLOBALS['imageTypes'])){
+    if(!in_array(strtolower($info['extension']), $TNB_GLOBALS['imageTypes'])){
         return '';
     }else{
         return $matches[0];

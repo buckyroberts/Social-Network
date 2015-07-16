@@ -10,10 +10,10 @@
  * @return bool
  */
 function buckys_check_user_acl($acl, $userID = null){
-    global $BUCKYS_GLOBALS, $db;
+    global $TNB_GLOBALS, $db;
 
     if(!$userID){
-        $userAcl = $BUCKYS_GLOBALS['user']['aclLevel'];
+        $userAcl = $TNB_GLOBALS['user']['aclLevel'];
     }else{
         $query = $db->prepare("SELECT UA.level FROM " . TABLE_USERS . " AS U LEFT JOIN " . TABLE_USER_ACL . " AS UA ON UA.aclID = U.user_acl_id WHERE userID=%d", $userID);
         $userAcl = $db->getVar($query);
@@ -29,7 +29,7 @@ function buckys_check_user_acl($acl, $userID = null){
 
  */
 function buckys_is_admin(){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
     if(buckys_check_user_acl(USER_ACL_ADMINISTRATOR))
         return true;
@@ -42,7 +42,7 @@ function buckys_is_admin(){
 
  */
 function buckys_is_moderator(){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
     if(!buckys_check_user_acl(USER_ACL_MODERATOR))
         return false;
@@ -51,7 +51,7 @@ function buckys_is_moderator(){
     if(buckys_check_user_acl(USER_ACL_ADMINISTRATOR))
         return true;
 
-    if(!BuckysModerator::isModerator($BUCKYS_GLOBALS['user']['userID']))
+    if(!BuckysModerator::isModerator($TNB_GLOBALS['user']['userID']))
         return false;
 
     return true;
@@ -62,12 +62,12 @@ function buckys_is_moderator(){
 
  */
 function buckys_is_community_moderator(){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
     if(!buckys_check_user_acl(USER_ACL_MODERATOR))
         return false;
 
-    if(!BuckysModerator::isModerator($BUCKYS_GLOBALS['user']['userID']))
+    if(!BuckysModerator::isModerator($TNB_GLOBALS['user']['userID']))
         return false;
 
     return true;
@@ -78,12 +78,12 @@ function buckys_is_community_moderator(){
 
  */
 function buckys_is_trade_moderator(){
-    global $BUCKYS_GLOBALS;
+    global $TNB_GLOBALS;
 
     if(!buckys_check_user_acl(USER_ACL_MODERATOR))
         return false;
 
-    if(!BuckysModerator::isModerator($BUCKYS_GLOBALS['user']['userID']))
+    if(!BuckysModerator::isModerator($TNB_GLOBALS['user']['userID']))
         return false;
 
     return true;

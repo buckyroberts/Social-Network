@@ -1,5 +1,5 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 ?>
@@ -89,11 +89,11 @@ if(!isset($BUCKYS_GLOBALS)){
                                                 <a href="/profile.php?user=<?php echo $tUserInfo['userID']?>"><?php echo $tUserInfo['firstName'] . " " . $tUserInfo['lastName']?></a>
                                                 <br/>
                                             <?php
-                                            }elseif($row['addr'] == BUCKYSROOM_BITCOIN_ADDRESS){
+                                            }elseif($row['addr'] == TNB_BITCOIN_ADDRESS){
                                                 echo '<a href="/ads/index.php">BuckysRoomAds</a>';
-                                            }elseif($row['addr'] == TRADE_BUCKYSROOM_LISTING_FEE_RECEIVER_BITCOIN_ADDRESS){
+                                            }elseif($row['addr'] == TRADE_TNB_LISTING_FEE_RECEIVER_BITCOIN_ADDRESS){
                                                 echo '<a href="/trade/index.php">BuckysRoomTrade</a>';
-                                            }elseif($row['addr'] == SHOP_BUCKYSROOM_LISTING_FEE_RECEIVER_BITCOIN_ADDRESS){
+                                            }elseif($row['addr'] == SHOP_TNB_LISTING_FEE_RECEIVER_BITCOIN_ADDRESS){
                                                 echo '<a href="/shop/index.php">BuckysRoomShop</a>';
                                             }else{
                                                 echo '<span style="color:#999999;">Unknown</span><br />';

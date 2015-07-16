@@ -1,11 +1,11 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 ?>
 <section id="main_section" class="ads-index-page">
     <section id="main_content">
-        <img src="<?php echo DIR_WS_IMAGE ?>ads/main_ads_banner.png" alt="<?php echo BUCKYSROOM_SITE_NAME ?> Ads"
+        <img src="<?php echo DIR_WS_IMAGE ?>ads/main_ads_banner.png" alt="<?php echo TNB_SITE_NAME ?> Ads"
             style="border:1px solid #cccccc; margin-top:5px; display:block;"/>
 
         <div class="advertisers-col">

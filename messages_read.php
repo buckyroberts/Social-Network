@@ -78,8 +78,8 @@ buckys_enqueue_stylesheet('messages.css');
 
 buckys_enqueue_javascript('messages.js');
 
-$BUCKYS_GLOBALS['content'] = 'messages_read';
+$TNB_GLOBALS['content'] = 'messages_read';
 
-$BUCKYS_GLOBALS['title'] = "Read Message - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Read Message - " . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

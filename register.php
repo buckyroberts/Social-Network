@@ -54,8 +54,8 @@ buckys_enqueue_stylesheet('register.css');
 
 buckys_enqueue_javascript('register.js');
 
-$BUCKYS_GLOBALS['content'] = 'register';
+$TNB_GLOBALS['content'] = 'register';
 
-$BUCKYS_GLOBALS['title'] = 'Register - ' . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = 'Register - ' . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

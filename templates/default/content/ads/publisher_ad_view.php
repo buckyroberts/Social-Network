@@ -1,5 +1,5 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 ?>
@@ -64,7 +64,7 @@ buckysroom_ad_width = "<?php echo $sizeDetail['width'] ?>";
 buckysroom_ad_height = "<?php echo $sizeDetail['height'] ?>";
 buckysroom_ad_token = "<?php echo $adDetail['token'] ?>";
 &lt;/script&gt;
-&lt;script type="text/javascript" src="//<?php echo BUCKYSROOM_DOMAIN ?>/ad.js.php"&gt;&lt;/script&gt;</pre>
+&lt;script type="text/javascript" src="//<?php echo TNB_DOMAIN ?>/ad.js.php"&gt;&lt;/script&gt;</pre>
         </div>
 
         <div class="clear"></div>
@@ -84,7 +84,7 @@ buckysroom_ad_token = "<?php echo $adDetail['token'] ?>";
                             <div class="buckysroom-ad">
                                 <p class="bsroom-ad-title" style="text-decoration:none;">
                                     <span
-                                        style="color: #<?php echo $adDetail['titleColor']; ?>;"><?php echo BUCKYSROOM_SITE_NAME ?> Bitcoin Ad Network</span>
+                                        style="color: #<?php echo $adDetail['titleColor']; ?>;"><?php echo TNB_SITE_NAME ?> Bitcoin Ad Network</span>
                                 </p>
 
                                 <p class="bsroom-ad-desc">
@@ -92,7 +92,7 @@ buckysroom_ad_token = "<?php echo $adDetail['token'] ?>";
                                         style="color: #<?php echo $adDetail['textColor']; ?>;">Place ads on your website and earn Bitcoin!</span>
                                 </p>
                                 <a href="#" class="bsroom-ad-link"><span
-                                        style="color: #<?php echo $adDetail['urlColor']; ?>;"><?php echo BUCKYSROOM_DOMAIN ?>/ads</span></a>
+                                        style="color: #<?php echo $adDetail['urlColor']; ?>;"><?php echo TNB_DOMAIN ?>/ads</span></a>
                             </div>
                         </td>
                         <?php if($sizeDetail['type'] != 'horizontal' || $i == ($sizeDetail['ads'] - 1)): ?>

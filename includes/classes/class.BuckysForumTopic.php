@@ -13,7 +13,7 @@ class BuckysForumTopic
      */
     public static function createTopic($data)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         $title = trim($data['title']);
         $category = trim($data['category']);
@@ -53,7 +53,7 @@ class BuckysForumTopic
                     '" . $db->escapeInput($title) . "',
                     '" . $db->escapeInput($content, false) . "',
                     '" . $db->escapeInput($categoryID) . "',
-                    '" . $BUCKYS_GLOBALS['user']['userID'] . "',
+                    '" . $TNB_GLOBALS['user']['userID'] . "',
                     '" . date("Y-m-d H:i:s") . "',
                     '0',
                     '0',
@@ -73,15 +73,15 @@ class BuckysForumTopic
         }
             
         //If the user has more than 5 actived posts(topics or replies), update the topic status to 1
-        $count1 = $db->getVar("SELECT count(1) FROM " . TABLE_FORUM_TOPICS . " WHERE creatorID=" . $BUCKYS_GLOBALS['user']['userID'] . " AND `status`='publish'");
-        $count2 = $db->getVar("SELECT count(1) FROM " . TABLE_FORUM_REPLIES . " WHERE creatorID=" . $BUCKYS_GLOBALS['user']['userID'] . " AND `status`='publish'");
+        $count1 = $db->getVar("SELECT count(1) FROM " . TABLE_FORUM_TOPICS . " WHERE creatorID=" . $TNB_GLOBALS['user']['userID'] . " AND `status`='publish'");
+        $count2 = $db->getVar("SELECT count(1) FROM " . TABLE_FORUM_REPLIES . " WHERE creatorID=" . $TNB_GLOBALS['user']['userID'] . " AND `status`='publish'");
         if($count1 + $count2 >= 5){
             $db->updateFromArray(TABLE_FORUM_TOPICS, ['status' => 'publish'], ['topicID' => $newID]);
             //Update Category Table
             $db->query("UPDATE " . TABLE_FORUM_CATEGORIES . " SET lastTopicID=" . $newID . ", `topics`=`topics` + 1 WHERE categoryID=" . $categoryID);
             
             //Increase user posts count
-            $db->query("UPDATE " . TABLE_USERS . " SET `posts_count`=`posts_count` + 1 WHERE userID=" . $BUCKYS_GLOBALS['user']['userID']);
+            $db->query("UPDATE " . TABLE_USERS . " SET `posts_count`=`posts_count` + 1 WHERE userID=" . $TNB_GLOBALS['user']['userID']);
             
             buckys_add_message(MSG_TOPIC_POSTED_SUCCESSFULLY, MSG_TYPE_SUCCESS);
             
@@ -101,7 +101,7 @@ class BuckysForumTopic
      */
     public function editTopic($data)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         $title = get_secure_string($data['title']);
         $category = get_secure_string($data['category']);
@@ -159,7 +159,7 @@ class BuckysForumTopic
     */
     public static function getTopics($page = 1, $status = null, $category = null, $orderBy = null, $limit = null, $search = null)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         $query = "SELECT 
                         t.topicID,
@@ -185,7 +185,7 @@ class BuckysForumTopic
                   FROM " . TABLE_FORUM_TOPICS . " AS t " .
                  "LEFT JOIN " . TABLE_USERS . " AS u ON u.userID=t.creatorID " .      
                  "LEFT JOIN " . TABLE_USERS . " AS ul ON ul.userID=t.lastReplierID " .      
-                 "LEFT JOIN " . TABLE_FORUM_VOTES . " AS v ON v.objectID=t.topicID AND v.objectType='topic' AND v.voterID=" . $BUCKYS_GLOBALS['user']['userID'] . " " .
+                 "LEFT JOIN " . TABLE_FORUM_VOTES . " AS v ON v.objectID=t.topicID AND v.objectType='topic' AND v.voterID=" . $TNB_GLOBALS['user']['userID'] . " " .
                  "LEFT JOIN " . TABLE_FORUM_CATEGORIES . " AS c ON c.categoryID=t.categoryID ";
                  
         
@@ -249,7 +249,7 @@ class BuckysForumTopic
      */
     public static function getUserTopics($userId, $page = 1, $orderBy = null, $limit = null)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         $query = "SELECT 
                         t.topicID,
@@ -275,7 +275,7 @@ class BuckysForumTopic
                   FROM " . TABLE_FORUM_TOPICS . " AS t " .
                  "LEFT JOIN " . TABLE_USERS . " AS u ON u.userID=t.creatorID " .      
                  "LEFT JOIN " . TABLE_USERS . " AS ul ON ul.userID=t.lastReplierID " .      
-                 "LEFT JOIN " . TABLE_FORUM_VOTES . " AS v ON v.objectID=t.topicID AND v.objectType='topic' AND v.voterID=" . $BUCKYS_GLOBALS['user']['userID'] . " " .
+                 "LEFT JOIN " . TABLE_FORUM_VOTES . " AS v ON v.objectID=t.topicID AND v.objectType='topic' AND v.voterID=" . $TNB_GLOBALS['user']['userID'] . " " .
                  "LEFT JOIN " . TABLE_FORUM_CATEGORIES . " AS c ON c.categoryID=t.categoryID ";
                  
         $where = [];
@@ -305,7 +305,7 @@ class BuckysForumTopic
      */
     public static function getTotalNumOfUserTopics($userId)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         $query = "SELECT 
                        count(t.topicID)
@@ -403,9 +403,9 @@ class BuckysForumTopic
      */
     public static function getTopic($id)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
-        if(!$BUCKYS_GLOBALS['user']['userID'])
+        if(!$TNB_GLOBALS['user']['userID'])
         {
             $query = $db->prepare("SELECT t.*, CONCAT(u.firstName, ' ', u.lastName) AS creatorName, u.thumbnail, u.posts_count, u.posts_rating, 0 AS reportID, 0 AS voteID, 0 AS voteSatus, us.reputation FROM " . TABLE_FORUM_TOPICS ." AS t " .
                                   "LEFT JOIN " . TABLE_USERS . " AS u ON t.creatorID=u.userID " . 
@@ -416,8 +416,8 @@ class BuckysForumTopic
                                   "LEFT JOIN " . TABLE_USERS . " AS u ON t.creatorID=u.userID " .
                                   "LEFT JOIN " . TABLE_USERS_STATS . " AS us ON t.creatorID=us.userID " . 
                                   "LEFT JOIN " . TABLE_REPORTS . " AS r ON r.objectType='topic' AND r.objectID=t.topicID AND r.reporterID=%d " .                                  
-                                  "LEFT JOIN " . TABLE_FORUM_VOTES . " AS v ON v.objectID=t.topicID AND v.objectType='topic' AND v.voterID=" . $BUCKYS_GLOBALS['user']['userID'] . " " .
-                                  "WHERE t.topicID=%d", $BUCKYS_GLOBALS['user']['userID'], $id);
+                                  "LEFT JOIN " . TABLE_FORUM_VOTES . " AS v ON v.objectID=t.topicID AND v.objectType='topic' AND v.voterID=" . $TNB_GLOBALS['user']['userID'] . " " .
+                                  "WHERE t.topicID=%d", $TNB_GLOBALS['user']['userID'], $id);
         }
         $row = $db->getRow($query);
         
@@ -754,7 +754,7 @@ class BuckysForumTopic
     */
     public static function getTotalNumberOfMyPosts($userID, $type = 'all')
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         if($type == 'all')
         {
@@ -783,7 +783,7 @@ class BuckysForumTopic
      */
     public static function getMyPosts($userID, $type = 'all', $page = 1, $limit = null)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         if($type == 'all')
         { 
@@ -911,7 +911,7 @@ class BuckysForumTopic
      */
     public static function voteTopic($userID, $topicID, $voteType)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         //Check Reply ID        
         $query = $db->prepare("SELECT topicID, votes, creatorID FROM " . TABLE_FORUM_TOPICS . " WHERE topicID=%d AND STATUS='publish'", $topicID);
@@ -959,7 +959,7 @@ class BuckysForumTopic
     */
     public static function searchTopic($keyword,  $categoryID = null, $page = 1, $orderBy = null, $limit = null)
     {
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
         
         if ($keyword != '')
             $where = $db->prepare(" WHERE MATCH(t.topicTitle, t.topicContent) AGAINST ('%s' IN BOOLEAN MODE) AND t.status='publish' ",  $keyword);

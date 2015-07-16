@@ -7,8 +7,8 @@
 $shopCatIns = new BuckysTradeCategory();
 $categoryList = $shopCatIns->getCategoryList(0);
 
-if(isset($BUCKYS_GLOBALS['shopSearchParam'])){
-    $view['param'] = $BUCKYS_GLOBALS['shopSearchParam'];
+if(isset($TNB_GLOBALS['shopSearchParam'])){
+    $view['param'] = $TNB_GLOBALS['shopSearchParam'];
 }
 ?>
 

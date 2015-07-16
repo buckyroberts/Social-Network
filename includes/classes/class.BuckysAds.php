@@ -3,17 +3,17 @@
  * Buckys Ads
  */
 
-if(!defined('BUCKYS_AD_STATUS_PENDING'))
-    define('BUCKYS_AD_STATUS_PENDING', 0);
+if(!defined('TNB_AD_STATUS_PENDING'))
+    define('TNB_AD_STATUS_PENDING', 0);
 
-if(!defined('BUCKYS_AD_STATUS_ACTIVE'))
-    define('BUCKYS_AD_STATUS_ACTIVE', 1);
+if(!defined('TNB_AD_STATUS_ACTIVE'))
+    define('TNB_AD_STATUS_ACTIVE', 1);
 
-if(!defined('BUCKYS_AD_STATUS_EXPIRED'))
-    define('BUCKYS_AD_STATUS_EXPIRED', -1);
+if(!defined('TNB_AD_STATUS_EXPIRED'))
+    define('TNB_AD_STATUS_EXPIRED', -1);
 
-if(!defined('BUCKYS_AD_STATUS_REJECTED'))
-    define('BUCKYS_AD_STATUS_REJECTED', -2);
+if(!defined('TNB_AD_STATUS_REJECTED'))
+    define('TNB_AD_STATUS_REJECTED', -2);
 
 class BuckysAds {
 
@@ -108,12 +108,12 @@ class BuckysAds {
             return false;
         }
 
-        $sendPayment = $bitcoinClass->sendBitcoin($userID, BUCKYSROOM_BITCOIN_ADDRESS, $budget);
+        $sendPayment = $bitcoinClass->sendBitcoin($userID, TNB_BITCOIN_ADDRESS, $budget);
 
         //they tried to send all the BTC in their wallet and didn't have enough for the fee
         if($sendPayment === false){
             $_SESSION['message'] = [];
-            $tryPaymentAgain = $bitcoinClass->sendBitcoin($userID, BUCKYSROOM_BITCOIN_ADDRESS, $budget - BLOCKCHAIN_FEE);
+            $tryPaymentAgain = $bitcoinClass->sendBitcoin($userID, TNB_BITCOIN_ADDRESS, $budget - BLOCKCHAIN_FEE);
             if($tryPaymentAgain === false){
                 $this->last_message = MSG_INVALID_REQUEST;
                 return false;
@@ -129,7 +129,7 @@ class BuckysAds {
                 return false;
             }
 
-            $newId = $db->insertFromArray(TABLE_ADS, ['adKey' => $adKey, 'status' => BUCKYS_AD_STATUS_PENDING, 'createdDate' => date('Y-m-d H:i:s'), 'startedDate' => '0000-00-00 00:00:00', 'endedDate' => '0000-00-00 00:00:00', 'type' => 'Text', 'name' => $adName, 'title' => $title, 'budget' => $budget, 'ownerID' => $userID, 'description' => $description, 'url' => $adUrl, 'display_url' => $display_url, 'impressions' => $impressions]);
+            $newId = $db->insertFromArray(TABLE_ADS, ['adKey' => $adKey, 'status' => TNB_AD_STATUS_PENDING, 'createdDate' => date('Y-m-d H:i:s'), 'startedDate' => '0000-00-00 00:00:00', 'endedDate' => '0000-00-00 00:00:00', 'type' => 'Text', 'name' => $adName, 'title' => $title, 'budget' => $budget, 'ownerID' => $userID, 'description' => $description, 'url' => $adUrl, 'display_url' => $display_url, 'impressions' => $impressions]);
 
             if(!$newId){
                 $this->last_message = $db->last_error;
@@ -163,7 +163,7 @@ class BuckysAds {
 
             unlink(DIR_FS_TMP . $fileName);
 
-            $newId = $db->insertFromArray(TABLE_ADS, ['adKey' => $adKey, 'status' => BUCKYS_AD_STATUS_PENDING, 'createdDate' => date('Y-m-d H:i:s'), 'startedDate' => '0000-00-00 00:00:00', 'endedDate' => '0000-00-00 00:00:00', 'type' => 'Image', 'name' => $adName, 'url' => $adUrl, 'budget' => $budget, 'ownerID' => $userID, 'adSize' => $adSize, 'fileName' => $newFileName, 'impressions' => $impressions]);
+            $newId = $db->insertFromArray(TABLE_ADS, ['adKey' => $adKey, 'status' => TNB_AD_STATUS_PENDING, 'createdDate' => date('Y-m-d H:i:s'), 'startedDate' => '0000-00-00 00:00:00', 'endedDate' => '0000-00-00 00:00:00', 'type' => 'Image', 'name' => $adName, 'url' => $adUrl, 'budget' => $budget, 'ownerID' => $userID, 'adSize' => $adSize, 'fileName' => $newFileName, 'impressions' => $impressions]);
 
             if(!$newId){
                 $this->last_message = $db->last_error;
@@ -183,7 +183,7 @@ class BuckysAds {
     public static function getPendingAdsCount(){
         global $db;
 
-        $query = "SELECT count(*) FROM " . TABLE_ADS . " WHERE `status`=" . BUCKYS_AD_STATUS_PENDING;
+        $query = "SELECT count(*) FROM " . TABLE_ADS . " WHERE `status`=" . TNB_AD_STATUS_PENDING;
         $c = $db->getVar($query);
 
         return $c;
@@ -203,7 +203,7 @@ class BuckysAds {
         $query = "SELECT AD.*, CONCAT(U.firstName, ' ', U.lastName) AS creatorName
                     FROM " . TABLE_ADS . " AS AD
                     LEFT JOIN " . TABLE_USERS . " AS U ON U.userID = AD.ownerID
-                  WHERE AD.`status`=" . BUCKYS_AD_STATUS_PENDING . " ORDER BY AD.id";
+                  WHERE AD.`status`=" . TNB_AD_STATUS_PENDING . " ORDER BY AD.id";
 
         if($limit)
             $query .= " LIMIT " . ($page - 1) * $limit . ", " . $limit;
@@ -227,7 +227,7 @@ class BuckysAds {
         }
 
         foreach($id as $ad_id){
-            $query = $db->prepare("UPDATE " . TABLE_ADS . " SET `status`=" . BUCKYS_AD_STATUS_ACTIVE . ", `startedDate`='" . date('Y-m-d H:i:s') . "' WHERE id=%d", $ad_id);
+            $query = $db->prepare("UPDATE " . TABLE_ADS . " SET `status`=" . TNB_AD_STATUS_ACTIVE . ", `startedDate`='" . date('Y-m-d H:i:s') . "' WHERE id=%d", $ad_id);
             $db->query($query);
         }
 
@@ -250,7 +250,7 @@ class BuckysAds {
         $bitcoinClass = new BuckysBitcoin();
 
         foreach($id as $ad_id){
-            $query = $db->prepare("UPDATE " . TABLE_ADS . " SET `status`=" . BUCKYS_AD_STATUS_REJECTED . " WHERE id=%d", $ad_id);
+            $query = $db->prepare("UPDATE " . TABLE_ADS . " SET `status`=" . TNB_AD_STATUS_REJECTED . " WHERE id=%d", $ad_id);
             $db->query($query);
             //Return Bitcoin
             $query = $db->prepare("SELECT b.bitcoin_address, a.budget FROM " . TABLE_ADS . " AS a LEFT JOIN " . TABLE_USERS_BITCOIN . " AS b ON a.ownerID=b.userID WHERE a.id=%d", $ad_id);
@@ -277,13 +277,13 @@ class BuckysAds {
 
         switch($status){
             case 'active':
-                $query .= " AND `status`=" . BUCKYS_AD_STATUS_ACTIVE;
+                $query .= " AND `status`=" . TNB_AD_STATUS_ACTIVE;
                 break;
             case 'pending':
-                $query .= " AND `status`=" . BUCKYS_AD_STATUS_PENDING;
+                $query .= " AND `status`=" . TNB_AD_STATUS_PENDING;
                 break;
             case 'expired':
-                $query .= " AND `status`=" . BUCKYS_AD_STATUS_EXPIRED;
+                $query .= " AND `status`=" . TNB_AD_STATUS_EXPIRED;
                 break;
         }
 
@@ -308,13 +308,13 @@ class BuckysAds {
 
         switch($status){
             case 'active':
-                $query .= " AND `status`=" . BUCKYS_AD_STATUS_ACTIVE;
+                $query .= " AND `status`=" . TNB_AD_STATUS_ACTIVE;
                 break;
             case 'pending':
-                $query .= " AND `status`=" . BUCKYS_AD_STATUS_PENDING;
+                $query .= " AND `status`=" . TNB_AD_STATUS_PENDING;
                 break;
             case 'expired':
-                $query .= " AND `status`=" . BUCKYS_AD_STATUS_EXPIRED;
+                $query .= " AND `status`=" . TNB_AD_STATUS_EXPIRED;
                 break;
         }
 
@@ -361,12 +361,12 @@ class BuckysAds {
             return false;
         }
 
-        $sendPayment = $bitcoinClass->sendBitcoin($userID, BUCKYSROOM_BITCOIN_ADDRESS, $amount);
+        $sendPayment = $bitcoinClass->sendBitcoin($userID, TNB_BITCOIN_ADDRESS, $amount);
 
         //they tried to send all the BTC in their wallet and didn't have enough for the fee
         if($sendPayment === false){
             $_SESSION['message'] = [];
-            $tryPaymentAgain = $bitcoinClass->sendBitcoin($userID, BUCKYSROOM_BITCOIN_ADDRESS, $amount - BLOCKCHAIN_FEE);
+            $tryPaymentAgain = $bitcoinClass->sendBitcoin($userID, TNB_BITCOIN_ADDRESS, $amount - BLOCKCHAIN_FEE);
             if($tryPaymentAgain === false){
                 $this->last_message = MSG_INVALID_REQUEST;
                 return false;

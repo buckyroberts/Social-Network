@@ -1,20 +1,20 @@
 <?php
 
 //Ad typs for publisher 
-if(!defined('BUCKYS_AD_TYPE_CUSTOM'))
-    define('BUCKYS_AD_TYPE_CUSTOM', 1);
+if(!defined('TNB_AD_TYPE_CUSTOM'))
+    define('TNB_AD_TYPE_CUSTOM', 1);
 
-if(!defined('BUCKYS_AD_TYPE_PROFILE'))
-    define('BUCKYS_AD_TYPE_PROFILE', 2);
+if(!defined('TNB_AD_TYPE_PROFILE'))
+    define('TNB_AD_TYPE_PROFILE', 2);
 
-if(!defined('BUCKYS_AD_TYPE_FORUM'))
-    define('BUCKYS_AD_TYPE_FORUM', 3);
+if(!defined('TNB_AD_TYPE_FORUM'))
+    define('TNB_AD_TYPE_FORUM', 3);
 
-if(!defined('BUCKYS_PUBLISHER_AD_STATUS_ACTIVE'))
-    define('BUCKYS_PUBLISHER_AD_STATUS_ACTIVE', 1);
+if(!defined('TNB_PUBLISHER_AD_STATUS_ACTIVE'))
+    define('TNB_PUBLISHER_AD_STATUS_ACTIVE', 1);
 
-if(!defined('BUCKYS_PUBLISHER_AD_STATUS_DELETED'))
-    define('BUCKYS_PUBLISHER_AD_STATUS_DELETED', 0);
+if(!defined('TNB_PUBLISHER_AD_STATUS_DELETED'))
+    define('TNB_PUBLISHER_AD_STATUS_DELETED', 0);
 
 class BuckysPublisherAds {
 
@@ -57,7 +57,7 @@ class BuckysPublisherAds {
 
         $token = sha1($userID . session_id() . $data['name'] . time() . buckys_generate_random_string(20));
 
-        $insertData = ['publisherID' => $userID, 'size' => $sizeDetail['id'], 'name' => trim($data['name']), 'borderColor' => $borderColor, 'bgColor' => $bgColor, 'titleColor' => $titleColor, 'textColor' => $descriptionColor, 'urlColor' => $urlColor, 'createdDate' => date('Y-m-d H:i:s'), 'impressions' => 0, 'earnings' => 0.0, 'status' => BUCKYS_PUBLISHER_AD_STATUS_ACTIVE, 'adType' => $adType, 'token' => $token];
+        $insertData = ['publisherID' => $userID, 'size' => $sizeDetail['id'], 'name' => trim($data['name']), 'borderColor' => $borderColor, 'bgColor' => $bgColor, 'titleColor' => $titleColor, 'textColor' => $descriptionColor, 'urlColor' => $urlColor, 'createdDate' => date('Y-m-d H:i:s'), 'impressions' => 0, 'earnings' => 0.0, 'status' => TNB_PUBLISHER_AD_STATUS_ACTIVE, 'adType' => $adType, 'token' => $token];
 
         $newId = $db->insertFromArray(TABLE_PUBLISHER_ADS, $insertData);
         if(!$newId){
@@ -75,11 +75,11 @@ class BuckysPublisherAds {
      * @param mixed $userID
      */
     public function createDefaultPublisherAds($userID){
-        $profileAd = ['name' => BUCKYSROOM_SITE_NAME . ' Pages & Profile', 'size' => 9, 'border-color' => '006699', 'bg-color' => 'FFFFFF', 'title-color' => '006699', 'description-color' => '999999', 'url-color' => 'CC0000', 'adType' => BUCKYS_AD_TYPE_PROFILE];
+        $profileAd = ['name' => TNB_SITE_NAME . ' Pages & Profile', 'size' => 9, 'border-color' => '006699', 'bg-color' => 'FFFFFF', 'title-color' => '006699', 'description-color' => '999999', 'url-color' => 'CC0000', 'adType' => TNB_AD_TYPE_PROFILE];
         $this->savePublisherAd($userID, $profileAd);
 
         //Forum Ad
-        $forumAd = ['name' => BUCKYSROOM_SITE_NAME . ' Forum', 'size' => 8, 'border-color' => '006699', 'bg-color' => 'FFFFFF', 'title-color' => '006699', 'description-color' => '999999', 'url-color' => 'CC0000', 'adType' => BUCKYS_AD_TYPE_FORUM];
+        $forumAd = ['name' => TNB_SITE_NAME . ' Forum', 'size' => 8, 'border-color' => '006699', 'bg-color' => 'FFFFFF', 'title-color' => '006699', 'description-color' => '999999', 'url-color' => 'CC0000', 'adType' => TNB_AD_TYPE_FORUM];
         $this->savePublisherAd($userID, $forumAd);
 
     }
@@ -96,10 +96,10 @@ class BuckysPublisherAds {
 
         switch($status){
             case 'active':
-                $query .= " AND `status`=" . BUCKYS_PUBLISHER_AD_STATUS_ACTIVE;
+                $query .= " AND `status`=" . TNB_PUBLISHER_AD_STATUS_ACTIVE;
                 break;
             case 'deleted':
-                $query .= " AND `status`=" . BUCKYS_PUBLISHER_AD_STATUS_DELETED;
+                $query .= " AND `status`=" . TNB_PUBLISHER_AD_STATUS_DELETED;
                 break;
         }
 
@@ -122,10 +122,10 @@ class BuckysPublisherAds {
 
         switch($status){
             case 'active':
-                $query .= " AND `status`=" . BUCKYS_PUBLISHER_AD_STATUS_ACTIVE;
+                $query .= " AND `status`=" . TNB_PUBLISHER_AD_STATUS_ACTIVE;
                 break;
             case 'deleted':
-                $query .= " AND `status`=" . BUCKYS_PUBLISHER_AD_STATUS_DELETED;
+                $query .= " AND `status`=" . TNB_PUBLISHER_AD_STATUS_DELETED;
                 break;
         }
 
@@ -165,7 +165,7 @@ class BuckysPublisherAds {
         global $db;
 
         //do not delete the ad, just change the status to 0
-        $query = $db->prepare("UPDATE " . TABLE_PUBLISHER_ADS . " SET `status`=%d WHERE id=%d", BUCKYS_PUBLISHER_AD_STATUS_DELETED, $id);
+        $query = $db->prepare("UPDATE " . TABLE_PUBLISHER_ADS . " SET `status`=%d WHERE id=%d", TNB_PUBLISHER_AD_STATUS_DELETED, $id);
 
         $db->query($query);
 
@@ -200,8 +200,8 @@ class BuckysPublisherAds {
             $newHorizontalPadding = 'padding: 0px 20px;';
         }
 
-        $query1 = "SELECT AD.* FROM " . TABLE_ADS . " AS AD WHERE AD.defaultAd=0 AND AD.status='" . BUCKYS_AD_STATUS_ACTIVE . "' AND AD.ownerID != '" . $adDetail['publisherID'] . "' AND AD.type = 'Text' ORDER BY rand() LIMIT " . $sizeDetail['ads'];
-        $query2 = "SELECT AD.* FROM " . TABLE_ADS . " AS AD WHERE AD.defaultAd=0 AND AD.status='" . BUCKYS_AD_STATUS_ACTIVE . "' AND AD.ownerID != '" . $adDetail['publisherID'] . "' AND AD.type = 'Image' AND AD.adSize='" . $sizeDetail['id'] . "' ORDER BY rand() LIMIT 1";
+        $query1 = "SELECT AD.* FROM " . TABLE_ADS . " AS AD WHERE AD.defaultAd=0 AND AD.status='" . TNB_AD_STATUS_ACTIVE . "' AND AD.ownerID != '" . $adDetail['publisherID'] . "' AND AD.type = 'Text' ORDER BY rand() LIMIT " . $sizeDetail['ads'];
+        $query2 = "SELECT AD.* FROM " . TABLE_ADS . " AS AD WHERE AD.defaultAd=0 AND AD.status='" . TNB_AD_STATUS_ACTIVE . "' AND AD.ownerID != '" . $adDetail['publisherID'] . "' AND AD.type = 'Image' AND AD.adSize='" . $sizeDetail['id'] . "' ORDER BY rand() LIMIT 1";
 
         if(mt_rand(0, 10) > 5) //Getting Text Ads
         {
@@ -222,7 +222,7 @@ class BuckysPublisherAds {
 
         if(count($results) < $sizeDetail['ads']){
             //Getting Buckysroom Default Ads
-            $query3 = "SELECT AD.* FROM " . TABLE_ADS . " AS AD WHERE AD.defaultAd=1 AND AD.status='" . BUCKYS_AD_STATUS_ACTIVE . "' AND AD.type = 'Text' ORDER BY rand() LIMIT " . ($sizeDetail['ads'] - count($results));
+            $query3 = "SELECT AD.* FROM " . TABLE_ADS . " AS AD WHERE AD.defaultAd=1 AND AD.status='" . TNB_AD_STATUS_ACTIVE . "' AND AD.type = 'Text' ORDER BY rand() LIMIT " . ($sizeDetail['ads'] - count($results));
             $results2 = $db->getResultsArray($query3);
             $results = array_merge($results, $results2);
         }
@@ -240,15 +240,15 @@ class BuckysPublisherAds {
             $bannerHTML .= '<td>';
             if($results[$i - 1]['type'] == 'Text'){
                 $bannerHTML .= '<div class="buckysroom-ad ' . $sizeDetail['class'] . ' " style=" ' . $displayWidth . $newHorizontalPadding . ' ">
-                                    <a href="//' . BUCKYSROOM_DOMAIN . '/goto-ad-url.php?key=' . $results[$i - 1]['adKey'] . '&' . $formToken . '=1&url=' . base64_encode($results[$i - 1]['url']) . '" class="bsroom-ad-title" style="color: #' . $adDetail['titleColor'] . '" target="_blank">' . $results[$i - 1]['title'] . '</a>
+                                    <a href="//' . TNB_DOMAIN . '/goto-ad-url.php?key=' . $results[$i - 1]['adKey'] . '&' . $formToken . '=1&url=' . base64_encode($results[$i - 1]['url']) . '" class="bsroom-ad-title" style="color: #' . $adDetail['titleColor'] . '" target="_blank">' . $results[$i - 1]['title'] . '</a>
 									<br />
                                     <p class="bsroom-ad-desc" style="color: #' . $adDetail['textColor'] . '">' . $results[$i - 1]['description'] . '</p>
                                     <div style=" ' . $displayWidth . 'overflow:hidden;">
-									<a style="color: #' . $adDetail['urlColor'] . '" href="//' . BUCKYSROOM_DOMAIN . '/goto-ad-url.php?key=' . $results[$i - 1]['adKey'] . '&' . $formToken . '=1&url=' . base64_encode($results[$i - 1]['url']) . '" class="bsroom-ad-link" target="_blank">' . $results[$i - 1]['display_url'] . '</a>
+									<a style="color: #' . $adDetail['urlColor'] . '" href="//' . TNB_DOMAIN . '/goto-ad-url.php?key=' . $results[$i - 1]['adKey'] . '&' . $formToken . '=1&url=' . base64_encode($results[$i - 1]['url']) . '" class="bsroom-ad-link" target="_blank">' . $results[$i - 1]['display_url'] . '</a>
 									</div>
                                 </div>';
             }else{
-                $bannerHTML .= '<div class="buckysroom-ad buckysroom-ad-image"  style="padding: 0; margin: 0; line-height: 0; overflow: hidden"><a href="//' . BUCKYSROOM_DOMAIN . '/goto-ad-url.php?key=' . $results[$i - 1]['adKey'] . '&' . $formToken . '=1&url=' . base64_encode($results[$i - 1]['url']) . '" target="_blank"><img src="' . DIR_WS_IMAGE . 'user_ads/' . $results[$i - 1]['fileName'] . '" width="' . ($sizeDetail['width']) . '" height="' . ($sizeDetail['height']) . '" /></a></div>';
+                $bannerHTML .= '<div class="buckysroom-ad buckysroom-ad-image"  style="padding: 0; margin: 0; line-height: 0; overflow: hidden"><a href="//' . TNB_DOMAIN . '/goto-ad-url.php?key=' . $results[$i - 1]['adKey'] . '&' . $formToken . '=1&url=' . base64_encode($results[$i - 1]['url']) . '" target="_blank"><img src="' . DIR_WS_IMAGE . 'user_ads/' . $results[$i - 1]['fileName'] . '" width="' . ($sizeDetail['width']) . '" height="' . ($sizeDetail['height']) . '" /></a></div>';
             }
 
             $bannerHTML .= '</td>';
@@ -263,7 +263,7 @@ class BuckysPublisherAds {
             $db->query("UPDATE " . TABLE_ADS . " SET `receivedImpressions` = `receivedImpressions` + 1 WHERE id=" . $results[$i - 1]['id']);
 
             //Make it to expired if all expressions are received
-            $db->query("UPDATE " . TABLE_ADS . " SET `status` = " . BUCKYS_AD_STATUS_EXPIRED . " WHERE  id=" . $results[$i - 1]['id'] . " AND `receivedImpressions` >= `impressions` ");
+            $db->query("UPDATE " . TABLE_ADS . " SET `status` = " . TNB_AD_STATUS_EXPIRED . " WHERE  id=" . $results[$i - 1]['id'] . " AND `receivedImpressions` >= `impressions` ");
 
             //Image ads were creating multiple table rows
             if($results[$i - 1]['type'] == 'Image')

@@ -19,7 +19,7 @@ if(!empty($_FILES)){
         $fileParts = pathinfo($_FILES['Filedata']['name']);
 
         //Check the file extension
-        if(in_array(strtolower($fileParts['extension']), $BUCKYS_GLOBALS['imageTypes'])){
+        if(in_array(strtolower($fileParts['extension']), $TNB_GLOBALS['imageTypes'])){
 
             //Check Image Size
             list($width, $height, $type, $attr) = getimagesize($tempFile);

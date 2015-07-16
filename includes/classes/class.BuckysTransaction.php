@@ -10,7 +10,7 @@ class BuckysTransaction {
     const ACTIVITY_TYPE_SHOP_PRODUCT_ADD = 3;   // When you add A product to shop, you should use credit(s)
     const ACTIVITY_TYPE_OTHER = 9;              // Other type; Not sure if we use this type, but you may add more numbers to add there to show the types
 
-    const BUCKYSROOM_ACCOUNT_ID = 0;            // It will be used for receiverID when user do paypal payment or other payments to site.
+    const TNB_ACCOUNT_ID = 0;            // It will be used for receiverID when user do paypal payment or other payments to site.
     const NO_TRANSACTION_ID = 0;                // no paypal payment has been made
     const PAYPAL_PAYER_ID = 0;                  // it will be used for paypal payment when user purchase credits
 
@@ -106,7 +106,7 @@ class BuckysTransaction {
      * Send Credits
      */
     public static function sendCredits($receiverID, $amount){
-        global $db, $BUCKYS_GLOBALS;
+        global $db, $TNB_GLOBALS;
 
         //Getting Receiver Info
         $receiverInfo = BuckysUser::getUserBasicInfo($receiverID);
@@ -114,7 +114,7 @@ class BuckysTransaction {
             return MSG_INVALID_REQUEST;
 
         //Getting Current User Credits Balance
-        $balance = $BUCKYS_GLOBALS['user']['credits'];
+        $balance = $TNB_GLOBALS['user']['credits'];
 
         $amount = floatval($amount);
 
@@ -126,12 +126,12 @@ class BuckysTransaction {
             return MSG_BALANCE_NOT_ENOUGH_TO_SEND_ERROR;
         }
 
-        $data = ['receiverID' => $receiverID, 'payerID' => $BUCKYS_GLOBALS['user']['userID'], 'activityType' => BuckysTransaction::ACTIVITY_TYPE_PAYMENT_TO_OTHER, 'amount' => $amount, 'transactionID' => BuckysTransaction::NO_TRANSACTION_ID, 'receiverBalance' => $receiverInfo['credits'] + $amount, 'payerBalance' => $BUCKYS_GLOBALS['user']['credits'] - $amount, 'createdDate' => date('Y-m-d H:i:s')];
+        $data = ['receiverID' => $receiverID, 'payerID' => $TNB_GLOBALS['user']['userID'], 'activityType' => BuckysTransaction::ACTIVITY_TYPE_PAYMENT_TO_OTHER, 'amount' => $amount, 'transactionID' => BuckysTransaction::NO_TRANSACTION_ID, 'receiverBalance' => $receiverInfo['credits'] + $amount, 'payerBalance' => $TNB_GLOBALS['user']['credits'] - $amount, 'createdDate' => date('Y-m-d H:i:s')];
         $nId = $db->insertFromArray(TABLE_CREDIT_ACTIVITY, $data);
         if(!$nId)
             return $db->getLastError();
 
-        BuckysUser::updateUserFields($BUCKYS_GLOBALS['user']['userID'], ['credits' => $balance - $amount]);
+        BuckysUser::updateUserFields($TNB_GLOBALS['user']['userID'], ['credits' => $balance - $amount]);
         BuckysUser::updateUserFields($receiverInfo['userID'], ['credits' => $receiverInfo['credits'] + $amount]);
 
         return true;
@@ -161,7 +161,7 @@ class BuckysTransaction {
 
         $userIns->updateUserFields($userID, ['credits' => $userInfo['credits']]);
 
-        $data = ['receiverID' => BuckysTransaction::BUCKYSROOM_ACCOUNT_ID, 'payerID' => $userID, 'activityType' => BuckysTransaction::ACTIVITY_TYPE_TRADE_ITEM_ADD, 'amount' => $amount, 'transactionID' => BuckysTransaction::NO_TRANSACTION_ID, 'receiverBalance' => 0, 'payerBalance' => $userInfo['credits'], 'createdDate' => date('Y-m-d H:i:s')];
+        $data = ['receiverID' => BuckysTransaction::TNB_ACCOUNT_ID, 'payerID' => $userID, 'activityType' => BuckysTransaction::ACTIVITY_TYPE_TRADE_ITEM_ADD, 'amount' => $amount, 'transactionID' => BuckysTransaction::NO_TRANSACTION_ID, 'receiverBalance' => 0, 'payerBalance' => $userInfo['credits'], 'createdDate' => date('Y-m-d H:i:s')];
 
         $nId = $db->insertFromArray(TABLE_CREDIT_ACTIVITY, $data);
 
@@ -192,7 +192,7 @@ class BuckysTransaction {
 
         $userIns->updateUserFields($userID, ['credits' => $userInfo['credits']]);
 
-        $data = ['receiverID' => BuckysTransaction::BUCKYSROOM_ACCOUNT_ID, 'payerID' => $userID, 'activityType' => BuckysTransaction::ACTIVITY_TYPE_SHOP_PRODUCT_ADD, 'amount' => $amount, 'transactionID' => BuckysTransaction::NO_TRANSACTION_ID, 'receiverBalance' => 0, 'payerBalance' => $userInfo['credits'], 'createdDate' => date('Y-m-d H:i:s')];
+        $data = ['receiverID' => BuckysTransaction::TNB_ACCOUNT_ID, 'payerID' => $userID, 'activityType' => BuckysTransaction::ACTIVITY_TYPE_SHOP_PRODUCT_ADD, 'amount' => $amount, 'transactionID' => BuckysTransaction::NO_TRANSACTION_ID, 'receiverBalance' => 0, 'payerBalance' => $userInfo['credits'], 'createdDate' => date('Y-m-d H:i:s')];
 
         $nId = $db->insertFromArray(TABLE_CREDIT_ACTIVITY, $data);
 

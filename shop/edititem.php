@@ -7,7 +7,7 @@ if(!($userID = buckys_is_logged_in())){
 
 $bitcoinInfo = BuckysUser::getUserBitcoinInfo($userID);
 if(!$bitcoinInfo){
-    $bitcoinInfo = BuckysBitcoin::createWallet($BUCKYS_GLOBALS['user']['userID'], $BUCKYS_GLOBALS['user']['email']);
+    $bitcoinInfo = BuckysBitcoin::createWallet($TNB_GLOBALS['user']['userID'], $TNB_GLOBALS['user']['email']);
 }
 
 buckys_enqueue_stylesheet('uploadify.css');
@@ -21,8 +21,8 @@ buckys_enqueue_javascript('shop.js');
 buckys_enqueue_javascript('shop-edit.js');
 buckys_enqueue_javascript('uploadify/flash_install.js');
 
-$BUCKYS_GLOBALS['content'] = 'shop/additem';
-$BUCKYS_GLOBALS['headerType'] = 'shop';
+$TNB_GLOBALS['content'] = 'shop/additem';
+$TNB_GLOBALS['headerType'] = 'shop';
 
 $view = [];
 
@@ -62,6 +62,6 @@ if($view['product'] == null || $view['product']['userID'] != $userID || $view['p
 
 $view['shipping_fee_list'] = $shopProductIns->getShippingPrice($paramProdID);
 
-$BUCKYS_GLOBALS['title'] = 'Edit an Item - BuckysRoomShop';
+$TNB_GLOBALS['title'] = 'Edit an Item - BuckysRoomShop';
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

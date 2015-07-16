@@ -2,7 +2,7 @@
 require(dirname(__FILE__) . '/includes/bootstrap.php');
 
 $reportTypes = [];
-foreach($BUCKYS_GLOBALS['reportObjectTypes'] as $arr)
+foreach($TNB_GLOBALS['reportObjectTypes'] as $arr)
     $reportTypes = array_merge($arr, $reportTypes);
 
 if(!($userID = buckys_is_logged_in())){

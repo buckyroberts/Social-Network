@@ -2,7 +2,7 @@
 /**
  * Include Google Analytics Code
  */
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 ?>

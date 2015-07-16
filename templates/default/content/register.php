@@ -1,5 +1,5 @@
 <?php
-if(!isset($BUCKYS_GLOBALS)){
+if(!isset($TNB_GLOBALS)){
     die("Invalid Request!");
 }
 ?>
@@ -14,7 +14,7 @@ if(!isset($BUCKYS_GLOBALS)){
         <div id="register-wrapper">
             <?php render_result_messages(); ?>
             <div id="new-account">
-                <h2 class="titles">Why join <?php echo BUCKYSROOM_SITE_NAME ?>?</h2>
+                <h2 class="titles">Why join <?php echo TNB_SITE_NAME ?>?</h2>
 
                 <div style="margin:5px 10px;font-size:14px;font-family:Lato-Lig;">
                     &#x2713; &nbsp;Unlimited access to all videos
@@ -22,7 +22,7 @@ if(!isset($BUCKYS_GLOBALS)){
                     <br/> &#x2713; &nbsp;Only accepting new members for a limited time
                 </div>
                 <!-- Invite Code
-				<div style="margin:10px 10px 0px;padding:5px;font-size:15px;font-family:Lato-Lig;">Due to an increasing amount of new users, <?php echo BUCKYSROOM_SITE_NAME ?> is now invitation only. Please contact any member for an Invite Code.</div>
+				<div style="margin:10px 10px 0px;padding:5px;font-size:15px;font-family:Lato-Lig;">Due to an increasing amount of new users, <?php echo TNB_SITE_NAME ?> is now invitation only. Please contact any member for an Invite Code.</div>
 				-->
                 <form name="newaccount" method="post" action="" id="newaccount">
                     <div class="row">

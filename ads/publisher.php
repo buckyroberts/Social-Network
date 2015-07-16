@@ -27,7 +27,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete-ad'){
 
     if(!$adDetail){
         buckys_redirect('/ads/publisher.php', MSG_INVALID_REQUEST, MSG_TYPE_ERROR);
-    }else if($adDetail['publisherID'] != $userID || $adDetail['adType'] == BUCKYS_AD_TYPE_FORUM || $adDetail['adType'] == BUCKYS_AD_TYPE_FORUM){
+    }else if($adDetail['publisherID'] != $userID || $adDetail['adType'] == TNB_AD_TYPE_FORUM || $adDetail['adType'] == TNB_AD_TYPE_FORUM){
         buckys_redirect('/ads/publisher.php', MSG_PERMISSION_DENIED, MSG_TYPE_ERROR);
     }else{
         $classPublisherAds->deleteAd($adDetail['id']);
@@ -61,9 +61,9 @@ $userBalance = $classPublisherAds->getUserBalance($userID);
 
 buckys_enqueue_stylesheet('publisher.css');
 
-$BUCKYS_GLOBALS['headerType'] = "ads";
-$BUCKYS_GLOBALS['content'] = "ads/publisher";
+$TNB_GLOBALS['headerType'] = "ads";
+$TNB_GLOBALS['content'] = "ads/publisher";
 
-$BUCKYS_GLOBALS['title'] = "Publisher Panel - thenewboston Ads";
+$TNB_GLOBALS['title'] = "Publisher Panel - thenewboston Ads";
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

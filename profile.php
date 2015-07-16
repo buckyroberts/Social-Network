@@ -64,9 +64,9 @@ buckys_enqueue_javascript('posts.js');
 buckys_enqueue_javascript('add_post.js');
 buckys_enqueue_javascript('account.js');
 
-$BUCKYS_GLOBALS['content'] = 'profile';
+$TNB_GLOBALS['content'] = 'profile';
 
 //Page title
-$BUCKYS_GLOBALS['title'] = $userData['firstName'] . ' ' . $userData['lastName'] . ' - ' . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = $userData['firstName'] . ' ' . $userData['lastName'] . ' - ' . TNB_SITE_NAME;
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

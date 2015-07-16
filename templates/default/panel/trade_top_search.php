@@ -7,8 +7,8 @@
 $tradeCatIns = new BuckysTradeCategory();
 $categoryList = $tradeCatIns->getCategoryList(0);
 
-if(isset($BUCKYS_GLOBALS['tradeSearchParam'])){
-    $view['param'] = $BUCKYS_GLOBALS['tradeSearchParam'];
+if(isset($TNB_GLOBALS['tradeSearchParam'])){
+    $view['param'] = $TNB_GLOBALS['tradeSearchParam'];
 }
 ?>
 

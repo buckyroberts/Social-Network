@@ -37,9 +37,9 @@ $userAds = $classAds->getUserAds($userID, $status, $page, BuckysAds::$COUNT_PER_
 
 buckys_enqueue_stylesheet('publisher.css');
 
-$BUCKYS_GLOBALS['headerType'] = "ads";
-$BUCKYS_GLOBALS['content'] = "ads/advertiser";
+$TNB_GLOBALS['headerType'] = "ads";
+$TNB_GLOBALS['content'] = "ads/advertiser";
 
-$BUCKYS_GLOBALS['title'] = "Advertiser Account - thenewboston Ads";
+$TNB_GLOBALS['title'] = "Advertiser Account - thenewboston Ads";
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php"); 
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

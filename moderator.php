@@ -105,10 +105,10 @@ buckys_enqueue_stylesheet('moderator.css');
 
 buckys_enqueue_javascript('moderator.js');
 
-$BUCKYS_GLOBALS['content'] = 'moderator';
+$TNB_GLOBALS['content'] = 'moderator';
 
-$BUCKYS_GLOBALS['title'] = "Moderator - " . BUCKYSROOM_SITE_NAME;
+$TNB_GLOBALS['title'] = "Moderator - " . TNB_SITE_NAME;
 
 //if logged user can see all resources of the current user
 
-require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");  
+require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");

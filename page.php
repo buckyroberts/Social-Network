@@ -276,10 +276,10 @@ if(isset($_REQUEST['pid']) && is_numeric($_REQUEST['pid'])){
     //Is this my page?
     $view['isMyPage'] = $pageData['userID'] == $userID;
 
-    $BUCKYS_GLOBALS['title'] = $pageData['title'] . ' - ' . BUCKYSROOM_SITE_NAME;
-    $BUCKYS_GLOBALS['content'] = 'page';
+    $TNB_GLOBALS['title'] = $pageData['title'] . ' - ' . TNB_SITE_NAME;
+    $TNB_GLOBALS['content'] = 'page';
 
-    require(DIR_FS_TEMPLATE . $BUCKYS_GLOBALS['template'] . "/" . $BUCKYS_GLOBALS['layout'] . ".php");
+    require(DIR_FS_TEMPLATE . $TNB_GLOBALS['template'] . "/" . $TNB_GLOBALS['layout'] . ".php");
 
 }else{
     //No such action here;
