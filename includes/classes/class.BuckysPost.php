@@ -12,12 +12,14 @@ class BuckysPost{
 	public static $COUNT_PER_PAGE_IMAGE = 60;
 	public static $COUNT_PER_PAGE_VIDEO = 40;
 
-	const INDEPENDENT_POST_PAGE_ID = 0; // When this post doesn't belong to a page, then the post's page ID will be 0;
+	// When this post doesn't belong to a page, then the post's page ID will be 0;
+	const INDEPENDENT_POST_PAGE_ID = 0;
 
 	/**
 	 * Getting all posts that were published by the user's friends
 	 *
 	 * @param mixed $userID
+	 * @param null $lastDate
 	 * @return Array
 	 */
 	public static function getUserPostsStream($userID, $lastDate = null){
@@ -44,14 +46,17 @@ class BuckysPost{
 		$rows = $db->getResultsArray($query);
 
 		foreach($rows as $idx => $row){
+
 			//Getting full name
 			$query = "SELECT firstName, lastName FROM " . TABLE_USERS . " WHERE userID=" . $row['poster'];
 			$urow = $db->getRow($query);
 			$rows[$idx]['posterFullName'] = $urow['firstName'] . " " . $urow['lastName'];
+
 			//Getting Liked
 			$query = "SELECT likeID FROM " . TABLE_POSTS_LIKES . " WHERE postID=" . $row['postID'] . " AND userID=" . $userID;
 			$liked = $db->getVar($query);
 			$rows[$idx]['likeID'] = $liked;
+
 			//Getting Reported
 			$query = $db->prepare("SELECT reportID FROM " . TABLE_REPORTS . " WHERE reporterID=%d AND objectID=%d AND objectType='post'", $userID, $row['postID']);
 			$reportID = $db->getVar($query);
@@ -66,8 +71,11 @@ class BuckysPost{
 	 *
 	 * @param integer $userID : Poster
 	 * @param integer $loggedUserID : viewer
+	 * @param int $pageID
 	 * @param boolean $canViewPrivate
 	 * @param integer $postID
+	 * @param null $lastDate
+	 * @param string $postType
 	 * @return Indexed
 	 */
 	public static function getPostsByUserID($userID, $loggedUserID = null, $pageID = BuckysPost::INDEPENDENT_POST_PAGE_ID, $canViewPrivate = false, $postID = null, $lastDate = null, $postType = 'user'){
@@ -100,11 +108,10 @@ class BuckysPost{
 
 		if(!buckys_check_user_acl(USER_ACL_ADMINISTRATOR, $loggedUserID))
 			$query .= ' AND p.post_status=1 ';
+
 		//If Post ID is set, get only one post
 		if($postID != null)
 			$query .= $db->prepare(' AND p.postID=%d', $postID);
-		/*else
-			$query .= ' AND p.type !="image" ';*/
 
 		if($lastDate != null){
 			$lastDate = date('Y-m-d H:i:s', strtotime($lastDate));
@@ -120,7 +127,6 @@ class BuckysPost{
 		}
 
 		$query .= ' ORDER BY p.post_date DESC ' . $limit_query;
-
 		$rows = $db->getResultsArray($query);
 
 		return $rows;
@@ -142,9 +148,6 @@ class BuckysPost{
 	public static function getPhotosByUserID($userID, $loggedUserID = null, $pageID = BuckysPost::INDEPENDENT_POST_PAGE_ID, $canViewPrivate = false, $postID = null, $albumID = null, $limit = null, $lastDate = null){
 		global $db;
 
-		/*if( !$limit )
-			$limit = BuckysPost::$post_per_page;*/
-
 		$userID = intval($userID);
 
 		//Getting Page Parameter
@@ -156,14 +159,15 @@ class BuckysPost{
 		if($limit)
 			$limit_query = ' LIMIT ' . (($page - 1) * $limit) . ", " . $limit;
 
-		if(buckys_not_null($loggedUserID) && $canViewPrivate) //Get All posts that were posted by $userID
-		{
+		if(buckys_not_null($loggedUserID) && $canViewPrivate){
+			//Get All posts that were posted by $userID
 			$query = 'SELECT p.*, CONCAT(u.firstName, " ", u.lastName) AS posterFullName, pl.likeID, pa.album_id FROM ' . TABLE_POSTS . ' AS p
                                 LEFT JOIN ' . TABLE_USERS . ' AS u ON p.poster = u.userID
                                 LEFT JOIN ' . TABLE_ALBUMS_PHOTOS . ' AS pa ON pa.post_id = p.postID
                                 LEFT JOIN ' . TABLE_POSTS_LIKES . ' AS pl ON pl.postID = p.postID AND pl.userID = ' . $userID . '
                                 WHERE p.poster= ' . $userID . ' AND p.pageID=' . $pageID;
-		}else{ //Get Only Public Posts
+		}else{
+			//Get Only Public Posts
 			$query = 'SELECT p.*, CONCAT(u.firstName, " ", u.lastName) AS posterFullName, pl.likeID, pa.album_id FROM ' . TABLE_POSTS . ' AS p
                                 LEFT JOIN ' . TABLE_USERS . ' AS u ON p.poster = u.userID
                                 LEFT JOIN ' . TABLE_ALBUMS_PHOTOS . ' AS pa ON pa.post_id = p.postID
@@ -172,7 +176,7 @@ class BuckysPost{
 		}
 		$query .= ' AND p.type="image" ';
 
-		//If Post ID is set, get only one post
+		//If postID is set, get only one post
 		if($postID != null)
 			$query .= $db->prepare(' AND p.postID=%d', $postID);
 
@@ -192,7 +196,6 @@ class BuckysPost{
 		}
 
 		$query .= ' ORDER BY p.post_date DESC ' . $limit_query;
-
 		$rows = $db->getResultsArray($query);
 
 		return $rows;
@@ -310,12 +313,9 @@ class BuckysPost{
 			$newId = BuckysPost::savePhoto($userID, $data);
 		}
 
-		if(!$newId){
+		if(!isset($newId)){
 			return false;
 		}
-
-		//Increase user posts count
-		//$db->query("UPDATE " . TABLE_USERS . " SET `posts_count`=`posts_count` + 1 WHERE userID=" . $userID);
 
 		switch($type){
 			case 'image':
@@ -365,9 +365,6 @@ class BuckysPost{
 			$db->query('DELETE FROM ' . TABLE_POSTS_LIKES . " WHERE postID=" . $row['postID']);
 			$db->query('DELETE FROM ' . TABLE_POSTS_HITS . " WHERE postID=" . $row['postID']);
 
-			//Decrease user posts count
-			//$db->query("UPDATE " . TABLE_USERS . " SET `posts_count`=`posts_count` - 1 WHERE userID=" . $row['poster']);
-
 			//Remove Image
 			if($row['type'] == 'image'){
 				@unlink(DIR_FS_PHOTO . "users/" . $userID . "/resized/" . $row['image']);
@@ -376,13 +373,12 @@ class BuckysPost{
 
 				//Remove From Albums
 				$db->query('DELETE FROM ' . TABLE_ALBUMS_PHOTOS . ' WHERE post_id=' . $row['postID']);
-
 				$user = BuckysUser::getUserData($userID);
-				if($user['thumbnail'] == $row['image']) //If current image is a profile image, remove it from the profile image
-				{
+
+				//If current image is a profile image, remove it from the profile image
+				if($user['thumbnail'] == $row['image']){
 					BuckysUser::updateUserFields($userID, ['thumbnail' => '']);
 				}
-
 			}
 			return true;
 		}else{
@@ -598,7 +594,7 @@ class BuckysPost{
 	}
 
 	/**
-	 * create thumbnail
+	 * Create thumbnail
 	 *
 	 * @param mixed $userID
 	 * @param mixed $file
@@ -919,6 +915,7 @@ class BuckysPost{
 
 	/**
 	 * Get number of top posts, videos or images
+	 *
 	 * @param string $period
 	 * @param string $type
 	 * @return one
