@@ -32,7 +32,7 @@ if(isset($_POST['login_submit'])){
         }else if($info['status'] == 0){ //Account Not Verified or Banned            
             buckys_redirect('/index.php', !$info['token'] ? MSG_ACCOUNT_BANNED : MSG_ACCOUNT_NOT_VERIFIED, MSG_TYPE_ERROR);
         }else{ //Login Success            
-            //Clear Login Attemps
+            //Clear Login Attempts
             BuckysTracker::clearLoginAttemps();
 
             //Restart Session
@@ -63,9 +63,9 @@ if(isset($_POST['login_submit'])){
                 setcookie('COOKIE_KEEP_ME_NAME2', base64_encode($login_token_piece3), time() + COOKIE_LIFETIME, "/", TNB_DOMAIN, true, true);
                 setcookie('COOKIE_KEEP_ME_NAME3', base64_encode($login_token_piece2), time() + COOKIE_LIFETIME, "/", TNB_DOMAIN, true, true);
             }else{
-                setcookie('COOKIE_KEEP_ME_NAME1', base64_encode($login_token_piece1), time() + COOKIE_LIFETIME);
-                setcookie('COOKIE_KEEP_ME_NAME2', base64_encode($login_token_piece3), time() + COOKIE_LIFETIME);
-                setcookie('COOKIE_KEEP_ME_NAME3', base64_encode($login_token_piece2), time() + COOKIE_LIFETIME);
+                setcookie('COOKIE_KEEP_ME_NAME1', base64_encode($login_token_piece1), time() + COOKIE_LIFETIME, "/", TNB_DOMAIN);
+                setcookie('COOKIE_KEEP_ME_NAME2', base64_encode($login_token_piece3), time() + COOKIE_LIFETIME, "/", TNB_DOMAIN);
+                setcookie('COOKIE_KEEP_ME_NAME3', base64_encode($login_token_piece2), time() + COOKIE_LIFETIME, "/", TNB_DOMAIN);
             }
 
             buckys_redirect($returnUrl ? base64_decode($returnUrl) : '/account.php');

@@ -111,7 +111,6 @@ class BuckysPageFollower {
      * @param integer $limit
      * @param boolean $isRand
      * @return Indexed
-     * @internal param int $userID
      */
     public function getFollowers($pageID, $page = 1, $limit = 1, $isRand = false){
 

@@ -12,7 +12,7 @@ $pageData = $pageIns->getPageByID($paramPageID);
 
 //If the parameter is null, goto homepage 
 if(!buckys_not_null($pageData))
-    buckys_redirect('/index.php');
+	buckys_redirect('/index.php');
 
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 $totalCount = $pageFollowerIns->getNumberOfFollowers($pageData['pageID']);;

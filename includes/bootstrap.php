@@ -7,7 +7,7 @@
 //Include Config file
 require_once(dirname(__FILE__) . "/config.php");
 
-if(SHOW_ERRORS){
+if(DEVELOPER_MODE){
 	ini_set('display_startup_errors', 1);
 	ini_set('display_errors', 1);
 	error_reporting(-1);
