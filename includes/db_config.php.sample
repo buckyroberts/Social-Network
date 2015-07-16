@@ -1,0 +1,14 @@
+<?php
+/**
+* Database Config
+*/
+
+//Database Info
+if(!defined('DATABASE_HOST'))
+    define('DATABASE_HOST', 'localhost');
+if(!defined('DATABASE_USERNAME'))
+    define('DATABASE_USERNAME', 'root');
+if(!defined('DATABASE_PASSWORD'))
+    define('DATABASE_PASSWORD', '');
+if(!defined('DATABASE_NAME'))
+    define('DATABASE_NAME', 'buckysroom');
