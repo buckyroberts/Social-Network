@@ -14,3 +14,6 @@ xampp
 .idea/dataSources.local.xml
 .idea/codeStyleSettings.xml
 
+includes/config.php
+includes/db_config.php
+includes/functions/secure.php
