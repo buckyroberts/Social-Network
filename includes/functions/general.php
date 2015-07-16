@@ -1162,7 +1162,6 @@ function buckys_get_form_token($forceNew = false){
         $token = buckys_generate_random_string(12);
         $session_name = session_name();
         $token = md5($token . $session_name);
-
         $_SESSION['form.token'] = $token;
     }
 
