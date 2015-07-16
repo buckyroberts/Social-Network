@@ -57,6 +57,8 @@ Easily manage posts, users, and permissions.
 * **Reporting -** community based reporting system for forum topics, profile posts, and more
 
 ## Contribute
-Easily manage posts, users, and permissions.
+Feel free to donate to help support the project. All contributions will be used to improve the website and will help us build a bigger and better community.
+
+Donation Bitcoin Address: **16FCD5zrkJp6AqfDm3j6LBWNYx1Gard2Z1**
 
 ![](http://i.imgur.com/m9izo2g.png)
