@@ -41,8 +41,8 @@ Here are some of the standard features that are included in the project:
 Inspired by the beliefs of freedom and innovation, we have created several Bitcoin related tools and services which are fully integrated into every user account.
 
 * **Built-in Wallet -** every account comes with a personal, easy to use Bitcoin wallet
-* **Marketplace -** cutting edge marketplace where users can buy and sell items with Bitcoin
-* **Ad Network -**  completely innovative advertising network where advertisers and publishers can buy and sell ads using Bitcoin
+* **Marketplace -** marketplace where users can buy and sell items with Bitcoin
+* **Ad Network -**  advertising network where advertisers and publishers can buy and sell ads using Bitcoin
 
 ![](http://i.imgur.com/6PWSV0e.png)
 
