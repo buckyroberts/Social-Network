@@ -1,6 +1,7 @@
 <?php
 /**
  * Including private and security related functions that will be used whole site
+ * These function are for development only, use more secure algorithms on live site!
  */
 
 /**

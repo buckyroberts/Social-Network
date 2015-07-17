@@ -14612,7 +14612,7 @@ INSERT INTO `videos` (`videoID`, `categoryID`, `title`, `code`) VALUES
 /*!40101 SET COLLATION_CONNECTION = @OLD_COLLATION_CONNECTION */;
 
 INSERT INTO `buckysroom`.`users` (`userID`, `firstName`, `lastName`, `email`, `email_visibility`, `password`, `thumbnail`, `gender`, `gender_visibility`, `birthdate`, `birthdate_visibility`, `relationship_status`, `relationship_status_visibility`, `religion`, `religion_visibility`, `political_views`, `political_views_visibility`, `birthplace`, `birthplace_visibility`, `current_city`, `current_city_visibility`, `home_phone`, `home_phone_visibility`, `cell_phone`, `cell_phone_visibility`, `work_phone`, `work_phone_visibility`, `address1`, `address2`, `city`, `state`, `zip`, `country`, `address_visibility`, `token`, `status`, `messenger_privacy`, `show_messenger`, `timezone`, `timezone_visibility`, `attributes`, `user_type`, `user_acl_id`, `credits`, `posts_count`, `posts_rating`, `created_date`, `ip_addr`)
-VALUES ('2', 'Bucky', 'Roberts', 'admin@thenewboston.com', '-1', '4f3302c870ed5fb7b193a0c73e55a9e9:3b', '', '', '0',
+VALUES ('2', 'Bucky', 'Roberts', 'admin@thenewboston.com', '-1', 'b4af804009cb036a4ccdc33431ef9ac9', '', '', '0',
         '0000-00-00', '0', '0', '0', '', '0', '', '0', '', '0', '', '0', '', '0', '', '0', '', '0', '', '', '', '', '',
         '', '0', '', '1', 'all', '0', '(UTC) Coordinated Universal Time', '0', '', 'Registered', '4', '0.00000', '0',
         '0', NULL, '');
