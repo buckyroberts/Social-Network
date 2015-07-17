@@ -6,9 +6,7 @@ Welcome to the GitHub page for **thenewboston**, an open source social network c
 ## Overview
 Over the years, **thenewboston** has evolved from a small-scale tutorial based website into one fastest growing, most innovative social networks on the web. Our open source software is not only 100% free, but also has the best communities for any help and support in the world. 
 
-Boudin shankle picanha pig chicken meatloaf ham jerky biltong flank bresaola short ribs. Turkey frankfurter short loin flank jowl ham chuck tongue tenderloin fatback turducken shoulder capicola. 
-
-Beef ribs jerky tri-tip, pig rump landjaeger boudin pancetta jowl ribeye fatback. Ribeye beef t-bone tongue.
+<https://www.thenewboston.com/>
 
 ## How to Setup
 The following guides explain how to install and setup the project for developers.
