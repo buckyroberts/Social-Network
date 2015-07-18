@@ -491,11 +491,16 @@ function buckys_sendmail($to, $toName, $subject, $body){
 
     $mail = new PHPMailer();
 
-    $mail->SMTPSecure = 'TLS';
+	
+	//tls or ssl
+	if(SITE_USING_SSL)
+		$mail->SMTPSecure = 'ssl';
+	else
+		$mail->SMTPSecure = 'tls';
 
     $mail->IsSMTP();
     $mail->SMTPAuth = true;
-    $mail->SMTPSecure = 'ssl';
+    
     $mail->Port = SMTP_PORT;
     $mail->Host = SMTP_HOST;
     $mail->Username = SMTP_USERNAME;
