@@ -1,2 +1,0 @@
-ALTER TABLE `posts` ADD COLUMN `profileID` INT(11) DEFAULT 0
-AFTER `pageID`;
